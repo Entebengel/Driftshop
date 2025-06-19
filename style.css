@@ -218,3 +218,35 @@ footer {
 #cart-items button:hover {
   color: #d81b60;
 }
+/* Kategorie-Bilder auf Shopseite */
+.category-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.category-card {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  max-width: 200px;
+  transition: transform 0.2s;
+}
+
+.category-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.category-card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+}
