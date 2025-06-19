@@ -1,101 +1,71 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shop – DriftGarage</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .category-grid {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 2rem 0;
-    }
-
-    .category-card {
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
-      max-width: 200px;
-      transition: transform 0.2s;
-    }
-
-    .category-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .category-card h3 {
-      margin-top: 0.5rem;
-    }
-
-    .category-card:hover {
-      transform: scale(1.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Driftshop - Shop</title>
+    <link rel="stylesheet" href="warenkorb.css">
+    <style>
+        /* ...existing code aus warenkorb.css... */
+        .kategorien {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .kategorie-link img {
+            width: 260px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #7be495;
+            background: #e6f9ee;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.08);
+        }
+        .kategorie-link img:hover {
+            border-color: #43b97f;
+            box-shadow: 0 4px 16px rgba(67,185,127,0.16);
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Warenkorb -->
-  <div id="cart-icon">🛒 <span id="cart-count">0</span></div>
-  <div id="cart" class="hidden">
-    <h3>Warenkorb</h3>
-    <ul id="cart-items"></ul>
-    <button onclick="clearCart()">Leeren</button>
-  </div>
-
-  <header>
-    <h1>DriftGarage Shop</h1>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="weare.html">Über uns</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="shop.html">Shop</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="shop">
-      <h2>Unser Shop</h2>
-      <p>Wähle eine Hauptkategorie:</p>
-
-      <div class="category-grid">
-        <a href="karosserie.html" class="category-card">
-          <h3>KAROSSERIE</h3>
-          <img src="images/karosserie_kategorie.jpg" alt="Karosserie" />
-          
-        </a>
-
-        <a href="karosserie-anbauteile.html">
-          <h3>KAROSSERIE-ANBAUTEILE</h3>
-          <img src="images/anbauteile_kategorie.jpg" alt="Karosserie-Anbauteile Kategorie">
-        </a>
-
-        <a href="hop-up.html">
-          <h3>HOP-UP</h3>
-          <img src="images/hopup_kategorie.jpg" alt="Hop-Up Kategorie">
-        </a>
-
-        <a href="liverys.html" class="category-card">
-          <h3>LIVERYS</h3>
-          <img src="images/liverys_kategorie.jpg" alt="Liverys" />
-          
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 DriftGarage</p>
-  </footer>
-
-  <script src="warenkorb.js"></script>
+    <header>
+        <h1>Driftshop</h1>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="shop.html">Shop</a>
+            <a href="liverys.html">Liverys</a>
+            <a href="karosserie.html">Karosserie</a>
+            <a href="karosserie-anbauteile.html">Karosserie-Anbauteile</a>
+            <a href="hop-up.html">Hop-Up</a>
+            <a href="weare.html">We Are</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <h2>Warenkorb</h2>
+        <ul class="warenkorb-list" id="warenkorb-list"></ul>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+    </div>
+    <main>
+        <h2>Kategorien</h2>
+        <div class="kategorien">
+            <a class="kategorie-link" href="liverys.html">
+                <img src="images/liverys_kategorie.jpg" alt="Liverys Kategorie">
+            </a>
+            <a class="kategorie-link" href="karosserie.html">
+                <img src="images/karosserie_kategorie.jpg" alt="Karosserie Kategorie">
+            </a>
+            <a class="kategorie-link" href="karosserie-anbauteile.html">
+                <img src="images/anbauteile_kategorie.jpg" alt="Karosserie-Anbauteile Kategorie">
+            </a>
+            <a class="kategorie-link" href="hop-up.html">
+                <img src="images/hopup_kategorie.jpg" alt="Hop-Up Kategorie">
+            </a>
+        </div>
+    </main>
+    <script src="warenkorb.js"></script>
 </body>
-</html>
-</html>
-</html>
 </html>

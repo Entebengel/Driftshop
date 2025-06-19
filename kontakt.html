@@ -1,49 +1,83 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt – DriftGarage</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Driftshop - Kontakt</title>
+    <link rel="stylesheet" href="warenkorb.css">
+    <style>
+        /* ...existing code aus warenkorb.css... */
+        .kontakt-formular {
+            max-width: 500px;
+            margin: 32px auto 0 auto;
+            background: #f8fcfa;
+            border-radius: 10px;
+            padding: 28px 24px;
+            border: 1.5px solid #7be495;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.08);
+        }
+        .kontakt-formular label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .kontakt-formular input,
+        .kontakt-formular textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1.5px solid #43b97f;
+            border-radius: 6px;
+            font-size: 1em;
+            background: #fff;
+        }
+        .kontakt-formular button {
+            background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .kontakt-formular button:hover {
+            background: linear-gradient(90deg, #2e8c5e 0%, #43b97f 100%);
+        }
+    </style>
 </head>
-  <!-- Warenkorb-Icon -->
-<div id="cart-icon">🛒 <span id="cart-count">0</span></div>
-<!-- Warenkorb-Container -->
-<div id="cart" class="hidden">
-  <h3>Warenkorb</h3>
-  <ul id="cart-items"></ul>
-  <button onclick="clearCart()">Leeren</button>
-</div>
-
-<script src="script.js"></script>
-</body>
-
- <header>
-  <h1>Kontakt</h1>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="weare.html">Über uns</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-</header>
-
-
-
-  <main>
-    <section>
-      <h2>Kontaktiere uns</h2>
-      <p>
-        Max Mustermann<br />
-        E-Mail: <a href="mailto:info@driftgarage.de">info@driftgarage.de</a>
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 DriftGarage</p>
-  </footer>
-
-  <script src="script.js"></script>
+<body>
+    <header>
+        <h1>Driftshop</h1>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="shop.html">Shop</a>
+            <a href="liverys.html">Liverys</a>
+            <a href="karosserie.html">Karosserie</a>
+            <a href="karosserie-anbauteile.html">Karosserie-Anbauteile</a>
+            <a href="hop-up.html">Hop-Up</a>
+            <a href="weare.html">We Are</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <h2>Warenkorb</h2>
+        <ul class="warenkorb-list" id="warenkorb-list"></ul>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+    </div>
+    <main>
+        <h2>Kontakt</h2>
+        <form class="kontakt-formular">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required>
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+            <button type="submit">Absenden</button>
+        </form>
+    </main>
+    <script src="warenkorb.js"></script>
 </body>
 </html>

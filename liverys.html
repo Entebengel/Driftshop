@@ -4,35 +4,35 @@
     <meta charset="UTF-8">
     <title>Liverys</title>
     <link rel="stylesheet" href="warenkorb.css">
-    <!-- ...füge hier weitere Styles von index.html hinzu... -->
-    <style>
-        /* ...existing code... */
-        .artikel-liste {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-        }
-        .artikel {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 16px;
-            width: 220px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .artikel img {
-            width: 180px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .artikel .beschreibung {
-            margin: 12px 0 8px 0;
-            font-size: 1em;
-        }
-        .artikel .preis {
-            font-weight: bold;
-            margin-bottom: 8px;
+    <!-- ...existing code... -->
+</head>
+<body>
+    <header>
+        <h1>Driftshop</h1>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="shop.html">Shop</a>
+            <a href="liverys.html">Liverys</a>
+            <a href="karosserie.html">Karosserie</a>
+            <a href="karosserie-anbauteile.html">Karosserie-Anbauteile</a>
+            <a href="hop-up.html">Hop-Up</a>
+        </nav>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <h2>Warenkorb</h2>
+        <ul class="warenkorb-list" id="warenkorb-list"></ul>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+    </div>
+    <main>
+        <h2>Liverys</h2>
+        <div class="artikel-liste">
+            <!-- ...existing code... -->
+        </div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
             display: block;
         }
         .warenkorb-btn {

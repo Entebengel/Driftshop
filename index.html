@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DriftGarage</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Driftshop - Startseite</title>
+    <link rel="stylesheet" href="warenkorb.css">
+    <style>
+        /* ...existing code aus warenkorb.css... */
+    </style>
 </head>
 <body>
- <header>
-  <h1>DriftGarage</h1>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="weare.html">Über uns</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-</header>
-
-
-
-  <section id="hero">
-    <h2>Willkommen bei DriftGarage</h2>
-    <p>Leidenschaft für Driften. Adrenalin auf vier Rädern.</p>
-  </section>
-
-  <section id="about">
-    <h2>Über uns</h2>
-    <p>Wir bauen und fahren Drift-Autos mit Leidenschaft und Know-how. Seit 2020 auf den Rennstrecken Europas.</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 DriftGarage</p>
-  </footer>
-
-  <!-- Warenkorb Icon -->
-  <div id="cart-icon">
-    🛒 <span id="cart-count">0</span>
+    <header>
+        <h1>Driftshop</h1>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="shop.html">Shop</a>
+            <a href="liverys.html">Liverys</a>
+            <a href="karosserie.html">Karosserie</a>
+            <a href="karosserie-anbauteile.html">Karosserie-Anbauteile</a>
+            <a href="hop-up.html">Hop-Up</a>
+            <a href="weare.html">We Are</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <h2>Warenkorb</h2>
+        <ul class="warenkorb-list" id="warenkorb-list"></ul>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+    </div>
+    <main>
+        <h2>Willkommen im Driftshop!</h2>
+        <p>Hier findest du alles rund um Liverys, Karosserien, Anbauteile und Hop-Up für dein RC-Car. Stöbere durch unseren Shop und entdecke die neuesten Produkte!</p>
+        <img src="images/startseite_banner.jpg" alt="Driftshop Banner" style="width:100%;max-width:900px;border-radius:12px;margin:32px 0;">
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
   </div>
 
   <!-- Warenkorb Inhalt -->

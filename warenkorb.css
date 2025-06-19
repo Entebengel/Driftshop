@@ -1,36 +1,190 @@
+body {
+    background: #f3f7f4;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #222;
+}
+
+header {
+    background: #1b3c2e;
+    color: #fff;
+    padding: 28px 0 18px 0;
+    text-align: center;
+    margin-bottom: 36px;
+    box-shadow: 0 2px 8px rgba(27,60,46,0.08);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+nav {
+    margin-top: 14px;
+}
+
+nav a {
+    color: #7be495;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #43b97f;
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 36px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(67,185,127,0.07);
+}
+
+.artikel-liste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: flex-start;
+}
+
+.artikel {
+    border: 1.5px solid #7be495;
+    border-radius: 10px;
+    padding: 18px;
+    width: 240px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #f8fcfa;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.artikel:hover {
+    box-shadow: 0 4px 16px rgba(67,185,127,0.12);
+    border-color: #43b97f;
+}
+
+.artikel img {
+    width: 200px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: #e6f9ee;
+}
+
+.artikel .beschreibung {
+    margin: 14px 0 10px 0;
+    font-size: 1.05em;
+    color: #222;
+}
+
+.artikel .preis {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #43b97f;
+    font-size: 1.15em;
+}
+
+.warenkorb-btn {
+    background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(67,185,127,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.warenkorb-btn:hover {
+    background: linear-gradient(90deg, #2e8c5e 0%, #43b97f 100%);
+    box-shadow: 0 4px 16px rgba(67,185,127,0.16);
+}
+
+.warenkorb-icon {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+}
+
 .warenkorb {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 24px;
+    right: 24px;
     background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    min-width: 220px;
+    border: 2px solid #43b97f;
+    border-radius: 12px;
+    padding: 20px 22px 18px 22px;
+    min-width: 250px;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 24px rgba(67,185,127,0.13);
 }
+
 .warenkorb h2 {
     margin-top: 0;
+    margin-bottom: 12px;
+    color: #1b3c2e;
+    font-size: 1.3em;
+    letter-spacing: 1px;
 }
+
 .warenkorb-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 12px 0;
+    margin: 0 0 14px 0;
+    font-size: 1em;
 }
+
 .warenkorb-list li {
     margin-bottom: 8px;
+    color: #222;
 }
+
 .warenkorb-leeren {
     background: #e81123;
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 6px 10px;
+    border-radius: 5px;
+    padding: 7px 13px;
     cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background 0.2s;
 }
+
 .warenkorb-leeren:hover {
     background: #b50d1b;
 }
 
-/* ...existing code... */
+@media (max-width: 900px) {
+    main {
+        padding: 16px;
+    }
+    .artikel {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .artikel-liste {
+        flex-direction: column;
+        align-items: center;
+    }
+    .warenkorb {
+        position: static;
+        margin: 0 auto 24px auto;
+        display: block;
+    }
+}

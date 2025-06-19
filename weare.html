@@ -1,80 +1,88 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Über uns – DriftGarage</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Driftshop - We Are</title>
+    <link rel="stylesheet" href="warenkorb.css">
+    <style>
+        /* ...existing code aus warenkorb.css... */
+        .team-section {
+            max-width: 900px;
+            margin: 36px auto 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            justify-content: center;
+        }
+        .team-card {
+            background: #f8fcfa;
+            border: 1.5px solid #7be495;
+            border-radius: 10px;
+            padding: 24px 18px;
+            width: 240px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.08);
+        }
+        .team-card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 14px;
+            border: 2px solid #43b97f;
+            background: #e6f9ee;
+        }
+        .team-card h3 {
+            margin: 10px 0 4px 0;
+            color: #1b3c2e;
+        }
+        .team-card p {
+            margin: 0;
+            color: #222;
+            font-size: 1em;
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Warenkorb -->
-  <div id="cart-icon">
-    🛒 <span id="cart-count">0</span>
-  </div>
-  <div id="cart" class="hidden">
-    <h3>Warenkorb</h3>
-    <ul id="cart-items"></ul>
-    <button onclick="clearCart()">Leeren</button>
-  </div>
-
- <header>
-  <h1>Über uns</h1>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="weare.html">Über uns</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-</header>
-
-
-
-  <main>
-    <section id="about">
-      <h2>Unsere Mission</h2>
-      <p>
-        DriftGarage wurde 2020 von einer Gruppe Motorsport-Enthusiasten gegründet,  
-        die ihre Leidenschaft für Driften und Auto-Tuning teilen.  
-        Unser Ziel ist es, Fahrern die besten Drift-Erlebnisse zu ermöglichen  
-        – sowohl auf der Straße als auch auf der Rennstrecke.
-      </p>
-    </section>
-
-    <section id="team">
-      <h2>Unser Team</h2>
-      <ul>
-        <li><strong>Max Mustermann</strong> – Gründer & Chefmechaniker</li>
-        <li><strong>Anna Beispiel</strong> – Leiterin Drift-Events</li>
-        <li><strong>Tim Rennfahrer</strong> – Profi-Drifter & Coach</li>
-      </ul>
-    </section>
-
-    <section id="history">
-      <h2>Unsere Geschichte</h2>
-      <p>
-        Angefangen in einer kleinen Garage in Berlin, haben wir uns  
-        schnell einen Namen in der europäischen Drift-Szene gemacht.  
-        Heute unterstützen wir Events in ganz Deutschland und bieten  
-        Tuning-Workshops für Einsteiger und Profis.
-      </p>
-    </section>
-
-    <section id="values">
-      <h2>Unsere Werte</h2>
-      <ul>
-        <li>Leidenschaft & Spaß am Fahren</li>
-        <li>Respektvolle Gemeinschaft</li>
-        <li>Qualität & Sicherheit</li>
-        <li>Kontinuierliche Weiterentwicklung</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 DriftGarage</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <header>
+        <h1>Driftshop</h1>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="shop.html">Shop</a>
+            <a href="liverys.html">Liverys</a>
+            <a href="karosserie.html">Karosserie</a>
+            <a href="karosserie-anbauteile.html">Karosserie-Anbauteile</a>
+            <a href="hop-up.html">Hop-Up</a>
+            <a href="weare.html">We Are</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <h2>Warenkorb</h2>
+        <ul class="warenkorb-list" id="warenkorb-list"></ul>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+    </div>
+    <main>
+        <h2>We Are Driftshop</h2>
+        <div class="team-section">
+            <div class="team-card">
+                <img src="images/team1.jpg" alt="Teammitglied 1">
+                <h3>Alex Drift</h3>
+                <p>Gründer &amp; RC-Enthusiast</p>
+            </div>
+            <div class="team-card">
+                <img src="images/team2.jpg" alt="Teammitglied 2">
+                <h3>Chris Bodywork</h3>
+                <p>Karosserie-Designer</p>
+            </div>
+            <div class="team-card">
+                <img src="images/team3.jpg" alt="Teammitglied 3">
+                <h3>Sam Speed</h3>
+                <p>Technik &amp; Hop-Up Spezialist</p>
+            </div>
+        </div>
+    </main>
+    <script src="warenkorb.js"></script>
 </body>
 </html>
