@@ -1,5 +1,20 @@
 let warenkorb = [];
 
+function ladeWarenkorb() {
+    const gespeichert = localStorage.getItem('warenkorb');
+    if (gespeichert) {
+        try {
+            warenkorb = JSON.parse(gespeichert);
+        } catch {
+            warenkorb = [];
+        }
+    }
+}
+
+function speichereWarenkorb() {
+    localStorage.setItem('warenkorb', JSON.stringify(warenkorb));
+}
+
 function zumWarenkorb(btn) {
     const artikel = btn.closest('.artikel');
     const name = artikel.getAttribute('data-name');
@@ -10,6 +25,7 @@ function zumWarenkorb(btn) {
     } else {
         warenkorb.push({ name, preis, menge: 1 });
     }
+    speichereWarenkorb();
     warenkorbAnzeigen();
 }
 
@@ -29,7 +45,11 @@ function warenkorbAnzeigen() {
 
 function warenkorbLeeren() {
     warenkorb = [];
+    speichereWarenkorb();
     warenkorbAnzeigen();
 }
 
-document.addEventListener('DOMContentLoaded', warenkorbAnzeigen);
+document.addEventListener('DOMContentLoaded', () => {
+    ladeWarenkorb();
+    warenkorbAnzeigen();
+});
