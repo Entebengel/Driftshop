@@ -1,167 +1,180 @@
 body {
-    background: #f3f7f4;
+    background: #eafaf1;
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #222;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    color: #1a2e22;
 }
 
 header {
-    background: #1b3c2e;
+    background: linear-gradient(90deg, #1e7d4d 0%, #7be495 100%);
     color: #fff;
-    padding: 28px 0 18px 0;
+    padding: 32px 0 20px 0;
     text-align: center;
-    margin-bottom: 36px;
-    box-shadow: 0 2px 8px rgba(27,60,46,0.08);
+    margin-bottom: 40px;
+    box-shadow: 0 4px 24px rgba(30,125,77,0.10);
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     letter-spacing: 2px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
 }
 
 nav {
-    margin-top: 14px;
+    margin-top: 18px;
 }
 
 nav a {
-    color: #7be495;
+    color: #fff;
     text-decoration: none;
-    margin: 0 18px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.2s;
+    margin: 0 22px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
 }
 
-nav a:hover {
-    color: #43b97f;
-    text-decoration: underline;
+nav a:hover, nav a.active {
+    background: #43b97f;
+    color: #fff;
 }
 
 main {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     background: #fff;
-    padding: 36px;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(67,185,127,0.07);
+    padding: 40px 32px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(67,185,127,0.10);
 }
 
 .artikel-liste {
     display: flex;
     flex-wrap: wrap;
-    gap: 28px;
+    gap: 36px;
     justify-content: flex-start;
 }
 
 .artikel {
-    border: 1.5px solid #7be495;
-    border-radius: 10px;
-    padding: 18px;
-    width: 240px;
+    border: none;
+    border-radius: 18px;
+    padding: 22px 18px 18px 18px;
+    width: 260px;
     box-sizing: border-box;
     text-align: center;
-    background: #f8fcfa;
-    transition: box-shadow 0.2s, border-color 0.2s;
+    background: #f6fff9;
+    box-shadow: 0 2px 12px rgba(67,185,127,0.10);
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
 }
 
 .artikel:hover {
-    box-shadow: 0 4px 16px rgba(67,185,127,0.12);
-    border-color: #43b97f;
+    box-shadow: 0 8px 32px rgba(67,185,127,0.18);
+    transform: translateY(-4px) scale(1.03);
 }
 
 .artikel img {
-    width: 200px;
-    height: 110px;
+    width: 210px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-bottom: 14px;
     background: #e6f9ee;
+    box-shadow: 0 2px 8px rgba(67,185,127,0.08);
 }
 
 .artikel .beschreibung {
-    margin: 14px 0 10px 0;
-    font-size: 1.05em;
-    color: #222;
+    margin: 16px 0 12px 0;
+    font-size: 1.08em;
+    color: #1a2e22;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .artikel .preis {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     display: block;
-    color: #43b97f;
-    font-size: 1.15em;
+    color: #1e7d4d;
+    font-size: 1.18em;
 }
 
 .warenkorb-btn {
     background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
     color: #fff;
     border: none;
-    border-radius: 6px;
-    padding: 10px 16px;
+    border-radius: 8px;
+    padding: 12px 20px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.08em;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    box-shadow: 0 2px 8px rgba(67,185,127,0.08);
-    transition: background 0.2s, box-shadow 0.2s;
+    gap: 10px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .warenkorb-btn:hover {
-    background: linear-gradient(90deg, #2e8c5e 0%, #43b97f 100%);
-    box-shadow: 0 4px 16px rgba(67,185,127,0.16);
+    background: linear-gradient(90deg, #1e7d4d 0%, #43b97f 100%);
+    box-shadow: 0 4px 16px rgba(67,185,127,0.18);
+    transform: scale(1.04);
 }
 
 .warenkorb-icon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
 }
 
 .warenkorb {
     position: fixed;
-    top: 24px;
-    right: 24px;
+    top: 32px;
+    right: 32px;
     background: #fff;
-    border: 2px solid #43b97f;
-    border-radius: 12px;
-    padding: 20px 22px 18px 22px;
-    min-width: 250px;
+    border: 2.5px solid #43b97f;
+    border-radius: 18px;
+    padding: 26px 28px 22px 28px;
+    min-width: 270px;
     z-index: 100;
-    box-shadow: 0 4px 24px rgba(67,185,127,0.13);
+    box-shadow: 0 8px 32px rgba(67,185,127,0.13);
 }
 
 .warenkorb h2 {
     margin-top: 0;
-    margin-bottom: 12px;
-    color: #1b3c2e;
-    font-size: 1.3em;
+    margin-bottom: 16px;
+    color: #1e7d4d;
+    font-size: 1.35em;
     letter-spacing: 1px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
 }
 
 .warenkorb-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 14px 0;
-    font-size: 1em;
+    margin: 0 0 18px 0;
+    font-size: 1.05em;
 }
 
 .warenkorb-list li {
-    margin-bottom: 8px;
-    color: #222;
+    margin-bottom: 10px;
+    color: #1a2e22;
 }
 
 .warenkorb-leeren {
     background: #e81123;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 7px 13px;
+    border-radius: 7px;
+    padding: 9px 16px;
     cursor: pointer;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 700;
     transition: background 0.2s;
 }
 
@@ -171,7 +184,7 @@ main {
 
 @media (max-width: 900px) {
     main {
-        padding: 16px;
+        padding: 18px 4vw;
     }
     .artikel {
         width: 100%;
@@ -186,5 +199,9 @@ main {
         position: static;
         margin: 0 auto 24px auto;
         display: block;
+    }
+    header {
+        border-radius: 0 0 18px 18px;
+        padding: 20px 0 12px 0;
     }
 }
