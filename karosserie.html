@@ -52,16 +52,56 @@
             height: 20px;
             vertical-align: middle;
         }
+        .warenkorb {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            min-width: 220px;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .warenkorb h2 {
+            margin-top: 0;
+        }
+        .warenkorb-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 12px 0;
+        }
+        .warenkorb-list li {
+            margin-bottom: 8px;
+        }
+        .warenkorb-leeren {
+            background: #e81123;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+        .warenkorb-leeren:hover {
+            background: #b50d1b;
+        }
     </style>
 </head>
 <body>
+    <div class="warenkorb" id="warenkorb">
+        <h2>Warenkorb</h2>
+        <ul class="warenkorb-list" id="warenkorb-list"></ul>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+    </div>
     <h1>KAROSSERIE</h1>
     <div class="artikel-liste">
-        <div class="artikel">
-            <img src="images/hcr32-skyline-4dr-abomoon-01.jpg" alt="Livery 1">
-            <div class="beschreibung">hcr32-skyline-4dr-abomoon.</div>
-            <span class="preis">89,99 €</span>
-            <button class="warenkorb-btn">
+        <div class="artikel" data-name="Livery 1" data-preis="29.99">
+            <img src="images/livery1.jpg" alt="Livery 1">
+            <div class="beschreibung">Sportliches Streifen-Design für Coupés.</div>
+            <span class="preis">29,99 €</span>
+            <button class="warenkorb-btn" onclick="zumWarenkorb(this)">
                 <svg class="warenkorb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"/>
                     <circle cx="20" cy="21" r="1"/>
@@ -70,11 +110,11 @@
                 In den Warenkorb
             </button>
         </div>
-        <div class="artikel">
+        <div class="artikel" data-name="Livery 2" data-preis="34.99">
             <img src="images/livery2.jpg" alt="Livery 2">
             <div class="beschreibung">Klassisches Flammenmuster für Muscle Cars.</div>
             <span class="preis">34,99 €</span>
-            <button class="warenkorb-btn">
+            <button class="warenkorb-btn" onclick="zumWarenkorb(this)">
                 <svg class="warenkorb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"/>
                     <circle cx="20" cy="21" r="1"/>
@@ -83,11 +123,11 @@
                 In den Warenkorb
             </button>
         </div>
-        <div class="artikel">
+        <div class="artikel" data-name="Livery 3" data-preis="27.49">
             <img src="images/livery3.jpg" alt="Livery 3">
             <div class="beschreibung">Modernes Camouflage für Offroad-Fahrzeuge.</div>
             <span class="preis">27,49 €</span>
-            <button class="warenkorb-btn">
+            <button class="warenkorb-btn" onclick="zumWarenkorb(this)">
                 <svg class="warenkorb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"/>
                     <circle cx="20" cy="21" r="1"/>
@@ -97,5 +137,41 @@
             </button>
         </div>
     </div>
+    <script>
+        let warenkorb = [];
+
+        function zumWarenkorb(btn) {
+            const artikel = btn.closest('.artikel');
+            const name = artikel.getAttribute('data-name');
+            const preis = parseFloat(artikel.getAttribute('data-preis'));
+            const vorhandener = warenkorb.find(a => a.name === name);
+            if (vorhandener) {
+                vorhandener.menge += 1;
+            } else {
+                warenkorb.push({ name, preis, menge: 1 });
+            }
+            warenkorbAnzeigen();
+        }
+
+        function warenkorbAnzeigen() {
+            const list = document.getElementById('warenkorb-list');
+            list.innerHTML = '';
+            let gesamt = 0;
+            warenkorb.forEach(artikel => {
+                const li = document.createElement('li');
+                li.textContent = `${artikel.name} x${artikel.menge} - ${(artikel.preis * artikel.menge).toFixed(2)} €`;
+                list.appendChild(li);
+                gesamt += artikel.preis * artikel.menge;
+            });
+            document.getElementById('warenkorb-gesamt').textContent = gesamt.toFixed(2) + ' €';
+        }
+
+        function warenkorbLeeren() {
+            warenkorb = [];
+            warenkorbAnzeigen();
+        }
+
+        warenkorbAnzeigen();
+    </script>
 </body>
 </html>
