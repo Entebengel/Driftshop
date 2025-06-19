@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -6,22 +5,16 @@
   <title>DriftGarage</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <nav>
+<body>
+  <header>
+    <h1>DriftGarage</h1>
+    <nav>
   <a href="index.html">Start</a>
   <a href="#about">Über uns</a>
   <a href="#cars">Unsere Autos</a>
   <a href="#contact">Kontakt</a>
   <a href="shop.html">Shop</a> <!-- NEU -->
 </nav>
-
-<body>
-  <header>
-    <h1>DriftGarage</h1>
-    <nav>
-      <a href="#about">Über uns</a>
-      <a href="#cars">Unsere Autos</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
   </header>
 
   <section id="hero">
