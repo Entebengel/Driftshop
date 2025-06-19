@@ -1,46 +1,44 @@
+// Globale Variable für den Warenkorb
 let cart = [];
 
 // Lade Warenkorb aus LocalStorage
 function loadCart() {
-  const savedCart = localStorage.getItem('driftgarageCart');
-  if (savedCart) {
-    cart = JSON.parse(savedCart);
-  } else {
-    cart = [];
-  }
+  const saved = localStorage.getItem('driftgarageCart');
+  cart = saved ? JSON.parse(saved) : [];
 }
 
-// Speichere Warenkorb im LocalStorage
+// Speichere Warenkorb ins LocalStorage
 function saveCart() {
   localStorage.setItem('driftgarageCart', JSON.stringify(cart));
 }
 
-// Warenkorb aktualisieren und anzeigen
+// Zeige/Werte den Warenkorb aus
 function updateCart() {
-  const cartItems = document.getElementById('cart-items');
-  const cartCount = document.getElementById('cart-count');
-  cartItems.innerHTML = '';
-  cartCount.textContent = cart.length;
+  const cartItemsList = document.getElementById('cart-items');
+  const cartCount     = document.getElementById('cart-count');
+  cartItemsList.innerHTML = '';
+  cartCount.textContent   = cart.length;
 
-  cart.forEach((item, index) => {
+  cart.forEach((item, i) => {
     const li = document.createElement('li');
     li.textContent = `${item.name} - ${item.price}`;
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = '✕';
-    removeBtn.style.marginLeft = '10px';
-    removeBtn.onclick = () => {
-      cart.splice(index, 1);
+    const btn = document.createElement('button');
+    btn.textContent = '✕';
+    btn.onclick = () => {
+      cart.splice(i, 1);
       saveCart();
       updateCart();
     };
-    li.appendChild(removeBtn);
-    cartItems.appendChild(li);
+    li.appendChild(btn);
+    cartItemsList.appendChild(li);
   });
 }
 
-// Produkt zum Warenkorb hinzufügen
+// Artikel hinzufügen
 function addToCart(name, price) {
-  cart.push({ name, price });
+  // Preis als Zahl extrahieren
+  const num = parseFloat(price.replace(/[^\d,.-]/g, '').replace(',', '.'));
+  cart.push({ name, price: `${num.toFixed(2)} €` });
   saveCart();
   updateCart();
 }
@@ -52,14 +50,14 @@ function clearCart() {
   updateCart();
 }
 
-// Warenkorb anzeigen/ausblenden
+// Alles initialisieren, sobald DOM fertig ist
 document.addEventListener('DOMContentLoaded', () => {
+  // 1. Warenkorb laden
   loadCart();
+  // 2. Warenkorb anzeigen
   updateCart();
-
-  const cartIcon = document.getElementById('cart-icon');
-  const cartDiv = document.getElementById('cart');
-  cartIcon.addEventListener('click', () => {
-    cartDiv.classList.toggle('hidden');
+  // 3. Klick-Handler fürs Icon
+  document.getElementById('cart-icon').addEventListener('click', () => {
+    document.getElementById('cart').classList.toggle('hidden');
   });
 });
