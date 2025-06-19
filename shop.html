@@ -29,38 +29,24 @@
   <main>
     <section id="shop">
       <h2>Unser Shop</h2>
-      <p>Wähle eine Kategorie:</p>
-      <!-- Kategorien-Auswahl -->
-      <div class="categories">
-        <button data-cat="karosserie" class="active">Karosserie</button>
-        <button data-cat="anbauteile">Karosserie-Anbauteile</button>
-        <button data-cat="hopup">Hop-Up</button>
-      </div>
+      <p>Wähle eine Hauptkategorie:</p>
 
-      <!-- Produkt-Grid -->
-      <div class="product-grid">
-        <!-- KAROSSERIE -->
-        <div class="product" data-cat="karosserie">
-          <img src="images/karosserie1.jpg" alt="Karosserie Set" />
-          <h3>Karosserie Set</h3>
-          <p>Komplettes Karosserie-Kit – 150 €</p>
-          <button onclick="addToCart('Karosserie Set','150 €')">In den Warenkorb</button>
-        </div>
-        <!-- KAROSSERIE-ANBAUTEILE -->
-        <div class="product" data-cat="anbauteile">
-          <img src="images/spoiler.jpg" alt="Spoiler" />
-          <h3>Spoiler</h3>
-          <p>Sport-Spoiler – 45 €</p>
-          <button onclick="addToCart('Sport-Spoiler','45 €')">In den Warenkorb</button>
-        </div>
-        <!-- HOP-UP -->
-        <div class="product" data-cat="hopup">
-          <img src="images/luftfilter.jpg" alt="Luftfilter" />
-          <h3>Luftfilter</h3>
-          <p>High-Flow Luftfilter – 30 €</p>
-          <button onclick="addToCart('High-Flow Luftfilter','30 €')">In den Warenkorb</button>
-        </div>
-        <!-- Weitere Produkte ... -->
+      <!-- Kategoriebilder mit Links -->
+      <div class="category-grid">
+        <a href="karosserie.html" class="category-card">
+          <img src="images/karosserie_kategorie.jpg" alt="Karosserie" />
+          <h3>KAROSSERIE</h3>
+        </a>
+
+        <a href="anbauteile.html" class="category-card">
+          <img src="images/anbauteile_kategorie.jpg" alt="Karosserie-Anbauteile" />
+          <h3>Karosserie-Anbauteile</h3>
+        </a>
+
+        <a href="hopup.html" class="category-card">
+          <img src="images/hopup_kategorie.jpg" alt="Hop-Up" />
+          <h3>HOP-UP</h3>
+        </a>
       </div>
     </section>
   </main>
@@ -70,24 +56,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Kategorie-Filter
-    const categoryButtons = document.querySelectorAll('.categories button');
-    const products = document.querySelectorAll('.product');
-    categoryButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // active class
-        categoryButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const cat = btn.dataset.cat;
-        // Produkte anzeigen/ausblenden
-        products.forEach(p => {
-          p.style.display = p.dataset.cat === cat ? 'block' : 'none';
-        });
-      });
-    });
-    // initial Filter
-    document.querySelector('.categories button.active').click();
-  </script>
 </body>
 </html>
