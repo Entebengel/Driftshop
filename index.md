@@ -34,12 +34,6 @@
       <img src="images/car2.jpg" alt="Drift Car 2">
     </div>
   </section>
-
-  <section id="contact">
-    <h2>Kontakt</h2>
-    <p>Folge uns auf Instagram oder schreibe uns eine E-Mail: <a href="mailto:info@driftgarage.de">info@driftgarage.de</a></p>
-  </section>
-
   <footer>
     <p>&copy; 2025 DriftGarage</p>
   </footer>
