@@ -6,17 +6,17 @@
   <title>Kontakt – DriftGarage</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+  <!-- Warenkorb-Icon -->
+<div id="cart-icon">🛒 <span id="cart-count">0</span></div>
+<!-- Warenkorb-Container -->
+<div id="cart" class="hidden">
+  <h3>Warenkorb</h3>
+  <ul id="cart-items"></ul>
+  <button onclick="clearCart()">Leeren</button>
+</div>
 
-  <!-- Warenkorb -->
-  <div id="cart-icon">
-    🛒 <span id="cart-count">0</span>
-  </div>
-  <div id="cart" class="hidden">
-    <h3>Warenkorb</h3>
-    <ul id="cart-items"></ul>
-    <button onclick="clearCart()">Leeren</button>
-  </div>
+<script src="script.js"></script>
+</body>
 
   <header>
     <h1>Kontakt</h1>
