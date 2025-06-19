@@ -12,7 +12,7 @@
   <a href="index.html">Start</a>
   <a href="#about">Über uns</a>
   <a href="#cars">Unsere Autos</a>
-  <a href="#contact">Kontakt</a>
+  <a href="kontakt.html">Kontakt</a>
   <a href="shop.html">Shop</a> <!-- NEU -->
 </nav>
   </header>
