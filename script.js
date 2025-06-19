@@ -16,22 +16,25 @@ function saveCart() {
 function updateCart() {
   const cartItemsList = document.getElementById('cart-items');
   const cartCount     = document.getElementById('cart-count');
+  // Prüfen, ob die Elemente existieren
+  if (!cartItemsList || !cartCount) return;
+
   cartItemsList.innerHTML = '';
   cartCount.textContent   = cart.length;
 
   let total = 0;
 
   cart.forEach((item, i) => {
-    // Summiere nur den numerischen Wert
     total += item.priceNum;
 
-    // Listeintrag mit Name und formatiertem Preis
+    // Listeneintrag
     const li = document.createElement('li');
     li.textContent = `${item.name} - ${item.priceStr}`;
 
     // Entfernen-Button
     const btn = document.createElement('button');
     btn.textContent = '✕';
+    btn.style.marginLeft = '8px';
     btn.onclick = () => {
       cart.splice(i, 1);
       saveCart();
@@ -42,11 +45,52 @@ function updateCart() {
     cartItemsList.appendChild(li);
   });
 
-  // Gesamtpreis als letztes Listenelement
+  // Gesamtpreis
   const totalLi = document.createElement('li');
   totalLi.style.fontWeight = 'bold';
+  totalLi.style.marginTop  = '0.5rem';
   totalLi.textContent = `Gesamt: ${total.toFixed(2)} €`;
   cartItemsList.appendChild(totalLi);
 }
 
-// Artikel zum Wa
+// Artikel hinzufügen
+function addToCart(name, priceStr) {
+  const num = parseFloat(
+    priceStr.replace(/[^\d,.-]/g, '').replace(',', '.')
+  );
+  if (isNaN(num)) {
+    alert('Preis konnte nicht gelesen werden!');
+    return;
+  }
+  cart.push({
+    name,
+    priceNum: num,
+    priceStr: `${num.toFixed(2)} €`
+  });
+  saveCart();
+  updateCart();
+}
+
+// Warenkorb leeren
+function clearCart() {
+  cart = [];
+  saveCart();
+  updateCart();
+}
+
+// Initialisierung nach DOM-Load
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Warenkorb laden
+  loadCart();
+  // 2. Warenkorb anzeigen
+  updateCart();
+
+  // 3. Klick-Handler fürs Icon
+  const icon = document.getElementById('cart-icon');
+  const panel = document.getElementById('cart');
+  if (icon && panel) {
+    icon.addEventListener('click', () => {
+      panel.classList.toggle('hidden');
+    });
+  }
+});
