@@ -4,7 +4,7 @@ const cart = document.getElementById("cart");
 const cartCount = document.getElementById("cart-count");
 const cartItemsList = document.getElementById("cart-items");
 
-// Beispiel: Leerer Warenkorb
+// Warenkorb-Array mit Objekten {name, price}
 let cartItems = [];
 
 // Warenkorb anzeigen/verstecken
@@ -12,9 +12,9 @@ cartIcon.addEventListener("click", () => {
   cart.classList.toggle("hidden");
 });
 
-// Funktion um Artikel hinzuzufügen (später an Shop-Buttons anbinden)
-function addToCart(productName) {
-  cartItems.push(productName);
+// Artikel zum Warenkorb hinzufügen
+function addToCart(productName, price) {
+  cartItems.push({ name: productName, price: price });
   updateCart();
 }
 
@@ -24,7 +24,7 @@ function clearCart() {
   updateCart();
 }
 
-// Warenkorb aktualisieren
+// Warenkorb aktualisieren und anzeigen
 function updateCart() {
   cartCount.textContent = cartItems.length;
   cartItemsList.innerHTML = "";
@@ -36,9 +36,8 @@ function updateCart() {
   } else {
     cartItems.forEach((item, index) => {
       const li = document.createElement("li");
-      li.textContent = item;
+      li.textContent = `${item.name} - ${item.price}`;
 
-      // Optional: Button zum Entfernen einzelner Artikel
       const removeBtn = document.createElement("button");
       removeBtn.textContent = "×";
       removeBtn.style.marginLeft = "10px";
@@ -57,5 +56,5 @@ function updateCart() {
   }
 }
 
-// Initial aktualisieren
+// Initiale Anzeige aktualisieren
 updateCart();
