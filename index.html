@@ -1,20 +1,32 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DriftGarage</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- 🛒 Warenkorb -->
+  <div id="cart-icon">
+    🛒 <span id="cart-count">0</span>
+  </div>
+  <div id="cart" class="hidden">
+    <h3>Warenkorb</h3>
+    <ul id="cart-items"></ul>
+    <button onclick="clearCart()">Leeren</button>
+  </div>
+
   <header>
     <h1>DriftGarage</h1>
     <nav>
-  <a href="index.html">Start</a>
-  <a href="#about">Über uns</a>
-  <a href="#cars">Unsere Autos</a>
-  <a href="kontakt.html">Kontakt</a>
-  <a href="shop.html">Shop</a> <!-- NEU -->
-</nav>
+      <a href="index.html">Start</a>
+      <a href="#about">Über uns</a>
+      <a href="#cars">Unsere Autos</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="shop.html">Shop</a>
+    </nav>
   </header>
 
   <section id="hero">
@@ -30,21 +42,16 @@
   <section id="cars">
     <h2>Unsere Autos</h2>
     <div class="car-gallery">
-      <img src="images/car1.jpg" alt="Drift Car 1">
-      <img src="images/car2.jpg" alt="Drift Car 2">
+      <img src="images/car1.jpg" alt="Drift Car 1" />
+      <img src="images/car2.jpg" alt="Drift Car 2" />
     </div>
   </section>
+
   <footer>
     <p>&copy; 2025 DriftGarage</p>
   </footer>
+
+  <!-- 🧠 JavaScript ganz am Ende -->
   <script src="script.js"></script>
-<div id="cart-icon">
-  🛒 <span id="cart-count">0</span>
-</div>
-
-<div id="cart" class="hidden">
-  <h3>Warenkorb</h3>
-  <ul id="cart-items"></ul>
-  <button onclick="clearCart()">Leeren</button>
-</div>
-
+</body>
+</html>
