@@ -9,45 +9,58 @@
 <body>
 
   <!-- Warenkorb -->
-  <div id="cart-icon">
-    🛒 <span id="cart-count">0</span>
-  </div>
+  <div id="cart-icon">🛒 <span id="cart-count">0</span></div>
   <div id="cart" class="hidden">
     <h3>Warenkorb</h3>
     <ul id="cart-items"></ul>
     <button onclick="clearCart()">Leeren</button>
   </div>
 
-<header>
-  <h1>DriftGarage Shop</h1>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="weare.html">Über uns</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-</header>
-
+  <header>
+    <h1>DriftGarage Shop</h1>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="weare.html">Über uns</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
 
   <main>
     <section id="shop">
       <h2>Unser Shop</h2>
-      <p>Hier findest du unsere DriftGarage-Merchandise & Teile.</p>
+      <p>Wähle eine Kategorie:</p>
+      <!-- Kategorien-Auswahl -->
+      <div class="categories">
+        <button data-cat="karosserie" class="active">Karosserie</button>
+        <button data-cat="anbauteile">Karosserie-Anbauteile</button>
+        <button data-cat="hopup">Hop-Up</button>
+      </div>
 
+      <!-- Produkt-Grid -->
       <div class="product-grid">
-        <div class="product">
-          <img src="images/shirt.jpg" alt="DriftGarage T-Shirt" />
-          <h3>T-Shirt DriftGarage</h3>
-          <p>Schwarz mit weißem Logo – 25 €</p>
-          <button onclick="addToCart('T-Shirt DriftGarage', '25 €')">In den Warenkorb</button>
+        <!-- KAROSSERIE -->
+        <div class="product" data-cat="karosserie">
+          <img src="images/karosserie1.jpg" alt="Karosserie Set" />
+          <h3>Karosserie Set</h3>
+          <p>Komplettes Karosserie-Kit – 150 €</p>
+          <button onclick="addToCart('Karosserie Set','150 €')">In den Warenkorb</button>
         </div>
-
-        <div class="product">
-          <img src="images/snapback.jpg" alt="DriftGarage Snapback" />
-          <h3>Snapback Cap</h3>
-          <p>Stylisch & driftfest – 20 €</p>
-          <button onclick="addToCart('Snapback Cap', '20 €')">In den Warenkorb</button>
+        <!-- KAROSSERIE-ANBAUTEILE -->
+        <div class="product" data-cat="anbauteile">
+          <img src="images/spoiler.jpg" alt="Spoiler" />
+          <h3>Spoiler</h3>
+          <p>Sport-Spoiler – 45 €</p>
+          <button onclick="addToCart('Sport-Spoiler','45 €')">In den Warenkorb</button>
         </div>
+        <!-- HOP-UP -->
+        <div class="product" data-cat="hopup">
+          <img src="images/luftfilter.jpg" alt="Luftfilter" />
+          <h3>Luftfilter</h3>
+          <p>High-Flow Luftfilter – 30 €</p>
+          <button onclick="addToCart('High-Flow Luftfilter','30 €')">In den Warenkorb</button>
+        </div>
+        <!-- Weitere Produkte ... -->
       </div>
     </section>
   </main>
@@ -57,5 +70,24 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Kategorie-Filter
+    const categoryButtons = document.querySelectorAll('.categories button');
+    const products = document.querySelectorAll('.product');
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // active class
+        categoryButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        // Produkte anzeigen/ausblenden
+        products.forEach(p => {
+          p.style.display = p.dataset.cat === cat ? 'block' : 'none';
+        });
+      });
+    });
+    // initial Filter
+    document.querySelector('.categories button.active').click();
+  </script>
 </body>
 </html>
