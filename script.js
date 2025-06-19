@@ -19,9 +19,15 @@ function updateCart() {
   cartItemsList.innerHTML = '';
   cartCount.textContent   = cart.length;
 
+  let total = 0;
+
+  // Alle Artikel anzeigen und Total aufsummieren
   cart.forEach((item, i) => {
+    total += parseFloat(item.price.replace(/[^\d,-]/g, '').replace(',', '.'));
+
     const li = document.createElement('li');
     li.textContent = `${item.name} - ${item.price}`;
+
     const btn = document.createElement('button');
     btn.textContent = '✕';
     btn.onclick = () => {
@@ -29,10 +35,18 @@ function updateCart() {
       saveCart();
       updateCart();
     };
+
     li.appendChild(btn);
     cartItemsList.appendChild(li);
   });
+
+  // Gesamtpreis anzeigen
+  const totalLi = document.createElement('li');
+  totalLi.style.fontWeight = 'bold';
+  totalLi.textContent = `Gesamt: ${total.toFixed(2)} €`;
+  cartItemsList.appendChild(totalLi);
 }
+
 
 // Artikel hinzufügen
 function addToCart(name, price) {
