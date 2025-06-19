@@ -164,7 +164,7 @@ footer {
 }
 #cart-icon {
   position: fixed;
-  bottom: 20px;  /* statt top:20px */
+  bottom: 20px;
   right: 20px;
   background: #e91e63;
   padding: 0.5rem 1rem;
@@ -172,11 +172,13 @@ footer {
   color: white;
   cursor: pointer;
   z-index: 10000;
+  font-weight: bold;
+  user-select: none;
 }
 
 #cart {
   position: fixed;
-  bottom: 60px; /* unterhalb vom Icon */
+  bottom: 60px;
   right: 20px;
   background: #1c1c1c;
   padding: 1rem;
@@ -185,6 +187,8 @@ footer {
   box-shadow: 0 0 10px #000;
   color: white;
   z-index: 9999;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 #cart.hidden {
@@ -195,4 +199,21 @@ footer {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+#cart-items button {
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 0.3rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+#cart-items button:hover {
+  color: #e91e63;
 }
