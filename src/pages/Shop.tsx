@@ -8,10 +8,10 @@ const Shop = () => {
         <div>
             {/* ...existing code... */}
             <img
-                src="path/to/livery-image.jpg"
-                alt="Livery"
+                src="images/liverys_kategorie.jpg"
+                alt="Livery Kategorie"
                 style={{ cursor: 'pointer' }}
-                onClick={() => navigate('/shop/livery')}
+                onClick={() => navigate('/liveryliste')}
             />
             {/* ...existing code... */}
         </div>
