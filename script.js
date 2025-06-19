@@ -3,21 +3,28 @@ let cart = [];
 
 // Lade Warenkorb aus LocalStorage
 function loadCart() {
+  console.log('loadCart aufgerufen');
   const saved = localStorage.getItem('driftgarageCart');
   cart = saved ? JSON.parse(saved) : [];
+  console.log('Aktueller Warenkorb nach Laden:', cart);
 }
 
 // Speichere Warenkorb ins LocalStorage
 function saveCart() {
+  console.log('saveCart aufgerufen, Warenkorb:', cart);
   localStorage.setItem('driftgarageCart', JSON.stringify(cart));
 }
 
-// Zeige und aktualisiere den Warenkorb im DOM
+// Aktualisiere den Warenkorb im DOM
 function updateCart() {
+  console.log('updateCart aufgerufen');
   const cartItemsList = document.getElementById('cart-items');
   const cartCount     = document.getElementById('cart-count');
-  // Prüfen, ob die Elemente existieren
-  if (!cartItemsList || !cartCount) return;
+
+  if (!cartItemsList || !cartCount) {
+    console.error('Elemente #cart-items oder #cart-count nicht gefunden');
+    return;
+  }
 
   cartItemsList.innerHTML = '';
   cartCount.textContent   = cart.length;
@@ -27,34 +34,31 @@ function updateCart() {
   cart.forEach((item, i) => {
     total += item.priceNum;
 
-    // Listeneintrag
     const li = document.createElement('li');
     li.textContent = `${item.name} - ${item.priceStr}`;
 
-    // Entfernen-Button
     const btn = document.createElement('button');
     btn.textContent = '✕';
-    btn.style.marginLeft = '8px';
     btn.onclick = () => {
+      console.log('Entferne Artikel Index:', i);
       cart.splice(i, 1);
       saveCart();
       updateCart();
     };
-
     li.appendChild(btn);
     cartItemsList.appendChild(li);
   });
 
-  // Gesamtpreis
   const totalLi = document.createElement('li');
   totalLi.style.fontWeight = 'bold';
-  totalLi.style.marginTop  = '0.5rem';
   totalLi.textContent = `Gesamt: ${total.toFixed(2)} €`;
   cartItemsList.appendChild(totalLi);
+  console.log('Warenkorb gerendert mit Total:', total);
 }
 
-// Artikel hinzufügen
+// Artikel zum Warenkorb hinzufügen
 function addToCart(name, priceStr) {
+  console.log('addToCart aufgerufen mit:', name, priceStr);
   const num = parseFloat(
     priceStr.replace(/[^\d,.-]/g, '').replace(',', '.')
   );
@@ -73,6 +77,7 @@ function addToCart(name, priceStr) {
 
 // Warenkorb leeren
 function clearCart() {
+  console.log('clearCart aufgerufen');
   cart = [];
   saveCart();
   updateCart();
@@ -80,17 +85,22 @@ function clearCart() {
 
 // Initialisierung nach DOM-Load
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Warenkorb laden
+  console.log('DOMContentLoaded');
   loadCart();
-  // 2. Warenkorb anzeigen
   updateCart();
 
-  // 3. Klick-Handler fürs Icon
-  const icon = document.getElementById('cart-icon');
+  const icon  = document.getElementById('cart-icon');
   const panel = document.getElementById('cart');
   if (icon && panel) {
     icon.addEventListener('click', () => {
       panel.classList.toggle('hidden');
+      console.log('Warenkorb toggled');
     });
+  } else {
+    console.error('Elemente #cart-icon oder #cart nicht gefunden');
   }
+
+  // Exponiere addToCart global, falls onclick="" in HTML greift
+  window.addToCart = addToCart;
+  window.clearCart = clearCart;
 });
