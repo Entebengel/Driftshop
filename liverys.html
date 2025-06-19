@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Liverys</title>
+    <link rel="stylesheet" href="warenkorb.css">
     <style>
         .artikel-liste {
             display: flex;
@@ -52,40 +53,6 @@
             height: 20px;
             vertical-align: middle;
         }
-        .warenkorb {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 16px;
-            min-width: 220px;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .warenkorb h2 {
-            margin-top: 0;
-        }
-        .warenkorb-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 12px 0;
-        }
-        .warenkorb-list li {
-            margin-bottom: 8px;
-        }
-        .warenkorb-leeren {
-            background: #e81123;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 6px 10px;
-            cursor: pointer;
-        }
-        .warenkorb-leeren:hover {
-            background: #b50d1b;
-        }
     </style>
 </head>
 <body>
@@ -107,6 +74,39 @@
                     <circle cx="20" cy="21" r="1"/>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
                 </svg>
+                In den Warenkorb
+            </button>
+        </div>
+        <div class="artikel" data-name="Livery 2" data-preis="34.99">
+            <img src="images/livery2.jpg" alt="Livery 2">
+            <div class="beschreibung">Klassisches Flammenmuster für Muscle Cars.</div>
+            <span class="preis">34,99 €</span>
+            <button class="warenkorb-btn" onclick="zumWarenkorb(this)">
+                <svg class="warenkorb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                In den Warenkorb
+            </button>
+        </div>
+        <div class="artikel" data-name="Livery 3" data-preis="27.49">
+            <img src="images/livery3.jpg" alt="Livery 3">
+            <div class="beschreibung">Modernes Camouflage für Offroad-Fahrzeuge.</div>
+            <span class="preis">27,49 €</span>
+            <button class="warenkorb-btn" onclick="zumWarenkorb(this)">
+                <svg class="warenkorb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                In den Warenkorb
+            </button>
+        </div>
+    </div>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
                 In den Warenkorb
             </button>
         </div>

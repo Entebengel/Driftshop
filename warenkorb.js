@@ -1,0 +1,35 @@
+let warenkorb = [];
+
+function zumWarenkorb(btn) {
+    const artikel = btn.closest('.artikel');
+    const name = artikel.getAttribute('data-name');
+    const preis = parseFloat(artikel.getAttribute('data-preis'));
+    const vorhandener = warenkorb.find(a => a.name === name);
+    if (vorhandener) {
+        vorhandener.menge += 1;
+    } else {
+        warenkorb.push({ name, preis, menge: 1 });
+    }
+    warenkorbAnzeigen();
+}
+
+function warenkorbAnzeigen() {
+    const list = document.getElementById('warenkorb-list');
+    if (!list) return;
+    list.innerHTML = '';
+    let gesamt = 0;
+    warenkorb.forEach(artikel => {
+        const li = document.createElement('li');
+        li.textContent = `${artikel.name} x${artikel.menge} - ${(artikel.preis * artikel.menge).toFixed(2)} €`;
+        list.appendChild(li);
+        gesamt += artikel.preis * artikel.menge;
+    });
+    document.getElementById('warenkorb-gesamt').textContent = gesamt.toFixed(2) + ' €';
+}
+
+function warenkorbLeeren() {
+    warenkorb = [];
+    warenkorbAnzeigen();
+}
+
+document.addEventListener('DOMContentLoaded', warenkorbAnzeigen);
