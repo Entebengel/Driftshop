@@ -1,10 +1,42 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop – DriftGarage</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .category-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .category-card {
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      max-width: 200px;
+      transition: transform 0.2s;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .category-card h3 {
+      margin-top: 0.5rem;
+    }
+
+    .category-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -31,7 +63,6 @@
       <h2>Unser Shop</h2>
       <p>Wähle eine Hauptkategorie:</p>
 
-      <!-- Kategoriebilder mit Links -->
       <div class="category-grid">
         <a href="karosserie.html" class="category-card">
           <img src="images/karosserie_kategorie.jpg" alt="Karosserie" />
