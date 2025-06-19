@@ -162,3 +162,37 @@ footer {
   border-radius: 8px;
   font-style: italic;
 }
+#cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #e91e63;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#cart {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: #1c1c1c;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 0 10px #000;
+  color: white;
+  z-index: 999;
+}
+
+#cart.hidden {
+  display: none;
+}
+
+#cart-items li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
