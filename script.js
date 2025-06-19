@@ -5,10 +5,17 @@ const cartCount = document.getElementById('cart-count');
 
 let cartItems = [];
 
-function addToCart(name, price) {
-  // Preis als Zahl extrahieren
-  const numericPrice = parseFloat(price.replace('€', '').trim());
-
+function addToCart(name, priceStr) {
+  // Preis extrahieren und in float umwandeln, Kommas zu Punkten ersetzen falls nötig
+  let cleanedPrice = priceStr.replace(/[^\d,.-]/g, ''); // alles außer Zahlen, Komma, Punkt, Minus
+  cleanedPrice = cleanedPrice.replace(',', '.'); // Komma zu Punkt für Dezimaltrennung
+  const numericPrice = parseFloat(cleanedPrice);
+  
+  if (isNaN(numericPrice)) {
+    alert('Preis konnte nicht gelesen werden!');
+    return;
+  }
+  
   cartItems.push({ name, price: numericPrice });
   updateCart();
 }
