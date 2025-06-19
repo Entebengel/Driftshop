@@ -53,3 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ladeWarenkorb();
     warenkorbAnzeigen();
 });
+
+// Synchronisiere den Warenkorb bei Änderungen in anderen Tabs/Fenstern
+window.addEventListener('storage', (event) => {
+    if (event.key === 'warenkorb') {
+        ladeWarenkorb();
+        warenkorbAnzeigen();
+    }
+});
