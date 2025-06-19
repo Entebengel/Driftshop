@@ -1,66 +1,65 @@
-const cartIcon = document.getElementById('cart-icon');
-const cart = document.getElementById('cart');
-const cartItemsList = document.getElementById('cart-items');
-const cartCount = document.getElementById('cart-count');
+let cart = [];
 
-let cartItems = [];
-
-function addToCart(name, priceStr) {
-  // Preis extrahieren und in float umwandeln, Kommas zu Punkten ersetzen falls nötig
-  let cleanedPrice = priceStr.replace(/[^\d,.-]/g, ''); // alles außer Zahlen, Komma, Punkt, Minus
-  cleanedPrice = cleanedPrice.replace(',', '.'); // Komma zu Punkt für Dezimaltrennung
-  const numericPrice = parseFloat(cleanedPrice);
-  
-  if (isNaN(numericPrice)) {
-    alert('Preis konnte nicht gelesen werden!');
-    return;
+// Lade Warenkorb aus LocalStorage
+function loadCart() {
+  const savedCart = localStorage.getItem('driftgarageCart');
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+  } else {
+    cart = [];
   }
-  
-  cartItems.push({ name, price: numericPrice });
-  updateCart();
 }
 
+// Speichere Warenkorb im LocalStorage
+function saveCart() {
+  localStorage.setItem('driftgarageCart', JSON.stringify(cart));
+}
+
+// Warenkorb aktualisieren und anzeigen
 function updateCart() {
-  cartCount.textContent = cartItems.length;
-  cartItemsList.innerHTML = '';
+  const cartItems = document.getElementById('cart-items');
+  const cartCount = document.getElementById('cart-count');
+  cartItems.innerHTML = '';
+  cartCount.textContent = cart.length;
 
-  let total = 0;
-
-  cartItems.forEach((item, index) => {
-    total += item.price;
-
+  cart.forEach((item, index) => {
     const li = document.createElement('li');
-    li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
-
+    li.textContent = `${item.name} - ${item.price}`;
     const removeBtn = document.createElement('button');
-    removeBtn.textContent = '✖';
+    removeBtn.textContent = '✕';
     removeBtn.style.marginLeft = '10px';
     removeBtn.onclick = () => {
-      removeItem(index);
+      cart.splice(index, 1);
+      saveCart();
+      updateCart();
     };
-
     li.appendChild(removeBtn);
-    cartItemsList.appendChild(li);
+    cartItems.appendChild(li);
   });
-
-  const totalLi = document.createElement('li');
-  totalLi.style.fontWeight = 'bold';
-  totalLi.textContent = `Gesamt: ${total.toFixed(2)} €`;
-  cartItemsList.appendChild(totalLi);
 }
 
-function removeItem(index) {
-  cartItems.splice(index, 1);
+// Produkt zum Warenkorb hinzufügen
+function addToCart(name, price) {
+  cart.push({ name, price });
+  saveCart();
   updateCart();
 }
 
+// Warenkorb leeren
 function clearCart() {
-  cartItems = [];
+  cart = [];
+  saveCart();
   updateCart();
 }
 
-cartIcon.addEventListener('click', () => {
-  cart.classList.toggle('hidden');
-});
+// Warenkorb anzeigen/ausblenden
+document.addEventListener('DOMContentLoaded', () => {
+  loadCart();
+  updateCart();
 
-updateCart();
+  const cartIcon = document.getElementById('cart-icon');
+  const cartDiv = document.getElementById('cart');
+  cartIcon.addEventListener('click', () => {
+    cartDiv.classList.toggle('hidden');
+  });
+});
