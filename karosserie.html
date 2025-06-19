@@ -5,7 +5,86 @@
     <title>KAROSSERIE</title>
     <link rel="stylesheet" href="warenkorb.css">
     <style>
-        /* ...siehe warenkorb.css für das moderne grüne Design... */
+        body {
+            background: #eafaf1 url('images/hintergrund.png') repeat;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 36px;
+            box-shadow: 0 2px 8px rgba(27,60,46,0.08);
+        }
+        nav {
+            margin-top: 14px;
+        }
+        nav a {
+            color: #7be495;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #43b97f;
+            text-decoration: underline;
+        }
+        .warenkorb {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 36px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(67,185,127,0.07);
+        }
+        .artikel-liste {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .artikel {
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            flex: 1 1 calc(33.333% - 16px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .artikel:hover {
+            transform: translateY(-4px);
+        }
+        .beschreibung {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 8px 0;
+        }
+        .preis {
+            font-size: 1.2rem;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .warenkorb-btn {
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .warenkorb-btn:hover {
+            background: #219150;
+        }
+        .warenkorb-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -69,47 +148,5 @@
         </div>
     </main>
     <script src="warenkorb.js"></script>
-</body>
-</html>
-            text-align: center;
-            margin-bottom: 36px;
-            box-shadow: 0 2px 8px rgba(27,60,46,0.08);
-        }
-        nav {
-            margin-top: 14px;
-        }
-        nav a {
-            color: #7be495;
-            text-decoration: none;
-            margin: 0 18px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: color 0.2s;
-        }
-        nav a:hover {
-            color: #43b97f;
-            text-decoration: underline;
-        }
-        body {
-            background: #f3f7f4;
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #222;
-        }
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 36px;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(67,185,127,0.07);
-        }
-    </style>
-
-        </div>
-    </main>
-    <script src="warenkorb.js"></script>
-</body>
-</html>
 </body>
 </html>

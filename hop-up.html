@@ -5,7 +5,119 @@
     <title>HOP-UP</title>
     <link rel="stylesheet" href="warenkorb.css">
     <style>
-        /* ...siehe warenkorb.css für das moderne grüne Design... */
+        body {
+            background: #eafaf1 url('images/hintergrund.png') repeat;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+        }
+        header {
+            background: #fff;
+            padding: 28px 0 18px 0;
+            text-align: center;
+            margin-bottom: 36px;
+            box-shadow: 0 2px 8px rgba(27,60,46,0.08);
+        }
+        nav {
+            margin-top: 14px;
+        }
+        nav a {
+            color: #7be495;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #43b97f;
+            text-decoration: underline;
+        }
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 36px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(67,185,127,0.07);
+        }
+        .warenkorb {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            margin-bottom: 36px;
+        }
+        .warenkorb-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
+        .warenkorb-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .warenkorb-list li:last-child {
+            border-bottom: none;
+        }
+        .warenkorb-gesamt {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .warenkorb-leeren {
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .warenkorb-leeren:hover {
+            background: #ff4d4d;
+        }
+        .artikel-liste {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .artikel {
+            background: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        .artikel img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        .beschreibung {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        .preis {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .warenkorb-btn {
+            background: #7be495;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .warenkorb-btn:hover {
+            background: #43b97f;
+        }
     </style>
 </head>
 <body>
@@ -70,46 +182,4 @@
     </main>
     <script src="warenkorb.js"></script>
 </body>
-</html>
-            padding: 28px 0 18px 0;
-            text-align: center;
-            margin-bottom: 36px;
-            box-shadow: 0 2px 8px rgba(27,60,46,0.08);
-        }
-        nav {
-            margin-top: 14px;
-        }
-        nav a {
-            color: #7be495;
-            text-decoration: none;
-            margin: 0 18px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: color 0.2s;
-        }
-        nav a:hover {
-            color: #43b97f;
-            text-decoration: underline;
-        }
-        body {
-            background: #f3f7f4;
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #222;
-        }
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 36px;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(67,185,127,0.07);
-        }
-    </style>
-</head>
-
-    </main>
-    <script src="warenkorb.js"></script>
-</body>
-</html>
 </html>
