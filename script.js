@@ -31,8 +31,13 @@ function clearCart() {
   updateCart();
 }
 
+const cartIcon = document.getElementById("cart-icon");
+const cart = document.getElementById("cart");
+
 cartIcon.addEventListener("click", () => {
   cart.classList.toggle("hidden");
+});
+
 });
 
 updateCart();
