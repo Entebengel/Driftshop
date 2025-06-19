@@ -12,7 +12,7 @@ function saveCart() {
   localStorage.setItem('driftgarageCart', JSON.stringify(cart));
 }
 
-// Zeige/Werte den Warenkorb aus
+// Zeige und aktualisiere den Warenkorb im DOM
 function updateCart() {
   const cartItemsList = document.getElementById('cart-items');
   const cartCount     = document.getElementById('cart-count');
@@ -21,13 +21,15 @@ function updateCart() {
 
   let total = 0;
 
-  // Alle Artikel anzeigen und Total aufsummieren
   cart.forEach((item, i) => {
-    total += parseFloat(item.price.replace(/[^\d,-]/g, '').replace(',', '.'));
+    // Summiere nur den numerischen Wert
+    total += item.priceNum;
 
+    // Listeintrag mit Name und formatiertem Preis
     const li = document.createElement('li');
-    li.textContent = `${item.name} - ${item.price}`;
+    li.textContent = `${item.name} - ${item.priceStr}`;
 
+    // Entfernen-Button
     const btn = document.createElement('button');
     btn.textContent = '✕';
     btn.onclick = () => {
@@ -40,38 +42,11 @@ function updateCart() {
     cartItemsList.appendChild(li);
   });
 
-  // Gesamtpreis anzeigen
+  // Gesamtpreis als letztes Listenelement
   const totalLi = document.createElement('li');
   totalLi.style.fontWeight = 'bold';
   totalLi.textContent = `Gesamt: ${total.toFixed(2)} €`;
   cartItemsList.appendChild(totalLi);
 }
 
-
-// Artikel hinzufügen
-function addToCart(name, price) {
-  // Preis als Zahl extrahieren
-  const num = parseFloat(price.replace(/[^\d,.-]/g, '').replace(',', '.'));
-  cart.push({ name, price: `${num.toFixed(2)} €` });
-  saveCart();
-  updateCart();
-}
-
-// Warenkorb leeren
-function clearCart() {
-  cart = [];
-  saveCart();
-  updateCart();
-}
-
-// Alles initialisieren, sobald DOM fertig ist
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Warenkorb laden
-  loadCart();
-  // 2. Warenkorb anzeigen
-  updateCart();
-  // 3. Klick-Handler fürs Icon
-  document.getElementById('cart-icon').addEventListener('click', () => {
-    document.getElementById('cart').classList.toggle('hidden');
-  });
-});
+// Artikel zum Wa
