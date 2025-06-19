@@ -1,5 +1,3 @@
-console.log("DriftGarage ist bereit!");
-
 const cartIcon = document.getElementById("cart-icon");
 const cart = document.getElementById("cart");
 const cartItems = document.getElementById("cart-items");
@@ -38,4 +36,3 @@ cartIcon.addEventListener("click", () => {
 });
 
 updateCart();
-
