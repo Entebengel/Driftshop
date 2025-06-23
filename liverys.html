@@ -132,6 +132,18 @@
             box-shadow: 0 4px 24px rgba(67,185,127,0.07);
         }
     </style>
+    <script type="module">
+        import { liverys } from './data/liverys.js';
+        window.addEventListener('DOMContentLoaded', () => {
+            const ul = document.getElementById('livery-list');
+            if (!ul) return;
+            liverys.forEach(livery => {
+                const li = document.createElement('li');
+                li.textContent = `${livery.name} – ${livery.shortDesc}`;
+                ul.appendChild(li);
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -151,11 +163,7 @@
     </div>
     <main>
         <h2>Liverys</h2>
-        <ul>
-            <li>Racing Stripe – Klassische Rennstreifen für sportlichen Look.</li>
-            <li>Urban Camo – Modernes Camouflage-Design für Individualisten.</li>
-            <!-- ...weitere ca. 28 Artikel... -->
-        </ul>
+        <ul id="livery-list"></ul>
         <div class="artikel-liste">
             <div class="artikel" data-name="Livery 1" data-preis="29.99">
                 <img src="images/livery1.jpg" alt="Livery 1">
