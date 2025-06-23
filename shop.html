@@ -196,37 +196,79 @@
             background-clip: border-box;
             -webkit-background-clip: border-box;
         }
-        /* Warenkorb unten rechts fixieren */
+        /* Warenkorb unten rechts kompakt und smarter */
         #warenkorb {
             position: fixed;
-            right: 32px;
-            bottom: 32px;
+            right: 24px;
+            bottom: 72px; /* Oberhalb des Symbols */
             z-index: 1000;
-            min-width: 320px;
-            max-width: 90vw;
-            background: linear-gradient(135deg, hsl(83, 51%, 58%) 80%, hsl(86, 69%, 35%) 100%);
-            border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(67,185,127,0.18), 0 2px 8px rgba(67,185,127,0.10);
-            padding: 24px 20px 18px 20px;
+            min-width: 220px;
+            max-width: 320px;
+            width: 90vw;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(67,185,127,0.18), 0 2px 8px rgba(67,185,127,0.10);
+            padding: 14px 12px 10px 12px;
             border: 2px solid #43b97f;
             display: none;
-            transition: box-shadow 0.2s, opacity 0.2s;
+            transition: box-shadow 0.2s, opacity 0.2s, width 0.2s;
+            font-size: 1rem;
         }
         #warenkorb.anzeigen {
             display: block;
             animation: warenkorb-fadein 0.2s;
         }
+        #warenkorb h2 {
+            font-size: 1.2rem;
+            margin: 0 0 8px 0;
+            padding: 0;
+        }
+        #warenkorb-list {
+            max-height: 140px;
+            overflow-y: auto;
+            margin: 0 0 8px 0;
+            padding: 0;
+            list-style: none;
+        }
+        #warenkorb-list li {
+            font-size: 0.98rem;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #warenkorb .warenkorb-leeren {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: none;
+            background: #43b97f;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #warenkorb .warenkorb-leeren:hover {
+            background: #2e8e5a;
+        }
+        #warenkorb strong {
+            font-size: 1.05rem;
+        }
         @keyframes warenkorb-fadein {
-            from { opacity: 0; transform: translateY(30px);}
+            from { opacity: 0; transform: translateY(20px);}
             to { opacity: 1; transform: translateY(0);}
         }
-        /* Optional: Button für mobile besser erreichbar */
         @media (max-width: 600px) {
             #warenkorb {
-                right: 4vw;
-                bottom: 4vw;
-                min-width: 220px;
-                padding: 14px 8px 10px 8px;
+                right: 2vw;
+                bottom: 68px;
+                min-width: 150px;
+                max-width: 96vw;
+                padding: 8px 4px 6px 4px;
+                font-size: 0.95rem;
+            }
+            #warenkorb-list {
+                max-height: 90px;
             }
         }
         @media (max-width: 900px) {
