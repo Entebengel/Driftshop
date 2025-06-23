@@ -231,8 +231,31 @@
                 </button>
             </div>
         </div>
+        <!-- Styling-Netzte Liste -->
+        <div id="styling-netzte-list" style="margin-top:40px;"></div>
+        <script type="module">
+            import { stylingNetzte } from './data/stylingNetzte.js';
+            window.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('styling-netzte-list');
+                if (!container) return;
+                if (!stylingNetzte || !stylingNetzte.length) return;
+                const title = document.createElement('h3');
+                title.textContent = 'Styling-Netzte';
+                title.style.marginBottom = '18px';
+                container.appendChild(title);
+
+                const ul = document.createElement('ul');
+                ul.style.listStyle = 'disc inside';
+                ul.style.paddingLeft = '0';
+                stylingNetzte.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    ul.appendChild(li);
+                });
+                container.appendChild(ul);
+            });
+        </script>
     </main>
     <script src="warenkorb.js"></script>
 </body>
-</html>
 </html>
