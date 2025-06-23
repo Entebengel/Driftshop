@@ -94,6 +94,26 @@
             background: linear-gradient(90deg, #bfa100 0%, #fff700 50%, #7be495 100%);
             /* ...weitere header styles falls nötig... */
         }
+        /* Header-Navigation Buttons: hellgrün zu dunkelgrün */
+        header nav a.glow-yellow {
+            background: linear-gradient(135deg, #baffc9 0%, #43b97f 100%);
+            border-radius: 8px;
+            padding: 8px 18px;
+            margin: 0 8px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            text-decoration: none;
+            border: 2px solid #43b97f;
+            color: #1a2e22;
+            font-weight: bold;
+            display: inline-block;
+        }
+        header nav a.glow-yellow:hover,
+        header nav a.glow-yellow:focus {
+            background: linear-gradient(135deg, #43b97f 0%, #baffc9 100%);
+            box-shadow: 0 4px 24px rgba(67,185,127,0.18);
+            color: #fff;
+        }
         .glow-yellow:hover, .glow-yellow:focus, .glow-yellow.active {
             background: #7be495;
             color: #1a2e22;
