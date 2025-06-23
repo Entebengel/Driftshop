@@ -193,35 +193,18 @@
         <h2>Fenster-Netze und Abschleppösen Konfigurator</h2>
         <div style="display:flex;gap:40px;align-items:flex-start;justify-content:center;">
             <form id="netz-konfigurator" style="max-width:600px;flex:1;margin:0 0 32px 0;padding:24px 18px;background:rgba(255,255,255,0.93);border-radius:16px;box-shadow:0 2px 12px rgba(67,185,127,0.10);">
-                <!-- 1. Typ Auswahl -->
+                <!-- 1. Typ Auswahl als Dropdown -->
                 <fieldset style="border:none;margin-bottom:24px;">
                     <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Typ wählen</legend>
-                    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="typ" value="Kein Typ" checked>
-                            <img src="images/leer.png" alt="Kein Typ" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px dashed #bbb;">
-                            <span>Kein Typ</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="typ" value="Standard">
-                            <img src="images/typ_standard.jpg" alt="Standard" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Standard</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="typ" value="Racing">
-                            <img src="images/typ_racing.jpg" alt="Racing" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Racing</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="typ" value="Heavy Duty">
-                            <img src="images/typ_heavyduty.jpg" alt="Heavy Duty" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Heavy Duty</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="typ" value="Ultra Light">
-                            <img src="images/typ_ultralight.jpg" alt="Ultra Light" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Ultra Light</span>
-                        </label>
+                    <div style="margin-bottom:10px;">
+                        <span style="font-weight:bold;">Typ:</span>
+                        <select name="typ" id="typ-auswahl" style="margin-left:8px;">
+                            <option value="Kein Typ">Kein Typ</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Racing">Racing</option>
+                            <option value="Heavy Duty">Heavy Duty</option>
+                            <option value="Ultra Light">Ultra Light</option>
+                        </select>
                     </div>
                     <div style="margin-top:10px;">
                         <span style="font-weight:bold;">Farbe:</span>
@@ -435,7 +418,7 @@
 
             function updateVorschau() {
                 // Typ
-                const typ = document.querySelector('input[name="typ"]:checked').value;
+                const typ = document.getElementById('typ-auswahl').value;
                 const typFarbe = document.getElementById('typ-farbe').value || "Keine";
                 document.getElementById('typ-bild').src = typBilder[typ] || "images/leer.png";
                 document.getElementById('typ-bild').alt = typ;
@@ -463,11 +446,28 @@
                 // Alle Inputs für Typ, Style, Öse und Farben
                 document.querySelectorAll('input[name="typ"], #typ-farbe, input[name="style"], #style-farbe, input[name="oese"], #oese-farbe')
                     .forEach(el => el.addEventListener('change', updateVorschau));
+                document.getElementById('typ-auswahl').addEventListener('change', updateVorschau);
+                document.getElementById('typ-farbe').addEventListener('change', updateVorschau);
                 // Initiale Vorschau
                 updateVorschau();
 
                 document.getElementById('konfigurator-ausgabe').onclick = function() {
                     const typ = document.querySelector('input[name="typ"]:checked').value;
+                    const typFarbe = document.getElementById('typ-farbe').value || "Keine";
+                    const style = document.querySelector('input[name="style"]:checked').value;
+                    const styleFarbe = document.getElementById('style-farbe').value || "Keine";
+                    const oese = document.querySelector('input[name="oese"]:checked').value;
+                    const oeseFarbe = document.getElementById('oese-farbe').value || "Keine";
+                    document.getElementById('konfigurator-result').textContent =
+                        `Ausgewählt: Typ "${typ}" (${typFarbe}), Style "${style}" (${styleFarbe}), Öse "${oese}" (${oeseFarbe})`;
+                };
+            });
+        </script>
+        <div id="livery-list" class="artikel-liste"></div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
                     const typFarbe = document.getElementById('typ-farbe').value || "Keine";
                     const style = document.querySelector('input[name="style"]:checked').value;
                     const styleFarbe = document.getElementById('style-farbe').value || "Keine";
