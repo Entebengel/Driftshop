@@ -28,19 +28,40 @@
             letter-spacing: 2px;
             font-family: 'Montserrat', Arial, sans-serif;
             font-weight: 800;
-            color: #fff;
-            background: none;
-            box-shadow: none;
-            border: none;
-            -webkit-text-fill-color: #fff;
-            background-clip: border-box;
-            -webkit-background-clip: border-box;
+            /* Schriftart und Effekt wie Liverys */
+            border: 2px solid rgba(255, 247, 0, 0.4);
+            border-radius: 8px;
+            padding: 4px 12px;
+            background: linear-gradient(180deg, #ffe066 0%, #fff700 100%);
+            box-shadow: 0 0 0 6px rgba(191,161,0,0.18) inset;
+            background-color: #bfa100;
+            background-clip: text, padding-box;
+            -webkit-background-clip: text, padding-box;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
             position: static;
+        }
+        header h1::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            background: #bfa100;
+            z-index: -1;
         }
         header h1:hover,
         header h1:focus {
-            color: #7be495;
-            -webkit-text-fill-color: #7be495;
+            background: #7be495;
+            color: #1a2e22;
+            border-color: #43b97f;
+            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495, 0 0 0 6px #bfa100 inset;
+            text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
+            -webkit-text-fill-color: #1a2e22;
+            color: #1a2e22;
+            background-clip: border-box;
+            -webkit-background-clip: border-box;
         }
         nav {
             margin-top: 18px;
@@ -226,7 +247,4 @@
     </main>
     <script src="warenkorb.js"></script>
 </body>
-</html>
-</html>
-</html>
 </html>
