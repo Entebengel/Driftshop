@@ -205,6 +205,13 @@ main {
     color: #fff !important;
 }
 
+/* Schriftart und Gewicht für Warenkorb */
+.warenkorb,
+.warenkorb * {
+    font-family: 'Arial Black', Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
 /* Floating Cart Button */
 .warenkorb-fab {
     position: fixed;
