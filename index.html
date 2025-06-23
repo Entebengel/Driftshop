@@ -73,10 +73,21 @@
             color: #fff !important;
             -webkit-text-fill-color: #fff;
         }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(67,185,127,0.10);
+        }
         @media (max-width: 900px) {
             header {
                 border-radius: 0 0 18px 18px;
                 padding: 20px 0 12px 0;
+            }
+            main {
+                padding: 18px 4vw;
             }
         }
     </style>
@@ -98,7 +109,6 @@
             </nav>
         </div>
     </header>
-    <!-- Warenkorb-Start (aus shop.html übernehmen, falls abweichend) -->
     <div class="warenkorb" id="warenkorb">
         <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
         <div class="warenkorb-inhalt" id="warenkorb-inhalt">
@@ -108,7 +118,6 @@
             <div class="warenkorb-gesamt"><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
         </div>
     </div>
-    <!-- Warenkorb-Ende -->
     <main>
         <h2>Willkommen im Driftshop!</h2>
         <p>Hier findest du alles rund um Liverys, Karosserien, Anbauteile und Hop-Up für dein RC-Car. Stöbere durch unseren Shop und entdecke die neuesten Produkte!</p>
