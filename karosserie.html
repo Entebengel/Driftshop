@@ -9,177 +9,179 @@
             background: #eafaf1 url('images/hintergrund.png') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #222;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            color: #1a2e22;
         }
         header {
-            padding: 28px 0 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            color: #fff;
+            padding: 32px 0 20px 0;
             text-align: center;
-            margin-bottom: 36px;
-            box-shadow: 0 2px 8px rgba(27,60,46,0.08);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(30,125,77,0.10);
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 800;
+            color: #222;
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            display: inline-block;
+            transition: none;
+            position: static;
         }
         nav {
-            margin-top: 14px;
+            margin-top: 18px;
         }
         nav a {
-            color: #7be495;
+            background: linear-gradient(135deg, #7be495 0%, #43b97f 100%);
+            border-radius: 8px;
+            padding: 8px 18px;
+            margin: 0 8px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
             text-decoration: none;
-            margin: 0 18px;
+            border: 2px solid #43b97f;
+            color: #1b3c2e !important;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: color 0.2s;
+            display: inline-block;
         }
-        nav a:hover {
-            color: #43b97f;
-            text-decoration: underline;
+        nav a:hover,
+        nav a:focus {
+            background: linear-gradient(135deg, #43b97f 0%, #7be495 100%);
+            box-shadow: 0 4px 24px rgba(67,185,127,0.18);
+            color: #fff !important;
+            -webkit-text-fill-color: #fff;
         }
         main {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: #fff;
-            padding: 36px;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(67,185,127,0.07);
-        }
-        .warenkorb-fab {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            box-shadow: 0 4px 16px rgba(67,185,127,0.18);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 200;
-            transition: background 0.2s, box-shadow 0.2s;
-        }
-        .warenkorb-fab:hover {
-            background: linear-gradient(90deg, #1e7d4d 0%, #43b97f 100%);
-            box-shadow: 0 8px 32px rgba(67,185,127,0.22);
-        }
-        .warenkorb-fab svg {
-            width: 28px;
-            height: 28px;
-        }
-        .warenkorb-fab-count {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #e81123;
-            color: #fff;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 0.95em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            border: 2px solid #fff;
-        }
-        .warenkorb {
-            display: none;
-        }
-        .warenkorb.anzeigen {
-            display: block;
-            position: fixed;
-            top: 32px;
-            right: 32px;
-            background: #fff;
-            border: 2.5px solid #43b97f;
-            border-radius: 18px;
-            padding: 26px 28px 22px 28px;
-            min-width: 270px;
-            z-index: 300;
-            box-shadow: 0 8px 32px rgba(67,185,127,0.13);
-        }
-        @media (max-width: 900px) {
-            .warenkorb-fab {
-                bottom: 16px;
-                right: 16px;
-            }
-            .warenkorb.anzeigen {
-                top: 16px;
-                right: 16px;
-            }
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(67,185,127,0.10);
         }
         .artikel-liste {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 36px;
+            justify-content: flex-start;
         }
         .artikel {
-            background: #fff;
-            border: 1px solid #e1e1e1;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-            flex: 1 1 calc(33.333% - 16px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            border: none;
+            border-radius: 18px;
+            padding: 22px 18px 18px 18px;
+            width: 260px;
+            box-sizing: border-box;
+            text-align: center;
+            background: #f6fff9;
+            box-shadow: 0 2px 12px rgba(67,185,127,0.10);
+            transition: box-shadow 0.2s, transform 0.2s;
+            position: relative;
         }
         .artikel:hover {
-            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(67,185,127,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .artikel img {
+            width: 210px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            background: #e6f9ee;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.08);
         }
         .beschreibung {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 8px 0;
+            margin: 16px 0 12px 0;
+            font-size: 1.08em;
+            color: #1a2e22;
+            font-family: 'Montserrat', Arial, sans-serif;
         }
         .preis {
-            font-size: 1.2rem;
-            color: #27ae60;
             font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+            color: #1e7d4d;
+            font-size: 1.18em;
         }
         .warenkorb-btn {
-            background: #27ae60;
+            background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
             color: #fff;
             border: none;
-            border-radius: 4px;
-            padding: 10px 16px;
+            border-radius: 8px;
+            padding: 12px 20px;
             cursor: pointer;
-            transition: background 0.2s;
+            font-size: 1.08em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
         }
         .warenkorb-btn:hover {
-            background: #219150;
+            background: linear-gradient(90deg, #1e7d4d 0%, #43b97f 100%);
+            box-shadow: 0 4px 16px rgba(67,185,127,0.18);
+            transform: scale(1.04);
         }
         .warenkorb-icon {
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
+            width: 24px;
+            height: 24px;
             vertical-align: middle;
+        }
+        @media (max-width: 900px) {
+            main {
+                padding: 18px 4vw;
+            }
+            .artikel {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            .artikel-liste {
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                border-radius: 0 0 18px 18px;
+                padding: 20px 0 12px 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Driftshop</h1>
-        <nav>
-          <a href="index.html">Startseite</a>
-            <a href="shop.html">Shop</a>            
-            <a href="weare.html">We Are</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
+        <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
     </header>
-    <button class="warenkorb-fab" id="warenkorb-fab" style="display:none;" onclick="toggleWarenkorb()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="9" cy="21" r="1"/>
-            <circle cx="20" cy="21" r="1"/>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-        </svg>
-        <span class="warenkorb-fab-count" id="warenkorb-fab-count" style="display:none;">0</span>
-    </button>
     <div class="warenkorb" id="warenkorb">
-        <h2>Warenkorb</h2>
-        <ul class="warenkorb-list" id="warenkorb-list"></ul>
-        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
-        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
+        <div class="warenkorb-inhalt" id="warenkorb-inhalt">
+            <h2>Warenkorb</h2>
+            <ul class="warenkorb-list" id="warenkorb-list"></ul>
+            <div class="warenkorb-gesamt"><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+            <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        </div>
     </div>
     <main>
         <h2>KAROSSERIE</h2>
