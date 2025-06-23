@@ -193,50 +193,169 @@
         <h2>Fenster-Netze und Abschleppösen Konfigurator</h2>
         <div style="display:flex;gap:40px;align-items:flex-start;justify-content:center;">
             <form id="netz-konfigurator" style="max-width:600px;flex:1;margin:0 0 32px 0;padding:24px 18px;background:rgba(255,255,255,0.93);border-radius:16px;box-shadow:0 2px 12px rgba(67,185,127,0.10);">
+                <!-- 1. Typ Auswahl -->
                 <fieldset style="border:none;margin-bottom:24px;">
                     <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Typ wählen</legend>
-                    <div style="display:flex;gap:24px;align-items:center;">
-                        <label style="margin-right:8px;display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="netz-typ" value="Standard" checked>
+                    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="typ" value="Kein Typ" checked>
+                            <img src="images/leer.png" alt="Kein Typ" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px dashed #bbb;">
+                            <span>Kein Typ</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="typ" value="Standard">
                             <img src="images/typ_standard.jpg" alt="Standard" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
                             <span>Standard</span>
                         </label>
-                        <label style="margin-right:8px;display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="netz-typ" value="Racing">
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="typ" value="Racing">
                             <img src="images/typ_racing.jpg" alt="Racing" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
                             <span>Racing</span>
                         </label>
                         <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="netz-typ" value="Heavy Duty">
+                            <input type="radio" name="typ" value="Heavy Duty">
                             <img src="images/typ_heavyduty.jpg" alt="Heavy Duty" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
                             <span>Heavy Duty</span>
                         </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="typ" value="Ultra Light">
+                            <img src="images/typ_ultralight.jpg" alt="Ultra Light" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Ultra Light</span>
+                        </label>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <span style="font-weight:bold;">Farbe:</span>
+                        <select name="typ-farbe" id="typ-farbe" style="margin-left:8px;">
+                            <option value="">Keine</option>
+                            <option value="Schwarz">Schwarz</option>
+                            <option value="Weiß">Weiß</option>
+                            <option value="Rot">Rot</option>
+                            <option value="Blau">Blau</option>
+                            <option value="Grün">Grün</option>
+                            <option value="Gelb">Gelb</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Lila">Lila</option>
+                            <option value="Türkis">Türkis</option>
+                            <option value="Braun">Braun</option>
+                            <option value="Silber">Silber</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Hellgrün">Hellgrün</option>
+                            <option value="Dunkelgrün">Dunkelgrün</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Camouflage">Camouflage</option>
+                            <option value="Carbon">Carbon</option>
+                        </select>
                     </div>
                 </fieldset>
-                <fieldset style="border:none;">
-                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">2. Farbe wählen</legend>
-                    <div id="farben-bilder" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
-                        <!-- Farbbilder werden per JS eingefügt -->
+                <!-- 2. Style Auswahl -->
+                <fieldset style="border:none;margin-bottom:24px;">
+                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">2. Style wählen</legend>
+                    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="style" value="Kein Style" checked>
+                            <img src="images/leer.png" alt="Kein Style" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px dashed #bbb;">
+                            <span>Kein Style</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="style" value="Classic">
+                            <img src="images/style_classic.jpg" alt="Classic" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Classic</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="style" value="Sport">
+                            <img src="images/style_sport.jpg" alt="Sport" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Sport</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="style" value="Mesh">
+                            <img src="images/style_mesh.jpg" alt="Mesh" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Mesh</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="style" value="Carbon">
+                            <img src="images/style_carbon.jpg" alt="Carbon" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Carbon</span>
+                        </label>
                     </div>
-                    <div style="display:flex;flex-wrap:wrap;gap:12px;">
-                        <label><input type="radio" name="netz-farbe" value="Schwarz" style="accent-color:#222;" checked> <span style="background:#222;color:#fff;padding:2px 10px;border-radius:6px;">Schwarz</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Weiß" style="accent-color:#fff;"> <span style="background:#fff;color:#222;padding:2px 10px;border-radius:6px;border:1px solid #bbb;">Weiß</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Rot" style="accent-color:#e81123;"> <span style="background:#e81123;color:#fff;padding:2px 10px;border-radius:6px;">Rot</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Blau" style="accent-color:#0078d4;"> <span style="background:#0078d4;color:#fff;padding:2px 10px;border-radius:6px;">Blau</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Grün" style="accent-color:#43b97f;"> <span style="background:#43b97f;color:#fff;padding:2px 10px;border-radius:6px;">Grün</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Gelb" style="accent-color:#ffe066;"> <span style="background:#ffe066;color:#222;padding:2px 10px;border-radius:6px;">Gelb</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Orange" style="accent-color:#ff9800;"> <span style="background:#ff9800;color:#fff;padding:2px 10px;border-radius:6px;">Orange</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Pink" style="accent-color:#e91e63;"> <span style="background:#e91e63;color:#fff;padding:2px 10px;border-radius:6px;">Pink</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Lila" style="accent-color:#9c27b0;"> <span style="background:#9c27b0;color:#fff;padding:2px 10px;border-radius:6px;">Lila</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Türkis" style="accent-color:#00bcd4;"> <span style="background:#00bcd4;color:#fff;padding:2px 10px;border-radius:6px;">Türkis</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Braun" style="accent-color:#795548;"> <span style="background:#795548;color:#fff;padding:2px 10px;border-radius:6px;">Braun</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Silber" style="accent-color:#bdbdbd;"> <span style="background:#bdbdbd;color:#222;padding:2px 10px;border-radius:6px;">Silber</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Gold" style="accent-color:#ffd700;"> <span style="background:#ffd700;color:#222;padding:2px 10px;border-radius:6px;">Gold</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Hellgrün" style="accent-color:#7be495;"> <span style="background:#7be495;color:#222;padding:2px 10px;border-radius:6px;">Hellgrün</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Dunkelgrün" style="accent-color:#1b3c2e;"> <span style="background:#1b3c2e;color:#fff;padding:2px 10px;border-radius:6px;">Dunkelgrün</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Beige" style="accent-color:#f5f5dc;"> <span style="background:#f5f5dc;color:#222;padding:2px 10px;border-radius:6px;">Beige</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Camouflage" style="accent-color:#78866b;"> <span style="background:#78866b;color:#fff;padding:2px 10px;border-radius:6px;">Camouflage</span></label>
-                        <label><input type="radio" name="netz-farbe" value="Carbon" style="accent-color:#444;"> <span style="background:#444;color:#fff;padding:2px 10px;border-radius:6px;">Carbon</span></label>
+                    <div style="margin-top:10px;">
+                        <span style="font-weight:bold;">Farbe:</span>
+                        <select name="style-farbe" id="style-farbe" style="margin-left:8px;">
+                            <option value="">Keine</option>
+                            <option value="Schwarz">Schwarz</option>
+                            <option value="Weiß">Weiß</option>
+                            <option value="Rot">Rot</option>
+                            <option value="Blau">Blau</option>
+                            <option value="Grün">Grün</option>
+                            <option value="Gelb">Gelb</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Lila">Lila</option>
+                            <option value="Türkis">Türkis</option>
+                            <option value="Braun">Braun</option>
+                            <option value="Silber">Silber</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Hellgrün">Hellgrün</option>
+                            <option value="Dunkelgrün">Dunkelgrün</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Camouflage">Camouflage</option>
+                            <option value="Carbon">Carbon</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <!-- 3. Öse Auswahl -->
+                <fieldset style="border:none;margin-bottom:24px;">
+                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">3. Öse wählen</legend>
+                    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="oese" value="Keine Öse" checked>
+                            <img src="images/leer.png" alt="Keine Öse" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px dashed #bbb;">
+                            <span>Keine Öse</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="oese" value="Standard">
+                            <img src="images/oese_standard.jpg" alt="Standard" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Standard</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="oese" value="Race">
+                            <img src="images/oese_race.jpg" alt="Race" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Race</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="oese" value="Heavy Duty">
+                            <img src="images/oese_heavyduty.jpg" alt="Heavy Duty" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Heavy Duty</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="oese" value="Ultra Light">
+                            <img src="images/oese_ultralight.jpg" alt="Ultra Light" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Ultra Light</span>
+                        </label>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <span style="font-weight:bold;">Farbe:</span>
+                        <select name="oese-farbe" id="oese-farbe" style="margin-left:8px;">
+                            <option value="">Keine</option>
+                            <option value="Schwarz">Schwarz</option>
+                            <option value="Weiß">Weiß</option>
+                            <option value="Rot">Rot</option>
+                            <option value="Blau">Blau</option>
+                            <option value="Grün">Grün</option>
+                            <option value="Gelb">Gelb</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Lila">Lila</option>
+                            <option value="Türkis">Türkis</option>
+                            <option value="Braun">Braun</option>
+                            <option value="Silber">Silber</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Hellgrün">Hellgrün</option>
+                            <option value="Dunkelgrün">Dunkelgrün</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Camouflage">Camouflage</option>
+                            <option value="Carbon">Carbon</option>
+                        </select>
                     </div>
                 </fieldset>
                 <div style="margin-top:28px;text-align:center;">
@@ -244,103 +363,89 @@
                 </div>
                 <div id="konfigurator-result" style="margin-top:24px;text-align:center;font-size:1.15em;font-weight:bold;"></div>
             </form>
-            <div id="konfigurator-bildvorschau" style="min-width:260px;max-width:320px;width:100%;background:rgba(255,255,255,0.97);border-radius:16px;box-shadow:0 2px 12px #43b97f;padding:18px 12px;text-align:center;">
-                <div style="font-weight:bold;font-size:1.1em;margin-bottom:10px;">Vorschau</div>
-                <img id="typ-bild" src="images/typ_standard.jpg" alt="Typ Vorschau" style="width:220px;height:120px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;margin-bottom:18px;">
-                <img id="farbe-bild" src="images/netz_schwarz.jpg" alt="Farbe Vorschau" style="width:120px;height:60px;object-fit:cover;border-radius:8px;box-shadow:0 1px 6px #43b97f;">
-                <div id="vorschau-labels" style="margin-top:10px;font-size:1em;">
-                    <span id="typ-label">Standard</span> / <span id="farbe-label">Schwarz</span>
+            <div id="konfigurator-bildvorschau" style="min-width:260px;max-width:320px;width:100%;background:linear-gradient(90deg,#1b3c2e 0%,#43b97f 100%);border-radius:16px;box-shadow:0 2px 12px #43b97f;padding:18px 12px;text-align:center;">
+                <div style="font-weight:bold;font-size:1.1em;margin-bottom:10px;color:#fff;">Vorschau</div>
+                <div id="vorschau-typ" style="margin-bottom:22px;">
+                    <img id="typ-bild" src="images/leer.png" alt="Typ Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
+                    <div id="typ-farbe-label" style="margin-top:8px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
+                </div>
+                <div id="vorschau-style" style="margin-bottom:22px;">
+                    <img id="style-bild" src="images/leer.png" alt="Style Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
+                    <div id="style-farbe-label" style="margin-top:8px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
+                </div>
+                <div id="vorschau-oese">
+                    <img id="oese-bild" src="images/leer.png" alt="Öse Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
+                    <div id="oese-farbe-label" style="margin-top:8px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
                 </div>
             </div>
         </div>
         <script>
-            // Zuordnung Typ zu Bild
+            // Bildzuordnung für Typen, Styles, Ösen
             const typBilder = {
+                "Kein Typ": "images/leer.png",
                 "Standard": "images/typ_standard.jpg",
                 "Racing": "images/typ_racing.jpg",
-                "Heavy Duty": "images/typ_heavyduty.jpg"
+                "Heavy Duty": "images/typ_heavyduty.jpg",
+                "Ultra Light": "images/typ_ultralight.jpg"
             };
-            // Zuordnung Farbe zu Bild (hier Platzhalter, ggf. eigene Bilder verwenden)
-            const farbenBilder = {
-                "Schwarz": "images/netz_schwarz.jpg",
-                "Weiß": "images/netz_weiss.jpg",
-                "Rot": "images/netz_rot.jpg",
-                "Blau": "images/netz_blau.jpg",
-                "Grün": "images/netz_gruen.jpg",
-                "Gelb": "images/netz_gelb.jpg",
-                "Orange": "images/netz_orange.jpg",
-                "Pink": "images/netz_pink.jpg",
-                "Lila": "images/netz_lila.jpg",
-                "Türkis": "images/netz_tuerkis.jpg",
-                "Braun": "images/netz_braun.jpg",
-                "Silber": "images/netz_silber.jpg",
-                "Gold": "images/netz_gold.jpg",
-                "Hellgrün": "images/netz_hellgruen.jpg",
-                "Dunkelgrün": "images/netz_dunkelgruen.jpg",
-                "Beige": "images/netz_beige.jpg",
-                "Camouflage": "images/netz_camouflage.jpg",
-                "Carbon": "images/netz_carbon.jpg"
+            const styleBilder = {
+                "Kein Style": "images/leer.png",
+                "Classic": "images/style_classic.jpg",
+                "Sport": "images/style_sport.jpg",
+                "Mesh": "images/style_mesh.jpg",
+                "Carbon": "images/style_carbon.jpg"
             };
+            const oeseBilder = {
+                "Keine Öse": "images/leer.png",
+                "Standard": "images/oese_standard.jpg",
+                "Race": "images/oese_race.jpg",
+                "Heavy Duty": "images/oese_heavyduty.jpg",
+                "Ultra Light": "images/oese_ultralight.jpg"
+            };
+            // Farben-Liste
+            const farben = [
+                "Keine", "Schwarz", "Weiß", "Rot", "Blau", "Grün", "Gelb", "Orange", "Pink", "Lila", "Türkis", "Braun", "Silber", "Gold", "Hellgrün", "Dunkelgrün", "Beige", "Camouflage", "Carbon"
+            ];
 
-            function updateTypBild() {
-                const typ = document.querySelector('input[name="netz-typ"]:checked').value;
-                document.getElementById('typ-bild').src = typBilder[typ] || '';
+            function updateVorschau() {
+                // Typ
+                const typ = document.querySelector('input[name="typ"]:checked').value;
+                const typFarbe = document.getElementById('typ-farbe').value || "Keine";
+                document.getElementById('typ-bild').src = typBilder[typ] || "images/leer.png";
                 document.getElementById('typ-bild').alt = typ;
-                document.getElementById('typ-label').textContent = typ;
-            }
+                document.getElementById('typ-farbe-label').textContent = typFarbe;
 
-            function updateFarbeBild() {
-                const farbe = document.querySelector('input[name="netz-farbe"]:checked').value;
-                document.getElementById('farbe-bild').src = farbenBilder[farbe] || '';
-                document.getElementById('farbe-bild').alt = farbe;
-                document.getElementById('farbe-label').textContent = farbe;
-            }
+                // Style
+                const style = document.querySelector('input[name="style"]:checked').value;
+                const styleFarbe = document.getElementById('style-farbe').value || "Keine";
+                document.getElementById('style-bild').src = styleBilder[style] || "images/leer.png";
+                document.getElementById('style-bild').alt = style;
+                document.getElementById('style-farbe-label').textContent = styleFarbe;
 
-            function updateFarbenBilder() {
-                const farbenDiv = document.getElementById('farben-bilder');
-                farbenDiv.innerHTML = '';
-                Object.entries(farbenBilder).forEach(([farbe, src]) => {
-                    const wrapper = document.createElement('div');
-                    wrapper.style = "display:flex;flex-direction:column;align-items:center;";
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = farbe;
-                    img.style = "width:60px;height:36px;object-fit:cover;border-radius:7px;box-shadow:0 1px 6px #43b97f;margin-bottom:4px;";
-                    const label = document.createElement('span');
-                    label.textContent = farbe;
-                    label.style = "font-size:0.95em;";
-                    wrapper.appendChild(img);
-                    wrapper.appendChild(label);
-                    farbenDiv.appendChild(wrapper);
-                });
+                // Öse
+                const oese = document.querySelector('input[name="oese"]:checked').value;
+                const oeseFarbe = document.getElementById('oese-farbe').value || "Keine";
+                document.getElementById('oese-bild').src = oeseBilder[oese] || "images/leer.png";
+                document.getElementById('oese-bild').alt = oese;
+                document.getElementById('oese-farbe-label').textContent = oeseFarbe;
             }
 
             document.addEventListener('DOMContentLoaded', function() {
-                // Farben-Bilder initial anzeigen
-                updateFarbenBilder();
-
-                // Typ-Wechsel
-                document.querySelectorAll('input[name="netz-typ"]').forEach(el => {
-                    el.addEventListener('change', function() {
-                        updateTypBild();
-                    });
-                });
-
-                // Farbe-Wechsel
-                document.querySelectorAll('input[name="netz-farbe"]').forEach(el => {
-                    el.addEventListener('change', function() {
-                        updateFarbeBild();
-                    });
-                });
-
-                // Initiale Vorschau setzen
-                updateTypBild();
-                updateFarbeBild();
+                // Alle Inputs für Typ, Style, Öse und Farben
+                document.querySelectorAll('input[name="typ"], #typ-farbe, input[name="style"], #style-farbe, input[name="oese"], #oese-farbe')
+                    .forEach(el => el.addEventListener('change', updateVorschau));
+                // Initiale Vorschau
+                updateVorschau();
 
                 document.getElementById('konfigurator-ausgabe').onclick = function() {
-                    const typ = document.querySelector('input[name="netz-typ"]:checked').value;
-                    const farbe = document.querySelector('input[name="netz-farbe"]:checked').value;
-                    document.getElementById('konfigurator-result').textContent = `Ausgewählt: Typ "${typ}", Farbe "${farbe}"`;
+                    const typ = document.querySelector('input[name="typ"]:checked').value;
+                    const typFarbe = document.getElementById('typ-farbe').value || "Keine";
+                    const style = document.querySelector('input[name="style"]:checked').value;
+                    const styleFarbe = document.getElementById('style-farbe').value || "Keine";
+                    const oese = document.querySelector('input[name="oese"]:checked').value;
+                    const oeseFarbe = document.getElementById('oese-farbe').value || "Keine";
+                    document.getElementById('konfigurator-result').textContent =
+                        `Ausgewählt: Typ "${typ}" (${typFarbe}), Style "${style}" (${styleFarbe}), Öse "${oese}" (${oeseFarbe})`;
                 };
             });
         </script>
