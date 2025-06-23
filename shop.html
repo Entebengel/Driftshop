@@ -196,24 +196,26 @@
             background-clip: border-box;
             -webkit-background-clip: border-box;
         }
-        /* Warenkorb unten rechts kompakt, schmal und durchsichtiger */
+        /* Warenkorb unten rechts kompakt, schmal, durchsichtiger, maximal halbe Höhe */
         #warenkorb {
             position: fixed;
             right: 18px;
             bottom: 72px; /* Oberhalb des Symbols */
             z-index: 1000;
-            min-width: 16px;
-            max-width: 24px;
+            min-width: 160px;
+            max-width: 240px;
             width: 88vw;
-            background: #46a012d9;
-            border-radius: 22px;
+            max-height: 50vh;
+            background: rgba(70, 160, 18, 0.85);
+            border-radius: 12px;
             box-shadow: 0 4px 18px rgba(67,185,127,0.18), 0 2px 8px rgba(67,185,127,0.10);
             padding: 10px 8px 8px 8px;
             border: 2px solid #43b97f;
             display: none;
-            transition: box-shadow 0.2s, opacity 0.2s, width 0.2s, background 0.2s;
+            transition: box-shadow 0.2s, opacity 0.2s, width 0.2s, background 0.2s, max-height 0.2s;
             font-size: 0.98rem;
             backdrop-filter: blur(6px);
+            overflow-y: auto;
         }
         #warenkorb.anzeigen {
             display: block;
@@ -225,7 +227,7 @@
             padding: 0;
         }
         #warenkorb-list {
-            max-height: 90px;
+            max-height: 30vh;
             overflow-y: auto;
             margin: 0 0 6px 0;
             padding: 0;
