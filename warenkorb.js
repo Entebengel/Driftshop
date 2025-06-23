@@ -51,8 +51,8 @@ function updateWarenkorbFab() {
             fabCount.style.display = 'none';
             wk.classList.remove('anzeigen');
         }
-        // Warenkorb immer unten rechts
-        wk.classList.remove('anzeigen');
+        // Warenkorb nicht dauerhaft anzeigen, sondern nur bei Klick
+        // wk.classList.remove('anzeigen'); // entfernt!
     }
 }
 
@@ -60,6 +60,18 @@ function toggleWarenkorb() {
     const wk = document.getElementById('warenkorb');
     if (wk) {
         wk.classList.toggle('anzeigen');
+        // Bei Öffnen: Position und Größe anpassen (unten rechts, kompakt)
+        if (wk.classList.contains('anzeigen')) {
+            wk.style.position = 'fixed';
+            wk.style.right = '32px';
+            wk.style.bottom = '80px'; // Oberhalb des Symbols
+            wk.style.maxWidth = '340px';
+            wk.style.width = '90vw';
+            wk.style.zIndex = '1001';
+            wk.style.display = 'block';
+        } else {
+            wk.style.display = 'none';
+        }
     }
 }
 
