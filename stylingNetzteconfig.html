@@ -193,120 +193,21 @@
         <h2>Netz-Paket-Konfigurator</h2>
         <div style="display:flex;gap:40px;align-items:flex-start;justify-content:center;">
             <form id="netz-konfigurator" style="max-width:600px;flex:1;margin:0 0 32px 0;padding:24px 18px;background:rgba(255,255,255,0.93);border-radius:16px;box-shadow:0 2px 12px rgba(67,185,127,0.10);">
-                <!-- 1. Typ Auswahl als Dropdown -->
                 <fieldset style="border:none;margin-bottom:24px;">
-                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Race-Netz</legend>
-                    <div style="margin-bottom:10px;">
-                        <span style="font-weight:bold;">Race-Netz:</span>
-                        <select name="typ" id="typ-auswahl" style="margin-left:8px;">
-                            <option value="Kein Typ">Kein Typ</option>
-                            <option value="Standard">Standard</option>
-                            <option value="Racing">Racing</option>
-                            <option value="Heavy Duty">Heavy Duty</option>
-                            <option value="Ultra Light">Ultra Light</option>
-                        </select>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <span style="font-weight:bold;">Farbe:</span>
-                        <select name="typ-farbe" id="typ-farbe" style="margin-left:8px;">
-                            <option value="">Keine</option>
-                            <option value="Schwarz">Schwarz</option>
-                            <option value="Weiß">Weiß</option>
-                            <option value="Rot">Rot</option>
-                            <option value="Blau">Blau</option>
-                            <option value="Grün">Grün</option>
-                            <option value="Gelb">Gelb</option>
-                            <option value="Orange">Orange</option>
-                            <option value="Pink">Pink</option>
-                            <option value="Lila">Lila</option>
-                            <option value="Türkis">Türkis</option>
-                            <option value="Braun">Braun</option>
-                            <option value="Silber">Silber</option>
-                            <option value="Gold">Gold</option>
-                            <option value="Hellgrün">Hellgrün</option>
-                            <option value="Dunkelgrün">Dunkelgrün</option>
-                            <option value="Beige">Beige</option>
-                            <option value="Camouflage">Camouflage</option>
-                            <option value="Carbon">Carbon</option>
+                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Paket wählen</legend>
+                    <div style="margin-bottom:18px;">
+                        <span style="font-weight:bold;">Paket:</span>
+                        <select id="paket-auswahl" name="paket" style="margin-left:8px;">
+                            <option value="">Bitte wählen...</option>
+                            <option value="race">Race-Netz + Öse</option>
+                            <option value="drift">Drift-Netz + Öse</option>
+                            <option value="komplett">Komplettpaket</option>
                         </select>
                     </div>
                 </fieldset>
-                <!-- 2. Style Auswahl als Dropdown -->
-                <fieldset style="border:none;margin-bottom:24px;">
-                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">2. Drift-Netz</legend>
-                    <div style="margin-bottom:10px;">
-                        <span style="font-weight:bold;">Drift-Netz:</span>
-                        <select name="style" id="style-auswahl" style="margin-left:8px;">
-                            <option value="Kein Style">Kein Style</option>
-                            <option value="Classic">Classic</option>
-                            <option value="Sport">Sport</option>
-                            <option value="Mesh">Mesh</option>
-                            <option value="Carbon">Carbon</option>
-                        </select>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <span style="font-weight:bold;">Farbe:</span>
-                        <select name="style-farbe" id="style-farbe" style="margin-left:8px;">
-                            <option value="">Keine</option>
-                            <option value="Schwarz">Schwarz</option>
-                            <option value="Weiß">Weiß</option>
-                            <option value="Rot">Rot</option>
-                            <option value="Blau">Blau</option>
-                            <option value="Grün">Grün</option>
-                            <option value="Gelb">Gelb</option>
-                            <option value="Orange">Orange</option>
-                            <option value="Pink">Pink</option>
-                            <option value="Lila">Lila</option>
-                            <option value="Türkis">Türkis</option>
-                            <option value="Braun">Braun</option>
-                            <option value="Silber">Silber</option>
-                            <option value="Gold">Gold</option>
-                            <option value="Hellgrün">Hellgrün</option>
-                            <option value="Dunkelgrün">Dunkelgrün</option>
-                            <option value="Beige">Beige</option>
-                            <option value="Camouflage">Camouflage</option>
-                            <option value="Carbon">Carbon</option>
-                        </select>
-                    </div>
-                </fieldset>
-                <!-- 3. Öse Auswahl als Dropdown -->
-                <fieldset style="border:none;margin-bottom:24px;">
-                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">3. Öse</legend>
-                    <div style="margin-bottom:10px;">
-                        <span style="font-weight:bold;">Öse:</span>
-                        <select name="oese" id="oese-auswahl" style="margin-left:8px;">
-                            <option value="Keine Öse">Keine Öse</option>
-                            <option value="Standard">Standard</option>
-                            <option value="Race">Race</option>
-                            <option value="Heavy Duty">Heavy Duty</option>
-                            <option value="Ultra Light">Ultra Light</option>
-                        </select>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <span style="font-weight:bold;">Farbe:</span>
-                        <select name="oese-farbe" id="oese-farbe" style="margin-left:8px;">
-                            <option value="">Keine</option>
-                            <option value="Schwarz">Schwarz</option>
-                            <option value="Weiß">Weiß</option>
-                            <option value="Rot">Rot</option>
-                            <option value="Blau">Blau</option>
-                            <option value="Grün">Grün</option>
-                            <option value="Gelb">Gelb</option>
-                            <option value="Orange">Orange</option>
-                            <option value="Pink">Pink</option>
-                            <option value="Lila">Lila</option>
-                            <option value="Türkis">Türkis</option>
-                            <option value="Braun">Braun</option>
-                            <option value="Silber">Silber</option>
-                            <option value="Gold">Gold</option>
-                            <option value="Hellgrün">Hellgrün</option>
-                            <option value="Dunkelgrün">Dunkelgrün</option>
-                            <option value="Beige">Beige</option>
-                            <option value="Camouflage">Camouflage</option>
-                            <option value="Carbon">Carbon</option>
-                        </select>
-                    </div>
-                </fieldset>
+                <div id="paket-farben-container">
+                    <!-- Dynamisch per JS -->
+                </div>
                 <div style="margin-top:28px;text-align:center;">
                     <button type="button" id="konfigurator-ausgabe" style="background:linear-gradient(90deg,#43b97f 0%,#7be495 100%);color:#fff;font-weight:bold;padding:10px 28px;border:none;border-radius:8px;font-size:1.1em;cursor:pointer;">Auswahl anzeigen</button>
                 </div>
@@ -314,53 +215,152 @@
             </form>
             <div id="konfigurator-bildvorschau" style="min-width:260px;max-width:320px;width:100%;background:linear-gradient(90deg,#1b3c2e 0%,#43b97f 100%);border-radius:16px;box-shadow:0 2px 12px #43b97f;padding:18px 12px;text-align:center;">
                 <div style="font-weight:bold;font-size:1.1em;margin-bottom:10px;color:#fff;">Vorschau</div>
-                <div id="vorschau-typ" style="margin-bottom:22px;">
-                    <img id="typ-bild" src="images/leer.png" alt="Typ Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
-                    <div id="typ-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
-                    <div id="typ-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
+                <div id="vorschau-race" style="margin-bottom:22px;display:none;">
+                    <img id="race-bild" src="images/netzthellgrüngelb.jpeg" alt="Race-Netz Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
+                    <div id="race-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
+                    <div id="race-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
                 </div>
-                <div id="vorschau-style" style="margin-bottom:22px;">
-                    <img id="style-bild" src="images/leer.png" alt="Style Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
-                    <div id="style-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
-                    <div id="style-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
+                <div id="vorschau-drift" style="margin-bottom:22px;display:none;">
+                    <img id="drift-bild" src="images/style_classic.jpg" alt="Drift-Netz Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
+                    <div id="drift-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
+                    <div id="drift-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
                 </div>
-                <div id="vorschau-oese">
-                    <img id="oese-bild" src="images/leer.png" alt="Öse Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
+                <div id="vorschau-oese" style="display:none;">
+                    <img id="oese-bild" src="images/oese_standard.jpg" alt="Öse Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
                     <div id="oese-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
                     <div id="oese-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
                 </div>
             </div>
         </div>
         <script>
-            // Bildzuordnung für Typen, Styles, Ösen
-            const typBilder = {
-                "Kein Typ": "images/leer.png",
-                "Standard": "images/netzthellgrüngelb.jpeg",
-                "Racing": "images/typ_racing.jpg",
-                "Heavy Duty": "images/typ_heavyduty.jpg",
-                "Ultra Light": "images/typ_ultralight.jpg"
-            };
-            const styleBilder = {
-                "Kein Style": "images/leer.png",
-                "Classic": "images/style_classic.jpg",
-                "Sport": "images/style_sport.jpg",
-                "Mesh": "images/style_mesh.jpg",
-                "Carbon": "images/style_carbon.jpg"
-            };
-            const oeseBilder = {
-                "Keine Öse": "images/leer.png",
-                "Standard": "images/oese_standard.jpg",
-                "Race": "images/oese_race.jpg",
-                "Heavy Duty": "images/oese_heavyduty.jpg",
-                "Ultra Light": "images/oese_ultralight.jpg"
-            };
             // Farben-Liste
             const farben = [
                 "Keine", "Schwarz", "Weiß", "Rot", "Blau", "Grün", "Gelb", "Orange", "Pink", "Lila", "Türkis", "Braun", "Silber", "Gold", "Hellgrün", "Dunkelgrün", "Beige", "Camouflage", "Carbon"
             ];
-            // Farbzuordnung für Balken
             const farbwerte = {
                 "Schwarz": "#222",
+                "Weiß": "#fff",
+                "Rot": "#e81123",
+                "Blau": "#0078d4",
+                "Grün": "#43b97f",
+                "Gelb": "#ffe066",
+                "Orange": "#ff9800",
+                "Pink": "#e91e63",
+                "Lila": "#9c27b0",
+                "Türkis": "#00bcd4",
+                "Braun": "#795548",
+                "Silber": "#bdbdbd",
+                "Gold": "#ffd700",
+                "Hellgrün": "#7be495",
+                "Dunkelgrün": "#1b3c2e",
+                "Beige": "#f5f5dc",
+                "Camouflage": "#78866b",
+                "Carbon": "#444",
+                "Keine": "transparent",
+                "": "transparent"
+            };
+            // Bildzuordnung
+            const raceBild = "images/netzthellgrüngelb.jpeg";
+            const driftBild = "images/style_classic.jpg";
+            const oeseBild = "images/oese_standard.jpg";
+
+            function farbenDropdown(id, label) {
+                let html = `<div style="margin-bottom:10px;"><span style="font-weight:bold;">${label}:</span> <select id="${id}" style="margin-left:8px;">`;
+                farben.forEach(f => html += `<option value="${f}">${f}</option>`);
+                html += `</select></div>`;
+                return html;
+            }
+
+            function showPaketFarben() {
+                const paket = document.getElementById('paket-auswahl').value;
+                const container = document.getElementById('paket-farben-container');
+                container.innerHTML = '';
+                // Vorschau ausblenden
+                document.getElementById('vorschau-race').style.display = 'none';
+                document.getElementById('vorschau-drift').style.display = 'none';
+                document.getElementById('vorschau-oese').style.display = 'none';
+
+                if (paket === "race") {
+                    container.innerHTML =
+                        farbenDropdown("race-farbe", "Race-Netz-Farbe") +
+                        farbenDropdown("oese-farbe", "Ösen-Farbe");
+                    document.getElementById('vorschau-race').style.display = '';
+                    document.getElementById('vorschau-oese').style.display = '';
+                } else if (paket === "drift") {
+                    container.innerHTML =
+                        farbenDropdown("drift-farbe", "Drift-Netz-Farbe") +
+                        farbenDropdown("oese-farbe", "Ösen-Farbe");
+                    document.getElementById('vorschau-drift').style.display = '';
+                    document.getElementById('vorschau-oese').style.display = '';
+                } else if (paket === "komplett") {
+                    container.innerHTML =
+                        farbenDropdown("race-farbe", "Race-Netz-Farbe") +
+                        farbenDropdown("drift-farbe", "Drift-Netz-Farbe") +
+                        farbenDropdown("oese-farbe", "Ösen-Farbe");
+                    document.getElementById('vorschau-race').style.display = '';
+                    document.getElementById('vorschau-drift').style.display = '';
+                    document.getElementById('vorschau-oese').style.display = '';
+                }
+                updateVorschau();
+                // Event-Listener für neue Dropdowns
+                ["race-farbe", "drift-farbe", "oese-farbe"].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.addEventListener('change', updateVorschau);
+                });
+            }
+
+            function updateVorschau() {
+                const paket = document.getElementById('paket-auswahl').value;
+                // Race
+                let raceFarbe = "";
+                if (paket === "race" || paket === "komplett") {
+                    raceFarbe = document.getElementById('race-farbe')?.value || "Keine";
+                    document.getElementById('race-bild').src = raceBild;
+                    document.getElementById('race-farbebalken').style.background = farbwerte[raceFarbe] || "transparent";
+                    document.getElementById('race-farbe-label').textContent = raceFarbe;
+                }
+                // Drift
+                let driftFarbe = "";
+                if (paket === "drift" || paket === "komplett") {
+                    driftFarbe = document.getElementById('drift-farbe')?.value || "Keine";
+                    document.getElementById('drift-bild').src = driftBild;
+                    document.getElementById('drift-farbebalken').style.background = farbwerte[driftFarbe] || "transparent";
+                    document.getElementById('drift-farbe-label').textContent = driftFarbe;
+                }
+                // Öse
+                let oeseFarbe = "";
+                if (paket === "race" || paket === "drift" || paket === "komplett") {
+                    oeseFarbe = document.getElementById('oese-farbe')?.value || "Keine";
+                    document.getElementById('oese-bild').src = oeseBild;
+                    document.getElementById('oese-farbebalken').style.background = farbwerte[oeseFarbe] || "transparent";
+                    document.getElementById('oese-farbe-label').textContent = oeseFarbe;
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('paket-auswahl').addEventListener('change', showPaketFarben);
+                // Initial
+                showPaketFarben();
+
+                document.getElementById('konfigurator-ausgabe').onclick = function() {
+                    const paket = document.getElementById('paket-auswahl').value;
+                    let result = '';
+                    if (paket === "race") {
+                        result = `Race-Netz: ${document.getElementById('race-farbe')?.value || "Keine"}, Öse: ${document.getElementById('oese-farbe')?.value || "Keine"}`;
+                    } else if (paket === "drift") {
+                        result = `Drift-Netz: ${document.getElementById('drift-farbe')?.value || "Keine"}, Öse: ${document.getElementById('oese-farbe')?.value || "Keine"}`;
+                    } else if (paket === "komplett") {
+                        result = `Race-Netz: ${document.getElementById('race-farbe')?.value || "Keine"}, Drift-Netz: ${document.getElementById('drift-farbe')?.value || "Keine"}, Öse: ${document.getElementById('oese-farbe')?.value || "Keine"}`;
+                    }
+                    document.getElementById('konfigurator-result').textContent = result;
+                };
+            });
+        </script>
+        <div id="livery-list" class="artikel-liste"></div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
                 "Weiß": "#fff",
                 "Rot": "#e81123",
                 "Blau": "#0078d4",
