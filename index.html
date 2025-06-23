@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Driftshop - Startseite</title>
     <link rel="stylesheet" href="warenkorb.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background: #eafaf1 url('images/hintergrund.png') no-repeat center center fixed;
-            background-size: cover;
+            /* Hintergrundbild entfernt, Video übernimmt */
+            background: none;
             /* ...existing code... */
         }
         /* ...existing code aus warenkorb.css... */
@@ -22,18 +23,30 @@
             width: auto;
             margin-right: 8px;
         }
+        .header-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* ...existing code... */
+        }
     </style>
 </head>
 <body>
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="videos/driftshop_bg.mp4" type="video/mp4">
+        Ihr Browser unterstützt kein Hintergrundvideo.
+    </video>
     <header>
         <img src="images/driftshop_logo.png" alt="Driftshop Logo" class="driftshop-logo">
-        <h1>Driftshop</h1>
-        <nav>
-            <a href="index.html">Startseite</a>
-            <a href="shop.html">Shop</a>            
-            <a href="weare.html">We Are</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
     </header>
     <div class="warenkorb" id="warenkorb">
         <h2>Warenkorb</h2>
