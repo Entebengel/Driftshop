@@ -196,6 +196,39 @@
             background-clip: border-box;
             -webkit-background-clip: border-box;
         }
+        /* Warenkorb unten rechts fixieren */
+        #warenkorb {
+            position: fixed;
+            right: 32px;
+            bottom: 32px;
+            z-index: 1000;
+            min-width: 320px;
+            max-width: 90vw;
+            background: linear-gradient(135deg, #fff 80%, #e6f9ee 100%);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(67,185,127,0.18), 0 2px 8px rgba(67,185,127,0.10);
+            padding: 24px 20px 18px 20px;
+            border: 2px solid #43b97f;
+            display: none;
+            transition: box-shadow 0.2s, opacity 0.2s;
+        }
+        #warenkorb.anzeigen {
+            display: block;
+            animation: warenkorb-fadein 0.2s;
+        }
+        @keyframes warenkorb-fadein {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        /* Optional: Button für mobile besser erreichbar */
+        @media (max-width: 600px) {
+            #warenkorb {
+                right: 4vw;
+                bottom: 4vw;
+                min-width: 220px;
+                padding: 14px 8px 10px 8px;
+            }
+        }
         @media (max-width: 900px) {
             main {
                 padding: 18px 4vw;
