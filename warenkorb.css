@@ -135,7 +135,7 @@ main {
     display: none;
     position: fixed;
     right: 32px;
-    bottom: 80px; /* Direkt über dem Button */
+    bottom: 80px; /* Direkt über dem Warenkorb-Button */
     background: rgba(255,255,255,0.92);
     border: 2.5px solid #43b97f;
     border-radius: 14px;
