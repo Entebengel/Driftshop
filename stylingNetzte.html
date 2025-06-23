@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Liverys</title>
+    <link rel="stylesheet" href="warenkorb.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #eafaf1 url('images/hintergrund.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            color: #1a2e22;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            color: #fff;
+            padding: 32px 0 20px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(30,125,77,0.10);
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 800;
+            color: #222;
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            display: inline-block;
+            transition: none;
+            position: static;
+        }
+        nav {
+            margin-top: 18px;
+        }
+        nav a {
+            background: linear-gradient(135deg, #7be495 0%, #43b97f 100%);
+            border-radius: 8px;
+            padding: 8px 18px;
+            margin: 0 8px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            text-decoration: none;
+            border: 2px solid #43b97f;
+            color: #1b3c2e !important;
+            font-weight: bold;
+            display: inline-block;
+        }
+        nav a:hover,
+        nav a:focus {
+            background: linear-gradient(135deg, #43b97f 0%, #7be495 100%);
+            box-shadow: 0 4px 24px rgba(67,185,127,0.18);
+            color: #fff !important;
+            -webkit-text-fill-color: #fff;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(67,185,127,0.10);
+        }
+        .artikel-liste {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            justify-content: flex-start;
+        }
+        .artikel {
+            border: none;
+            border-radius: 18px;
+            padding: 22px 18px 18px 18px;
+            width: 260px;
+            box-sizing: border-box;
+            text-align: center;
+            background: #f6fff9;
+            box-shadow: 0 2px 12px rgba(67,185,127,0.10);
+            transition: box-shadow 0.2s, transform 0.2s;
+            position: relative;
+        }
+        .artikel:hover {
+            box-shadow: 0 8px 32px rgba(67,185,127,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .artikel img {
+            width: 210px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            background: #e6f9ee;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.08);
+        }
+        .beschreibung {
+            margin: 16px 0 12px 0;
+            font-size: 1.08em;
+            color: #1a2e22;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .preis {
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+            color: #1e7d4d;
+            font-size: 1.18em;
+        }
+        .warenkorb-btn {
+            background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1.08em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        .warenkorb-btn:hover {
+            background: linear-gradient(90deg, #1e7d4d 0%, #43b97f 100%);
+            box-shadow: 0 4px 16px rgba(67,185,127,0.18);
+            transform: scale(1.04);
+        }
+        .warenkorb-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        @media (max-width: 900px) {
+            main {
+                padding: 18px 4vw;
+            }
+            .artikel {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            .artikel-liste {
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                border-radius: 0 0 18px 18px;
+                padding: 20px 0 12px 0;
+            }
+        }
+    </style>
+    <script type="module">
+        import { liverys } from './data/liverys.js';
+        window.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('livery-list');
+            if (!container) return;
+            container.innerHTML = '';
+            liverys.forEach(livery => {
+                const div = document.createElement('div');
+                div.className = 'artikel';
+                // Bild
+                const img = document.createElement('img');
+                img.src = livery.images[0];
+                img.alt = livery.name;
+                // Name
+                const name = document.createElement('h3');
+                name.textContent = livery.name;
+                // Kurzbeschreibung
+                const desc = document.createElement('div');
+                desc.className = 'beschreibung';
+                desc.textContent = livery.shortDesc;
+                // Preis
+                const price = document.createElement('span');
+                price.className = 'preis';
+                price.textContent = livery.price.toFixed(2) + ' €';
+                // Button
+                const btn = document.createElement('button');
+                btn.className = 'warenkorb-btn';
+                btn.textContent = 'In den Warenkorb';
+                btn.onclick = () => zumWarenkorb(btn);
+                // SVG Icon
+                btn.innerHTML = `<svg class="warenkorb-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg> In den Warenkorb`;
+
+                div.appendChild(img);
+                div.appendChild(name);
+                div.appendChild(desc);
+                div.appendChild(price);
+                div.appendChild(btn);
+
+                container.appendChild(div);
+            });
+        });
+    </script>
+</head>
+<body>
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="videos/20241125_AmazingHardHamburgerNomNom-EQw9sjMD4z_3h_Nh_source.mp4" type="video/mp4">
+        Ihr Browser unterstützt kein Hintergrundvideo.
+    </video>
+    <header>
+        <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
+        <div class="warenkorb-inhalt" id="warenkorb-inhalt">
+            <h2>Warenkorb</h2>
+            <ul class="warenkorb-list" id="warenkorb-list"></ul>
+            <div class="warenkorb-gesamt"><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+            <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        </div>
+    </div>
+    <main>
+        <h2>Liverys</h2>
+        <div id="livery-list" class="artikel-liste"></div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
