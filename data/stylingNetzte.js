@@ -12,7 +12,7 @@ export const liverys = [
     name: "Urban Camo",
     shortDesc: "Modernes Camouflage-Design für Individualisten.",
     longDesc: "Das Urban Camo Design hebt dein Auto von der Masse ab. Perfekt für alle, die auffallen wollen.",
-    price: 2549,
+    <span class="preis">29,99 €</span>
     images: ["images/liverys_kategorie.jpg", "images/liverys_kategorie.jpg"]
   },
   // ...weitere Artikel...
