@@ -1,11 +1,11 @@
 export const liverys = [
   {
     id: "livery1",
-    name: "Racing Stripe",
+    name: "Racing Net Pack ",
     shortDesc: "Klassische Rennstreifen für sportlichen Look.",
-    longDesc: "Verleihe deinem Fahrzeug einen sportlichen Look mit klassischen Rennstreifen. Hochwertige Folie, UV-beständig und langlebig.",
-    price: 1959,
-    images: ["images/anbauteile_kategorie.jpg", "images/anbauteile_kategorie.jpg"]
+    longDesc: "Verleihe deinem Fahrzeug einen sportlichen Look mit klassischen Rennnetzten in hellgrün. UV-beständig und langlebig.",
+    price: 12,
+    images: ["images/netzthellgrüngelb.jpeg", "images/netzthellgrüngelb.jpeg"]
   },
   {
     id: "livery2",
