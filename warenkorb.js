@@ -32,8 +32,39 @@ function zumWarenkorb(btn) {
     warenkorbAnzeigen();
 }
 
+function updateWarenkorbFab() {
+    let warenkorb = [];
+    try {
+        warenkorb = JSON.parse(localStorage.getItem('warenkorb')) || [];
+    } catch {}
+    const count = warenkorb.reduce((sum, item) => sum + (item.menge || 0), 0);
+    const fab = document.getElementById('warenkorb-fab');
+    const fabCount = document.getElementById('warenkorb-fab-count');
+    const wk = document.getElementById('warenkorb');
+    if (fab && fabCount && wk) {
+        if (count > 0) {
+            fab.style.display = 'flex';
+            fabCount.style.display = 'flex';
+            fabCount.textContent = count;
+        } else {
+            fab.style.display = 'flex';
+            fabCount.style.display = 'none';
+            wk.classList.remove('anzeigen');
+        }
+        // Warenkorb immer unten rechts
+        wk.classList.remove('anzeigen');
+    }
+}
+
+function toggleWarenkorb() {
+    const wk = document.getElementById('warenkorb');
+    if (wk) {
+        wk.classList.toggle('anzeigen');
+    }
+}
+
 function warenkorbAnzeigen() {
-    ladeWarenkorb(); // immer aktuell laden
+    ladeWarenkorb();
     const list = document.getElementById('warenkorb-list');
     if (!list) return;
     list.innerHTML = '';
@@ -48,6 +79,7 @@ function warenkorbAnzeigen() {
     if (gesamtElem) {
         gesamtElem.textContent = gesamt.toFixed(2) + ' €';
     }
+    updateWarenkorbFab();
 }
 
 function warenkorbLeeren() {
@@ -58,6 +90,24 @@ function warenkorbLeeren() {
 
 document.addEventListener('DOMContentLoaded', () => {
     warenkorbAnzeigen();
+    // Falls das Icon noch nicht existiert, dynamisch einfügen
+    if (!document.getElementById('warenkorb-fab')) {
+        const fab = document.createElement('button');
+        fab.className = 'warenkorb-fab';
+        fab.id = 'warenkorb-fab';
+        fab.type = 'button';
+        fab.onclick = toggleWarenkorb;
+        fab.innerHTML = `
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <span class="warenkorb-fab-count" id="warenkorb-fab-count" style="display:none;">0</span>
+        `;
+        document.body.appendChild(fab);
+    }
+    updateWarenkorbFab();
 });
 
 window.addEventListener('storage', (event) => {
