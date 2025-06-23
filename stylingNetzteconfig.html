@@ -437,47 +437,13 @@
     </main>
     <script src="warenkorb.js"></script>
 </body>
-</html>
-                document.getElementById('oese-farbe-label').textContent = oeseFarbe;
-                document.getElementById('oese-farbebalken').style.background = farbwerte[oeseFarbe] || "transparent";
-            }
 
-            document.addEventListener('DOMContentLoaded', function() {
-                // Alle Inputs für Typ, Style, Öse und Farben
-                document.querySelectorAll('input[name="typ"], #typ-farbe, input[name="style"], #style-farbe, input[name="oese"], #oese-farbe')
-                    .forEach(el => el.addEventListener('change', updateVorschau));
-                document.getElementById('typ-auswahl').addEventListener('change', updateVorschau);
-                document.getElementById('typ-farbe').addEventListener('change', updateVorschau);
-                // Initiale Vorschau
-                updateVorschau();
-
-                document.getElementById('konfigurator-ausgabe').onclick = function() {
-                    const typ = document.querySelector('input[name="typ"]:checked').value;
-                    const typFarbe = document.getElementById('typ-farbe').value || "Keine";
-                    const style = document.querySelector('input[name="style"]:checked').value;
-                    const styleFarbe = document.getElementById('style-farbe').value || "Keine";
-                    const oese = document.querySelector('input[name="oese"]:checked').value;
-                    const oeseFarbe = document.getElementById('oese-farbe').value || "Keine";
-                    document.getElementById('konfigurator-result').textContent =
-                        `Ausgewählt: Typ "${typ}" (${typFarbe}), Style "${style}" (${styleFarbe}), Öse "${oese}" (${oeseFarbe})`;
-                };
-            });
         </script>
         <div id="livery-list" class="artikel-liste"></div>
     </main>
     <script src="warenkorb.js"></script>
 </body>
-</html>
-                    const typFarbe = document.getElementById('typ-farbe').value || "Keine";
-                    const style = document.querySelector('input[name="style"]:checked').value;
-                    const styleFarbe = document.getElementById('style-farbe').value || "Keine";
-                    const oese = document.querySelector('input[name="oese"]:checked').value;
-                    const oeseFarbe = document.getElementById('oese-farbe').value || "Keine";
-                    document.getElementById('konfigurator-result').textContent =
-                        `Ausgewählt: Typ "${typ}" (${typFarbe}), Style "${style}" (${styleFarbe}), Öse "${oese}" (${oeseFarbe})`;
-                };
-            });
-        </script>
+
         <div id="livery-list" class="artikel-liste"></div>
     </main>
     <script src="warenkorb.js"></script>
