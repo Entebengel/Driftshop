@@ -34,40 +34,28 @@
             letter-spacing: 2px;
             font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
             font-weight: 800;
-            /* Schriftart und Effekt wie Liverys */
-            border: 2px solid rgba(255, 247, 0, 0.4);
-            border-radius: 8px;
-            padding: 4px 12px;
-            background: linear-gradient(180deg, #ffe066 0%, #fff700 100%);
-            box-shadow: 0 0 0 6px rgba(191,161,0,0.18) inset;
-            background-color: hsl(50, 21%, 67%);
-            background-clip: text, padding-box;
-            -webkit-background-clip: text, padding-box;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
+            /* Kein Glow, kein Gradient, kein Border */
+            color: #222;
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
             display: inline-block;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            transition: none;
             position: static;
         }
-        header h1::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 8px;
-            background: #bfa100;
-            z-index: -1;
-        }
-        header h1:hover,
-        header h1:focus {
-            background: #7be495;
-            color: #1a2e22;
-            border-color: #43b97f;
-            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495, 0 0 0 6px #bfa100 inset;
-            text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
-            -webkit-text-fill-color: #1a2e22;
-            color: #1a2e22;
-            background-clip: border-box;
-            -webkit-background-clip: border-box;
+        /* Entferne ::before und Hover/Focus für .driftshop-title */
+        header h1.driftshop-title::before,
+        header h1.driftshop-title:hover,
+        header h1.driftshop-title:focus {
+            content: none;
+            background: none;
+            color: #222;
+            border: none;
+            box-shadow: none;
+            text-shadow: none;
+            -webkit-text-fill-color: #222;
         }
         nav {
             margin-top: 18px;
@@ -323,7 +311,7 @@
 </head>
 <body>
     <header>
-        <h1 class="glow-yellow">Driftshop</h1>
+        <h1 class="driftshop-title">Driftshop</h1>
         <nav>
             <a class="glow-yellow" href="index.html">Startseite</a>
             <a class="glow-yellow" href="shop.html">Shop</a>            
@@ -348,6 +336,18 @@
                 <img src="images/karosserie_kategorie.jpg" alt="Karosserie Kategorie">
             </a>
             <a class="kategorie-link" href="karosserie-anbauteile.html" style="position:relative;">
+                <span style="position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:2;font-size:2rem;font-weight:800;color:#fff;text-shadow:0 2px 8px #43b97f,0 0 16px #1b3c2e;">Styling</span>
+                <img src="images/anbauteile_kategorie.jpg" alt="Styling Kategorie">
+            </a>
+            <a class="kategorie-link" href="hop-up.html" style="position:relative;">
+                <span style="position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:2;font-size:2rem;font-weight:800;color:#fff;text-shadow:0 2px 8px #43b97f,0 0 16px #1b3c2e;">Hop-Up</span>
+                <img src="images/hopup_kategorie.jpg" alt="Hop-Up Kategorie">
+            </a>
+        </div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
                 <span style="position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:2;font-size:2rem;font-weight:800;color:#fff;text-shadow:0 2px 8px #43b97f,0 0 16px #1b3c2e;">Styling</span>
                 <img src="images/anbauteile_kategorie.jpg" alt="Styling Kategorie">
             </a>
