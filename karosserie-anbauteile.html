@@ -164,10 +164,13 @@
 </head>
 <body>
     <header>
-        <video class="bg-video" autoplay muted loop playsinline>
+        <!-- Das Video sollte außerhalb von <header> stehen, wie auf den anderen Seiten -->
+    </header>
+    <video class="bg-video" autoplay muted loop playsinline>
         <source src="videos/20241125_AmazingHardHamburgerNomNom-EQw9sjMD4z_3h_Nh_source.mp4" type="video/mp4">
         Ihr Browser unterstützt kein Hintergrundvideo.
     </video>
+    <header>
         <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
         <div class="header-center">
             <h1>Driftshop</h1>
@@ -187,12 +190,16 @@
             <div class="warenkorb-gesamt"><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
             <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
         </div>
-            </div>
+    </div>
+    <main>
+        <h2>STYLING</h2>
+        <div class="artikel-liste">
+            <!-- ...existing code... -->
         </div>
         <!-- Styling-Netzte Liste -->
         <div id="styling-netzte-list" style="margin-top:40px;"></div>
         <script type="module">
-            import { stylingNetzte } from 'data/stylingNetzte.js';
+            import { stylingNetzte } from './data/stylingNetzte.js';
             window.addEventListener('DOMContentLoaded', () => {
                 const container = document.getElementById('styling-netzte-list');
                 if (!container) return;
