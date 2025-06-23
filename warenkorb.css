@@ -189,11 +189,15 @@ main {
     cursor: pointer;
     font-size: 1em;
     font-weight: 700;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
+    /* Immer sichtbar rot */
+    opacity: 1;
+    visibility: visible;
 }
 
 .warenkorb-leeren:hover {
     background: #b50d1b;
+    color: #fff;
 }
 
 /* Floating Cart Button */
