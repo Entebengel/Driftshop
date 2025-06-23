@@ -202,6 +202,10 @@
                             <option value="race">Race-Netz + Öse</option>
                             <option value="drift">Drift-Netz + Öse</option>
                             <option value="komplett">Komplettpaket custom</option>
+                            <option value="VIP">VIP</option>
+                            <option value="PRO">PRO</option>
+                            <option value="ROOKIE">ROOKIE</option>
+                            <option value="EASY">EASY</option>
                         </select>
                     </div>
                 </fieldset>
@@ -281,17 +285,11 @@
                 document.getElementById('vorschau-oese').style.display = 'none';
 
                 if (paket === "race") {
-                    container.innerHTML =
-                        farbenDropdown("race-farbe", "Race-Netz-Farbe") +
-                        farbenDropdown("oese-farbe", "Ösen-Farbe");
+                    container.innerHTML = farbenDropdown("race-farbe", "Race-Netz-Farbe");
                     document.getElementById('vorschau-race').style.display = '';
-                    document.getElementById('vorschau-oese').style.display = '';
                 } else if (paket === "drift") {
-                    container.innerHTML =
-                        farbenDropdown("drift-farbe", "Drift-Netz-Farbe") +
-                        farbenDropdown("oese-farbe", "Ösen-Farbe");
+                    container.innerHTML = farbenDropdown("drift-farbe", "Drift-Netz-Farbe");
                     document.getElementById('vorschau-drift').style.display = '';
-                    document.getElementById('vorschau-oese').style.display = '';
                 } else if (paket === "komplett") {
                     container.innerHTML =
                         farbenDropdown("race-farbe", "Race-Netz-Farbe") +
@@ -300,10 +298,13 @@
                     document.getElementById('vorschau-race').style.display = '';
                     document.getElementById('vorschau-drift').style.display = '';
                     document.getElementById('vorschau-oese').style.display = '';
+                } else if (["VIP", "PRO", "ROOKIE", "EASY"].includes(paket)) {
+                    container.innerHTML = farbenDropdown("paket-farbe", "Farbe");
+                    document.getElementById('vorschau-race').style.display = '';
                 }
                 updateVorschau();
                 // Event-Listener für neue Dropdowns
-                ["race-farbe", "drift-farbe", "oese-farbe"].forEach(id => {
+                ["race-farbe", "drift-farbe", "oese-farbe", "paket-farbe"].forEach(id => {
                     const el = document.getElementById(id);
                     if (el) el.addEventListener('change', updateVorschau);
                 });
@@ -313,27 +314,53 @@
                 const paket = document.getElementById('paket-auswahl').value;
                 // Race
                 let raceFarbe = "";
-                if (paket === "race" || paket === "komplett") {
+                let driftFarbe = "";
+                let oeseFarbe = "";
+                let paketFarbe = "";
+                if (paket === "race") {
                     raceFarbe = document.getElementById('race-farbe')?.value || "Keine";
                     document.getElementById('race-bild').src = raceBild;
                     document.getElementById('race-farbebalken').style.background = farbwerte[raceFarbe] || "transparent";
                     document.getElementById('race-farbe-label').textContent = raceFarbe;
-                }
-                // Drift
-                let driftFarbe = "";
-                if (paket === "drift" || paket === "komplett") {
+                    document.getElementById('vorschau-race').style.display = '';
+                    document.getElementById('vorschau-drift').style.display = 'none';
+                    document.getElementById('vorschau-oese').style.display = 'none';
+                } else if (paket === "drift") {
                     driftFarbe = document.getElementById('drift-farbe')?.value || "Keine";
                     document.getElementById('drift-bild').src = driftBild;
                     document.getElementById('drift-farbebalken').style.background = farbwerte[driftFarbe] || "transparent";
                     document.getElementById('drift-farbe-label').textContent = driftFarbe;
-                }
-                // Öse
-                let oeseFarbe = "";
-                if (paket === "race" || paket === "drift" || paket === "komplett") {
+                    document.getElementById('vorschau-race').style.display = 'none';
+                    document.getElementById('vorschau-drift').style.display = '';
+                    document.getElementById('vorschau-oese').style.display = 'none';
+                } else if (paket === "komplett") {
+                    raceFarbe = document.getElementById('race-farbe')?.value || "Keine";
+                    driftFarbe = document.getElementById('drift-farbe')?.value || "Keine";
                     oeseFarbe = document.getElementById('oese-farbe')?.value || "Keine";
+                    document.getElementById('race-bild').src = raceBild;
+                    document.getElementById('race-farbebalken').style.background = farbwerte[raceFarbe] || "transparent";
+                    document.getElementById('race-farbe-label').textContent = raceFarbe;
+                    document.getElementById('drift-bild').src = driftBild;
+                    document.getElementById('drift-farbebalken').style.background = farbwerte[driftFarbe] || "transparent";
+                    document.getElementById('drift-farbe-label').textContent = driftFarbe;
                     document.getElementById('oese-bild').src = oeseBild;
                     document.getElementById('oese-farbebalken').style.background = farbwerte[oeseFarbe] || "transparent";
                     document.getElementById('oese-farbe-label').textContent = oeseFarbe;
+                    document.getElementById('vorschau-race').style.display = '';
+                    document.getElementById('vorschau-drift').style.display = '';
+                    document.getElementById('vorschau-oese').style.display = '';
+                } else if (["VIP", "PRO", "ROOKIE", "EASY"].includes(paket)) {
+                    paketFarbe = document.getElementById('paket-farbe')?.value || "Keine";
+                    document.getElementById('race-bild').src = raceBild;
+                    document.getElementById('race-farbebalken').style.background = farbwerte[paketFarbe] || "transparent";
+                    document.getElementById('race-farbe-label').textContent = paketFarbe;
+                    document.getElementById('vorschau-race').style.display = '';
+                    document.getElementById('vorschau-drift').style.display = 'none';
+                    document.getElementById('vorschau-oese').style.display = 'none';
+                } else {
+                    document.getElementById('vorschau-race').style.display = 'none';
+                    document.getElementById('vorschau-drift').style.display = 'none';
+                    document.getElementById('vorschau-oese').style.display = 'none';
                 }
             }
 
@@ -346,32 +373,18 @@
                     const paket = document.getElementById('paket-auswahl').value;
                     let result = '';
                     if (paket === "race") {
-                        result = `Race-Netz: ${document.getElementById('race-farbe')?.value || "Keine"}, Öse: ${document.getElementById('oese-farbe')?.value || "Keine"}`;
+                        result = `Race-Netz: ${document.getElementById('race-farbe')?.value || "Keine"}`;
                     } else if (paket === "drift") {
-                        result = `Drift-Netz: ${document.getElementById('drift-farbe')?.value || "Keine"}, Öse: ${document.getElementById('oese-farbe')?.value || "Keine"}`;
+                        result = `Drift-Netz: ${document.getElementById('drift-farbe')?.value || "Keine"}`;
                     } else if (paket === "komplett") {
                         result = `Race-Netz: ${document.getElementById('race-farbe')?.value || "Keine"}, Drift-Netz: ${document.getElementById('drift-farbe')?.value || "Keine"}, Öse: ${document.getElementById('oese-farbe')?.value || "Keine"}`;
+                    } else if (["VIP", "PRO", "ROOKIE", "EASY"].includes(paket)) {
+                        result = `${paket}: ${document.getElementById('paket-farbe')?.value || "Keine"}`;
                     }
                     document.getElementById('konfigurator-result').textContent = result;
                 };
             });
         </script>
-        <div id="livery-list" class="artikel-liste"></div>
-    </main>
-    <script src="warenkorb.js"></script>
-
-        </script>
-        <div id="livery-list" class="artikel-liste"></div>
-    </main>
-    <script src="warenkorb.js"></script>
-</body>
-
-        </script>
-        <div id="livery-list" class="artikel-liste"></div>
-    </main>
-    <script src="warenkorb.js"></script>
-</body>
-
         <div id="livery-list" class="artikel-liste"></div>
     </main>
     <script src="warenkorb.js"></script>
