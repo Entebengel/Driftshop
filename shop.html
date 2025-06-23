@@ -172,63 +172,63 @@
             background-clip: border-box;
             -webkit-background-clip: border-box;
         }
-                
-        /* Warenkorb unten rechts kompakt, schmal, durchsichtiger, maximal halbe Höhe */
-        #warenkorb {
-            position: fixed;
-            right: 32px;
-            bottom: 80px;
-            z-index: 100;
-            min-width: 180px;
-            max-width: 240px;
+        .driftshop-logo {
+            height: 56px;
             width: auto;
-            max-height: 50vh;
-            background: rgba(255,255,255,0.92);
-            border-radius: 14px;
-            box-shadow: 0 4px 18px rgba(67,185,127,0.13);
-            padding: 12px 14px 10px 14px;
-            border: 2.5px solid #43b97f;
-            display: none;
-            font-size: 0.98em;
-            overflow-y: auto;
-            transition: box-shadow 0.2s, opacity 0.2s, width 0.2s, background 0.2s, max-height 0.2s;
-            backdrop-filter: blur(6px);
+            margin-left: 24px;
+            margin-right: 24px;
         }
-        #warenkorb.anzeigen {
-            display: block;
-            right: 32px;
-            bottom: 80px;
-        }
-        #warenkorb h2 {
-            margin-top: 0;
-            margin-bottom: 16px;
-            color: #1e7d4d;
-            font-size: 1.35em;
-            letter-spacing: 1px;
-            font-family: 'Montserrat', Arial, sans-serif;
-            font-weight: 700;
-            /* Entfernt Glow/Gradient/Border */
-            border: none;
-            background: none;
-            box-shadow: none;
-            color: #1e7d4d;
-            -webkit-text-fill-color: unset;
-        }
-        #warenkorb-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 18px 0;
-            font-size: 1.05em;
-        }
-        #warenkorb-list li {
-            margin-bottom: 10px;
-            color: #1a2e22;
-        }
-        #warenkorb .warenkorb-leeren {
-            background: #e81123;
-            color: #fff !important;
-            border: none;
-            border-radius: 7px;
+    </style>
+</head>
+<body>
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="videos/20241125_AmazingHardHamburgerNomNom-EQw9sjMD4z_3h_Nh_source.mp4" type="video/mp4">
+        Ihr Browser unterstützt kein Hintergrundvideo.
+    </video>
+    <header>
+        <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
+        <div class="warenkorb-inhalt" id="warenkorb-inhalt">
+            <h2>Warenkorb</h2>
+            <ul class="warenkorb-list" id="warenkorb-list"></ul>
+            <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+            <div style="margin-top:12px;"><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        </div>
+    </div>
+    <main>
+        <div class="kategorien">
+            <a class="kategorie-link" href="liverys.html" style="position:relative;">
+                <span style="position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:2;font-size:2rem;font-weight:800;color:#fff;text-shadow:0 2px 8px #43b97f,0 0 16px #1b3c2e;">Liverys</span>
+                <img src="images/liverys_kategorie.jpg" alt="Liverys Kategorie">
+            </a>
+            <a class="kategorie-link" href="karosserie.html" style="position:relative;">
+                <span style="position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:2;font-size:2rem;font-weight:800;color:#fff;text-shadow:0 2px 8px #43b97f,0 0 16px #1b3c2e;">Karosserien</span>
+                <img src="images/karosserie_kategorie.jpg" alt="Karosserie Kategorie">
+            </a>
+            <a class="kategorie-link" href="karosserie-anbauteile.html" style="position:relative;">
+                <span style="position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:2;font-size:2rem;font-weight:800;color:#fff;text-shadow:0 2px 8px #43b97f,0 0 16px #1b3c2e;">Styling</span>
+                <img src="images/anbauteile_kategorie.jpg" alt="Styling Kategorie">
+            </a>
+            <a class="kategorie-link" href="hop-up.html" style="position:relative;">
+                <span style="position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:2;font-size:2rem;font-weight:800;color:#fff;text-shadow:0 2px 8px #43b97f,0 0 16px #1b3c2e;">Hop-Up</span>
+                <img src="images/hopup_kategorie.jpg" alt="Hop-Up Kategorie">
+            </a>  
+        </div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
             padding: 9px 16px;
             cursor: pointer;
             font-size: 1em;
