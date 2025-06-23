@@ -22,7 +22,7 @@ export const liverys: Livery[] = [
     shortDesc: "Modernes Camouflage-Design für Individualisten.",
     longDesc: "Das Urban Camo Design hebt dein Auto von der Masse ab. Perfekt für alle, die auffallen wollen.",
     price: 249,
-    images: ["images/liverys_kategorie.jpg", "images/liverys_kategorie.jpg]
+    images: ["images/liverys_kategorie.jpg", "images/liverys_kategorie.jpg"]
   },
   // ...weitere ca. 28 Artikel...
 ];
