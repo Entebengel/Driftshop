@@ -107,61 +107,61 @@
             color: #222;
             font-size: 1em;
         }
-        /* Warenkorb-FAB Styles */
-        .warenkorb-fab {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            box-shadow: 0 4px 16px rgba(67,185,127,0.18);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 200;
-            transition: background 0.2s, box-shadow 0.2s;
+        @media (max-width: 900px) {
+            header {
+                border-radius: 0 0 18px 18px;
+                padding: 20px 0 12px 0;
+            }
         }
-        .warenkorb-fab:hover {
-            background: linear-gradient(90deg, #1e7d4d 0%, #43b97f 100%);
-            box-shadow: 0 8px 32px rgba(67,185,127,0.22);
-        }
-        .warenkorb-fab svg {
-            width: 28px;
-            height: 28px;
-        }
-        .warenkorb-fab-count {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #e81123;
-            color: #fff;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 0.95em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            border: 2px solid #fff;
-        }
-        .warenkorb {
-            display: none;
-        }
-        .warenkorb.anzeigen {
-            display: block;
-            position: fixed;
-            top: 32px;
-            right: 32px;
-            background: #fff;
-            border: 2.5px solid #43b97f;
-            border-radius: 18px;
-            padding: 26px 28px 22px 28px;
+    </style>
+</head>
+<body>
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="videos/20241125_AmazingHardHamburgerNomNom-EQw9sjMD4z_3h_Nh_source.mp4" type="video/mp4">
+        Ihr Browser unterstützt kein Hintergrundvideo.
+    </video>
+    <header>
+        <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Warenkorb wie auf index.html -->
+    <div class="warenkorb" id="warenkorb">
+        <h2>Warenkorb</h2>
+        <ul class="warenkorb-list" id="warenkorb-list"></ul>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+    </div>
+    <main>
+        <h2>We Are Driftshop</h2>
+        <div class="team-section">
+            <div class="team-card">
+                <img src="images/team1.jpg" alt="Teammitglied 1">
+                <h3>Alex Drift</h3>
+                <p>Gründer &amp; RC-Enthusiast</p>
+            </div>
+            <div class="team-card">
+                <img src="images/team2.jpg" alt="Teammitglied 2">
+                <h3>Chris Bodywork</h3>
+                <p>Karosserie-Designer</p>
+            </div>
+            <div class="team-card">
+                <img src="images/team3.jpg" alt="Teammitglied 3">
+                <h3>Sam Speed</h3>
+                <p>Technik &amp; Hop-Up Spezialist</p>
+            </div>
+        </div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
             min-width: 270px;
             z-index: 300;
             box-shadow: 0 8px 32px rgba(67,185,127,0.13);
