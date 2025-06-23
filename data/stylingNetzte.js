@@ -1,7 +1,7 @@
 export const liverys = [
   {
     id: "livery1",
-    name: "Racing Net Pack ",
+    name: "Racing Net Pack",
     shortDesc: "Klassische Rennnetzen für sportlichen Look.",
     longDesc: "Verleihe deinem Fahrzeug einen sportlichen Look mit klassischen Rennnetzen in hellgrün. UV-beständig und langlebig.",
     price: 12,
@@ -12,8 +12,8 @@ export const liverys = [
     name: "Urban Camo",
     shortDesc: "Modernes Camouflage-Design für Individualisten.",
     longDesc: "Das Urban Camo Design hebt dein Auto von der Masse ab. Perfekt für alle, die auffallen wollen.",
-    <span class="preis">29,99 €</span>
+    price: 29.99,
     images: ["images/liverys_kategorie.jpg", "images/liverys_kategorie.jpg"]
   },
-  // ...weitere Artikel...
+  // ...existing code...
 ];
