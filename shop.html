@@ -30,41 +30,56 @@
             border-color: #43b97f;
             box-shadow: 0 4px 16px rgba(67,185,127,0.16);
         }
+        /* Leuchtend gelbe Umrandung für Schriftzüge */
+        .glow-yellow {
+            color: #fff700;
+            text-shadow:
+                0 0 8px #fff700,
+                0 0 16px #fff700,
+                0 0 24px #fff700,
+                0 0 32px #fff700;
+            font-weight: bold;
+            border: 2px solid #fff700;
+            border-radius: 8px;
+            padding: 4px 12px;
+            background: rgba(0,0,0,0.15);
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Driftshop</h1>
+        <h1 class="glow-yellow">Driftshop</h1>
         <nav>
-            <a href="index.html">Startseite</a>
-            <a href="shop.html">Shop</a>            
-            <a href="weare.html">We Are</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a class="glow-yellow" href="index.html">Startseite</a>
+            <a class="glow-yellow" href="shop.html">Shop</a>            
+            <a class="glow-yellow" href="weare.html">We Are</a>
+            <a class="glow-yellow" href="kontakt.html">Kontakt</a>
         </nav>
     </header>
     <div class="warenkorb" id="warenkorb">
-        <h2>Warenkorb</h2>
+        <h2 class="glow-yellow">Warenkorb</h2>
         <ul class="warenkorb-list" id="warenkorb-list"></ul>
-        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
-        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        <div><strong class="glow-yellow">Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <button class="warenkorb-leeren glow-yellow" onclick="warenkorbLeeren()">Leeren</button>
     </div>
     <main>
-        <h2>Kategorien</h2>
+        <h2 class="glow-yellow">Kategorien</h2>
         <div class="kategorien">
             <a class="kategorie-link" href="liverys.html">
-              <h2>Liverys</h2>
+              <h2 class="glow-yellow">Liverys</h2>
                 <img src="images/liverys_kategorie.jpg" alt="Liverys Kategorie">
             </a>
             <a class="kategorie-link" href="karosserie.html">
-              <h2>Karosserien</h2>
+              <h2 class="glow-yellow">Karosserien</h2>
                 <img src="images/karosserie_kategorie.jpg" alt="Karosserie Kategorie">
             </a>
             <a class="kategorie-link" href="karosserie-anbauteile.html">
-              <h2>Karosserie-Anbauteile</h2>
+              <h2 class="glow-yellow">Karosserie-Anbauteile</h2>
                 <img src="images/anbauteile_kategorie.jpg" alt="Karosserie-Anbauteile Kategorie">
             </a>
             <a class="kategorie-link" href="hop-up.html">
-              <h2>Hop-Up</h2>
+              <h2 class="glow-yellow">Hop-Up</h2>
                 <img src="images/hopup_kategorie.jpg" alt="Hop-Up Kategorie">
             </a>
         </div>
