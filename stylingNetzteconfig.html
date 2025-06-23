@@ -367,15 +367,18 @@
                 <div style="font-weight:bold;font-size:1.1em;margin-bottom:10px;color:#fff;">Vorschau</div>
                 <div id="vorschau-typ" style="margin-bottom:22px;">
                     <img id="typ-bild" src="images/leer.png" alt="Typ Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
-                    <div id="typ-farbe-label" style="margin-top:8px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
+                    <div id="typ-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
+                    <div id="typ-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
                 </div>
                 <div id="vorschau-style" style="margin-bottom:22px;">
                     <img id="style-bild" src="images/leer.png" alt="Style Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
-                    <div id="style-farbe-label" style="margin-top:8px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
+                    <div id="style-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
+                    <div id="style-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
                 </div>
                 <div id="vorschau-oese">
                     <img id="oese-bild" src="images/leer.png" alt="Öse Vorschau" style="width:180px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;background:#fff;">
-                    <div id="oese-farbe-label" style="margin-top:8px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
+                    <div id="oese-farbebalken" style="height:18px;width:180px;margin:8px auto 0 auto;border-radius:6px;"></div>
+                    <div id="oese-farbe-label" style="margin-top:4px;font-size:1em;color:#fff;text-shadow:0 0 4px #1b3c2e;">Keine</div>
                 </div>
             </div>
         </div>
@@ -406,6 +409,29 @@
             const farben = [
                 "Keine", "Schwarz", "Weiß", "Rot", "Blau", "Grün", "Gelb", "Orange", "Pink", "Lila", "Türkis", "Braun", "Silber", "Gold", "Hellgrün", "Dunkelgrün", "Beige", "Camouflage", "Carbon"
             ];
+            // Farbzuordnung für Balken
+            const farbwerte = {
+                "Schwarz": "#222",
+                "Weiß": "#fff",
+                "Rot": "#e81123",
+                "Blau": "#0078d4",
+                "Grün": "#43b97f",
+                "Gelb": "#ffe066",
+                "Orange": "#ff9800",
+                "Pink": "#e91e63",
+                "Lila": "#9c27b0",
+                "Türkis": "#00bcd4",
+                "Braun": "#795548",
+                "Silber": "#bdbdbd",
+                "Gold": "#ffd700",
+                "Hellgrün": "#7be495",
+                "Dunkelgrün": "#1b3c2e",
+                "Beige": "#f5f5dc",
+                "Camouflage": "#78866b",
+                "Carbon": "#444",
+                "Keine": "transparent",
+                "": "transparent"
+            };
 
             function updateVorschau() {
                 // Typ
@@ -414,6 +440,7 @@
                 document.getElementById('typ-bild').src = typBilder[typ] || "images/leer.png";
                 document.getElementById('typ-bild').alt = typ;
                 document.getElementById('typ-farbe-label').textContent = typFarbe;
+                document.getElementById('typ-farbebalken').style.background = farbwerte[typFarbe] || "transparent";
 
                 // Style
                 const style = document.querySelector('input[name="style"]:checked').value;
@@ -421,6 +448,7 @@
                 document.getElementById('style-bild').src = styleBilder[style] || "images/leer.png";
                 document.getElementById('style-bild').alt = style;
                 document.getElementById('style-farbe-label').textContent = styleFarbe;
+                document.getElementById('style-farbebalken').style.background = farbwerte[styleFarbe] || "transparent";
 
                 // Öse
                 const oese = document.querySelector('input[name="oese"]:checked').value;
@@ -428,6 +456,7 @@
                 document.getElementById('oese-bild').src = oeseBilder[oese] || "images/leer.png";
                 document.getElementById('oese-bild').alt = oese;
                 document.getElementById('oese-farbe-label').textContent = oeseFarbe;
+                document.getElementById('oese-farbebalken').style.background = farbwerte[oeseFarbe] || "transparent";
             }
 
             document.addEventListener('DOMContentLoaded', function() {
