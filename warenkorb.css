@@ -195,8 +195,9 @@ main {
     box-shadow: none;
     margin-top: 8px;
     margin-bottom: 0;
-    z-index: 10;
+    z-index: 1001;
     position: relative;
+    display: block;
 }
 
 .warenkorb-leeren:hover {
