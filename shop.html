@@ -30,10 +30,13 @@
             border-color: #43b97f;
             box-shadow: 0 4px 16px rgba(67,185,127,0.16);
         }
-        /* Matt-gelber, smoother Hintergrund für Schriftzüge, Schrift anthrazit */
+        /* Matt-gelber, smoother Hintergrund für Schriftzüge, Schrift anthrazit, Farbverlauf im Text */
         .glow-yellow {
-            color: #222; /* anthrazit */
-            text-shadow: none;
+            font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+            font-smooth: always;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #222;
             font-weight: bold;
             border: 2px solid #fff700;
             border-radius: 8px;
@@ -41,6 +44,12 @@
             background: linear-gradient(90deg, #fffbe0 0%, #fff9b2 100%);
             display: inline-block;
             transition: background 0.2s, color 0.2s, border-color 0.2s;
+            /* Farbverlauf im Text */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #ffe066 0%, #fff700 50%, #ffe066 100%);
         }
         .glow-yellow:hover, .glow-yellow:focus, .glow-yellow.active {
             background: #7be495;
@@ -48,6 +57,10 @@
             border-color: #43b97f;
             box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495;
             text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
+            -webkit-text-fill-color: #1a2e22;
+            color: #1a2e22;
+            background-clip: border-box;
+            -webkit-background-clip: border-box;
         }
         .kategorie-link:focus .glow-yellow,
         .kategorie-link:active .glow-yellow {
@@ -56,6 +69,10 @@
             border-color: #43b97f;
             box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495;
             text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
+            -webkit-text-fill-color: #1a2e22;
+            color: #1a2e22;
+            background-clip: border-box;
+            -webkit-background-clip: border-box;
         }
     </style>
 </head>
