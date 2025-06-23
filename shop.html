@@ -199,60 +199,70 @@
         /* Warenkorb unten rechts kompakt, schmal, durchsichtiger, maximal halbe Höhe */
         #warenkorb {
             position: fixed;
-            right: 18px;
-            bottom: 72px; /* Oberhalb des Symbols */
-            z-index: 1000;
-            min-width: 160px;
+            right: 32px;
+            bottom: 80px;
+            z-index: 100;
+            min-width: 180px;
             max-width: 240px;
-            width: 88vw;
+            width: auto;
             max-height: 50vh;
-            background: #777c74d9;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(67,185,127,0.18), 0 2px 8px rgba(67,185,127,0.10);
-            padding: 10px 8px 8px 8px;
-            border: 2px solid #43b97f;
+            background: rgba(255,255,255,0.92);
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(67,185,127,0.13);
+            padding: 12px 14px 10px 14px;
+            border: 2.5px solid #43b97f;
             display: none;
-            transition: box-shadow 0.2s, opacity 0.2s, width 0.2s, background 0.2s, max-height 0.2s;
-            font-size: 0.98rem;
-            backdrop-filter: blur(6px);
+            font-size: 0.98em;
             overflow-y: auto;
+            transition: box-shadow 0.2s, opacity 0.2s, width 0.2s, background 0.2s, max-height 0.2s;
+            backdrop-filter: blur(6px);
         }
         #warenkorb.anzeigen {
             display: block;
-            animation: warenkorb-fadein 0.2s;
+            right: 32px;
+            bottom: 80px;
         }
         #warenkorb h2 {
-            font-size: 1.05rem;
-            margin: 0 0 6px 0;
-            padding: 0;
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #1e7d4d;
+            font-size: 1.35em;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
         }
         #warenkorb-list {
-            max-height: 30vh;
-            overflow-y: auto;
-            margin: 0 0 6px 0;
-            padding: 0;
             list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+            font-size: 1.05em;
         }
         #warenkorb-list li {
-            font-size: 0.96rem;
-            margin-bottom: 3px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 10px;
+            color: #1a2e22;
         }
         #warenkorb .warenkorb-leeren {
-            margin-top: 6px;
-            font-size: 0.93rem;
-            padding: 3px 8px;
-            border-radius: 5px;
+            background: transparent;
+            color: #e81123 !important;
             border: none;
-            background: hsl(151, 38%, 68%);
-            color: hsl(0, 61%, 44%);
+            border-radius: 7px;
+            padding: 9px 16px;
             cursor: pointer;
-            transition: background 0.2s;
+            font-size: 1em;
+            font-weight: 700;
+            transition: background 0.2s, color 0.2s;
+            opacity: 1;
+            visibility: visible;
+            box-shadow: none;
+            margin-top: 8px;
+            margin-bottom: 0;
+            z-index: 1001;
+            position: relative;
+            display: block;
         }
         #warenkorb .warenkorb-leeren:hover {
-            background: hsl(150, 5%, 33%);
+            background: #e81123;
+            color: #fff !important;
         }
         #warenkorb strong {
             font-size: 1rem;
@@ -290,6 +300,19 @@
             header {
                 border-radius: 0 0 18px 18px;
                 padding: 20px 0 12px 0;
+            }
+            #warenkorb {
+                position: fixed;
+                right: 12px;
+                bottom: 72px;
+                min-width: 110px;
+                max-width: 96vw;
+                padding: 6px 2px 4px 2px;
+                font-size: 0.93rem;
+            }
+            #warenkorb.anzeigen {
+                right: 12px;
+                bottom: 72px;
             }
         }
     </style>
