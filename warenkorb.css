@@ -134,21 +134,28 @@ main {
 .warenkorb {
     display: none;
     position: fixed;
-    top: 32px;
     right: 32px;
-    background: #fff;
+    bottom: 80px; /* Direkt über dem Button */
+    background: rgba(255,255,255,0.92);
     border: 2.5px solid #43b97f;
-    border-radius: 18px;
-    padding: 26px 28px 22px 28px;
-    min-width: 270px;
+    border-radius: 14px;
+    padding: 12px 14px 10px 14px;
+    min-width: 180px;
+    max-width: 240px;
+    width: auto;
+    max-height: 50vh;
     z-index: 100;
-    box-shadow: 0 8px 32px rgba(67,185,127,0.13);
+    box-shadow: 0 4px 18px rgba(67,185,127,0.13);
+    font-size: 0.98em;
+    overflow-y: auto;
+    transition: box-shadow 0.2s, opacity 0.2s, width 0.2s, background 0.2s, max-height 0.2s;
+    backdrop-filter: blur(6px);
 }
 
 .warenkorb.anzeigen {
     display: block;
-    top: 32px;
     right: 32px;
+    bottom: 80px;
 }
 
 .warenkorb h2 {
@@ -247,16 +254,20 @@ main {
         align-items: center;
     }
     .warenkorb {
-        position: static;
-        margin: 0 auto 24px auto;
-        display: block;
+        position: fixed;
+        right: 12px;
+        bottom: 72px;
+        min-width: 110px;
+        max-width: 96vw;
+        padding: 6px 2px 4px 2px;
+        font-size: 0.93rem;
+    }
+    .warenkorb.anzeigen {
+        right: 12px;
+        bottom: 72px;
     }
     .warenkorb-fab {
         bottom: 16px;
-        right: 16px;
-    }
-    .warenkorb.anzeigen {
-        top: 16px;
         right: 16px;
     }
     header {
