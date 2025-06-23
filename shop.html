@@ -104,15 +104,37 @@
             box-shadow: 0 2px 8px rgba(67,185,127,0.10);
             text-decoration: none;
             border: 2px solid #43b97f;
-            color: #1a2e22;
+            color: #1a2e22 !important;
             font-weight: bold;
             display: inline-block;
+            /* Sichtbar machen, kein text-transparent und kein background-clip */
+            background-clip: border-box;
+            -webkit-background-clip: border-box;
+            -webkit-text-fill-color: #1a2e22;
         }
         header nav a.glow-yellow:hover,
         header nav a.glow-yellow:focus {
             background: linear-gradient(135deg, #43b97f 0%, #baffc9 100%);
             box-shadow: 0 4px 24px rgba(67,185,127,0.18);
-            color: #fff;
+            color: #fff !important;
+            -webkit-text-fill-color: #fff;
+        }
+        /* Sichtbar machen: Header H1 */
+        header h1.glow-yellow {
+            color: #1a2e22 !important;
+            background: none;
+            box-shadow: none;
+            border: none;
+            -webkit-text-fill-color: #1a2e22;
+            background-clip: border-box;
+            -webkit-background-clip: border-box;
+            position: static;
+        }
+        /* Sichtbar machen: Header H1 Hover */
+        header h1.glow-yellow:hover,
+        header h1.glow-yellow:focus {
+            color: #43b97f !important;
+            -webkit-text-fill-color: #43b97f;
         }
         .glow-yellow:hover, .glow-yellow:focus, .glow-yellow.active {
             background: #7be495;
