@@ -231,35 +231,18 @@
                         </select>
                     </div>
                 </fieldset>
-                <!-- 2. Style Auswahl -->
+                <!-- 2. Style Auswahl als Dropdown -->
                 <fieldset style="border:none;margin-bottom:24px;">
                     <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">2. Style wählen</legend>
-                    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="style" value="Kein Style" checked>
-                            <img src="images/leer.png" alt="Kein Style" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px dashed #bbb;">
-                            <span>Kein Style</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="style" value="Classic">
-                            <img src="images/style_classic.jpg" alt="Classic" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Classic</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="style" value="Sport">
-                            <img src="images/style_sport.jpg" alt="Sport" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Sport</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="style" value="Mesh">
-                            <img src="images/style_mesh.jpg" alt="Mesh" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Mesh</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="style" value="Carbon">
-                            <img src="images/style_carbon.jpg" alt="Carbon" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Carbon</span>
-                        </label>
+                    <div style="margin-bottom:10px;">
+                        <span style="font-weight:bold;">Style:</span>
+                        <select name="style" id="style-auswahl" style="margin-left:8px;">
+                            <option value="Kein Style">Kein Style</option>
+                            <option value="Classic">Classic</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Mesh">Mesh</option>
+                            <option value="Carbon">Carbon</option>
+                        </select>
                     </div>
                     <div style="margin-top:10px;">
                         <span style="font-weight:bold;">Farbe:</span>
@@ -286,35 +269,18 @@
                         </select>
                     </div>
                 </fieldset>
-                <!-- 3. Öse Auswahl -->
+                <!-- 3. Öse Auswahl als Dropdown -->
                 <fieldset style="border:none;margin-bottom:24px;">
                     <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">3. Öse wählen</legend>
-                    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="oese" value="Keine Öse" checked>
-                            <img src="images/leer.png" alt="Keine Öse" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px dashed #bbb;">
-                            <span>Keine Öse</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="oese" value="Standard">
-                            <img src="images/oese_standard.jpg" alt="Standard" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Standard</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="oese" value="Race">
-                            <img src="images/oese_race.jpg" alt="Race" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Race</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="oese" value="Heavy Duty">
-                            <img src="images/oese_heavyduty.jpg" alt="Heavy Duty" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Heavy Duty</span>
-                        </label>
-                        <label style="display:flex;flex-direction:column;align-items:center;">
-                            <input type="radio" name="oese" value="Ultra Light">
-                            <img src="images/oese_ultralight.jpg" alt="Ultra Light" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                            <span>Ultra Light</span>
-                        </label>
+                    <div style="margin-bottom:10px;">
+                        <span style="font-weight:bold;">Öse:</span>
+                        <select name="oese" id="oese-auswahl" style="margin-left:8px;">
+                            <option value="Keine Öse">Keine Öse</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Race">Race</option>
+                            <option value="Heavy Duty">Heavy Duty</option>
+                            <option value="Ultra Light">Ultra Light</option>
+                        </select>
                     </div>
                     <div style="margin-top:10px;">
                         <span style="font-weight:bold;">Farbe:</span>
@@ -426,7 +392,7 @@
                 document.getElementById('typ-farbebalken').style.background = farbwerte[typFarbe] || "transparent";
 
                 // Style
-                const style = document.querySelector('input[name="style"]:checked').value;
+                const style = document.getElementById('style-auswahl').value;
                 const styleFarbe = document.getElementById('style-farbe').value || "Keine";
                 document.getElementById('style-bild').src = styleBilder[style] || "images/leer.png";
                 document.getElementById('style-bild').alt = style;
@@ -434,10 +400,44 @@
                 document.getElementById('style-farbebalken').style.background = farbwerte[styleFarbe] || "transparent";
 
                 // Öse
-                const oese = document.querySelector('input[name="oese"]:checked').value;
+                const oese = document.getElementById('oese-auswahl').value;
                 const oeseFarbe = document.getElementById('oese-farbe').value || "Keine";
                 document.getElementById('oese-bild').src = oeseBilder[oese] || "images/leer.png";
                 document.getElementById('oese-bild').alt = oese;
+                document.getElementById('oese-farbe-label').textContent = oeseFarbe;
+                document.getElementById('oese-farbebalken').style.background = farbwerte[oeseFarbe] || "transparent";
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Alle Inputs für Typ, Style, Öse und Farben
+                document.querySelectorAll('input[name="typ"], #typ-farbe, input[name="style"], #style-farbe, input[name="oese"], #oese-farbe')
+                    .forEach(el => el.addEventListener('change', updateVorschau));
+                document.getElementById('typ-auswahl').addEventListener('change', updateVorschau);
+                document.getElementById('typ-farbe').addEventListener('change', updateVorschau);
+                document.getElementById('style-auswahl').addEventListener('change', updateVorschau);
+                document.getElementById('style-farbe').addEventListener('change', updateVorschau);
+                document.getElementById('oese-auswahl').addEventListener('change', updateVorschau);
+                document.getElementById('oese-farbe').addEventListener('change', updateVorschau);
+                // Initiale Vorschau
+                updateVorschau();
+
+                document.getElementById('konfigurator-ausgabe').onclick = function() {
+                    const typ = document.getElementById('typ-auswahl').value;
+                    const typFarbe = document.getElementById('typ-farbe').value || "Keine";
+                    const style = document.getElementById('style-auswahl').value;
+                    const styleFarbe = document.getElementById('style-farbe').value || "Keine";
+                    const oese = document.getElementById('oese-auswahl').value;
+                    const oeseFarbe = document.getElementById('oese-farbe').value || "Keine";
+                    document.getElementById('konfigurator-result').textContent =
+                        `Ausgewählt: Typ "${typ}" (${typFarbe}), Style "${style}" (${styleFarbe}), Öse "${oese}" (${oeseFarbe})`;
+                };
+            });
+        </script>
+        <div id="livery-list" class="artikel-liste"></div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
                 document.getElementById('oese-farbe-label').textContent = oeseFarbe;
                 document.getElementById('oese-farbebalken').style.background = farbwerte[oeseFarbe] || "transparent";
             }
