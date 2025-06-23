@@ -30,20 +30,32 @@
             border-color: #43b97f;
             box-shadow: 0 4px 16px rgba(67,185,127,0.16);
         }
-        /* Leuchtend gelbe Umrandung für Schriftzüge */
+        /* Leuchtend gelbe Umrandung für Schriftzüge, Schrift anthrazit */
         .glow-yellow {
-            color: #fff700;
-            text-shadow:
-                0 0 8px #fff700,
-                0 0 16px #fff700,
-                0 0 24px #fff700,
-                0 0 32px #fff700;
+            color: #222; /* anthrazit */
+            text-shadow: none;
             font-weight: bold;
             border: 2px solid #fff700;
             border-radius: 8px;
             padding: 4px 12px;
-            background: rgba(0,0,0,0.15);
+            background: rgba(0,0,0,0.08);
             display: inline-block;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .glow-yellow:hover, .glow-yellow:focus, .glow-yellow.active {
+            background: #7be495;
+            color: #1a2e22;
+            border-color: #43b97f;
+            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495;
+            text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
+        }
+        .kategorie-link:focus .glow-yellow,
+        .kategorie-link:active .glow-yellow {
+            background: #7be495;
+            color: #1a2e22;
+            border-color: #43b97f;
+            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495;
+            text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
         }
     </style>
 </head>
