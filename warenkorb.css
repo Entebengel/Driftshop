@@ -212,7 +212,7 @@ main {
     right: 32px;
     background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
     color: #fff;
-    border: none;
+    border: 3px solid #ffd700; /* Goldener Rand hinzugefügt */
     border-radius: 50%;
     width: 56px;
     height: 56px;
