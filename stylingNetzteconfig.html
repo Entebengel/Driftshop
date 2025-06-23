@@ -195,18 +195,23 @@
             <form id="netz-konfigurator" style="max-width:600px;flex:1;margin:0 0 32px 0;padding:24px 18px;background:rgba(255,255,255,0.93);border-radius:16px;box-shadow:0 2px 12px rgba(67,185,127,0.10);">
                 <fieldset style="border:none;margin-bottom:24px;">
                     <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Paket wählen</legend>
-                    <div style="margin-bottom:18px;">
-                        <span style="font-weight:bold;">Paket:</span>
-                        <select id="paket-auswahl" name="paket" style="margin-left:8px;">
-                            <option value="">Bitte wählen...</option>
-                            <option value="race">Race-Netz + Öse</option>
-                            <option value="drift">Drift-Netz + Öse</option>
-                            <option value="komplett">Komplettpaket custom</option>
-                            <option value="VIP">VIP</option>
-                            <option value="PRO">PRO</option>
-                            <option value="ROOKIE">ROOKIE</option>
-                            <option value="EASY">EASY</option>
-                        </select>
+                    <div style="display:flex;align-items:flex-start;gap:18px;margin-bottom:18px;">
+                        <div>
+                            <span style="font-weight:bold;">Paket:</span>
+                            <select id="paket-auswahl" name="paket" style="margin-left:8px;">
+                                <option value="">Bitte wählen...</option>
+                                <option value="race">Race-Netz + Öse</option>
+                                <option value="drift">Drift-Netz + Öse</option>
+                                <option value="komplett">Komplettpaket custom</option>
+                                <option value="VIP">VIP</option>
+                                <option value="PRO">PRO</option>
+                                <option value="ROOKIE">ROOKIE</option>
+                                <option value="EASY">EASY</option>
+                            </select>
+                        </div>
+                        <div id="paket-beschreibung" style="min-width:180px;max-width:260px;font-size:1em;color:#1a2e22;background:rgba(255,255,255,0.85);border-radius:8px;padding:10px 14px;margin-top:0;">
+                            <!-- Dynamisch per JS -->
+                        </div>
                     </div>
                 </fieldset>
                 <div id="paket-farben-container">
@@ -268,15 +273,49 @@
             const driftBild = "images/drift-netz.png";
             const oeseBild = "images/öse.png";
 
+            const paketBeschreibungen = {
+                "race": "Race-Netz und passende Öse. Ideal für Wettbewerbsfahrzeuge.",
+                "drift": "Drift-Netz und Öse für maximale Kontrolle beim Driften.",
+                "komplett": "Komplettpaket: Race-Netz, Drift-Netz und Öse individuell konfigurierbar.",
+                "VIP": "VIP-Paket: Exklusive Farben und Premium-Qualität.",
+                "PRO": "PRO-Paket: Für ambitionierte Fahrer, robust und vielseitig.",
+                "ROOKIE": "ROOKIE-Paket: Perfekt für Einsteiger, einfach und günstig.",
+                "EASY": "EASY-Paket: Schnell montiert, unkompliziert und praktisch."
+            };
+
             function farbenDropdown(id, label) {
-                let html = `<div style="margin-bottom:10px;"><span style="font-weight:bold;">${label}:</span> <select id="${id}" style="margin-left:8px;">`;
+                let html = `<div style="display:flex;align-items:flex-start;gap:18px;margin-bottom:10px;"><div><span style="font-weight:bold;">${label}:</span> <select id="${id}" style="margin-left:8px;">`;
                 farben.forEach(f => html += `<option value="${f}">${f}</option>`);
-                html += `</select></div>`;
+                html += `</select></div><div id="${id}-beschreibung" style="min-width:120px;max-width:180px;font-size:0.97em;color:#1a2e22;background:rgba(255,255,255,0.85);border-radius:8px;padding:7px 10px;margin-top:0;"></div></div>`;
                 return html;
             }
 
+            const farbenBeschreibungen = {
+                "Keine": "Keine Farbe ausgewählt.",
+                "Schwarz": "Klassisch, sportlich und immer passend.",
+                "Weiß": "Modern, clean und auffällig.",
+                "Rot": "Signalstark und rennsportlich.",
+                "Blau": "Cool, technisch und elegant.",
+                "Grün": "Natürlich, frisch und auffällig.",
+                "Gelb": "Leuchtend und auffällig.",
+                "Orange": "Knallig und individuell.",
+                "Pink": "Mutig und einzigartig.",
+                "Lila": "Extravagant und besonders.",
+                "Türkis": "Modern und frisch.",
+                "Braun": "Erdig und dezent.",
+                "Silber": "Edel und technisch.",
+                "Gold": "Luxuriös und exklusiv.",
+                "Hellgrün": "Frisch und auffällig.",
+                "Dunkelgrün": "Klassisch und dezent.",
+                "Beige": "Unauffällig und edel.",
+                "Camouflage": "Tarnmuster für Individualisten.",
+                "Carbon": "Racing-Optik, technisch und edel."
+            };
+
             function showPaketFarben() {
                 const paket = document.getElementById('paket-auswahl').value;
+                const beschrDiv = document.getElementById('paket-beschreibung');
+                beschrDiv.textContent = paketBeschreibungen[paket] || "";
                 const container = document.getElementById('paket-farben-container');
                 container.innerHTML = '';
                 // Vorschau ausblenden
@@ -303,10 +342,19 @@
                     document.getElementById('vorschau-race').style.display = '';
                 }
                 updateVorschau();
-                // Event-Listener für neue Dropdowns
+                // Event-Listener für neue Dropdowns + Beschreibung
                 ["race-farbe", "drift-farbe", "oese-farbe", "paket-farbe"].forEach(id => {
                     const el = document.getElementById(id);
-                    if (el) el.addEventListener('change', updateVorschau);
+                    if (el) {
+                        el.addEventListener('change', updateVorschau);
+                        el.addEventListener('change', function() {
+                            const beschr = document.getElementById(id + "-beschreibung");
+                            beschr.textContent = farbenBeschreibungen[el.value] || "";
+                        });
+                        // Initial setzen
+                        const beschr = document.getElementById(id + "-beschreibung");
+                        if (beschr) beschr.textContent = farbenBeschreibungen[el.value] || "";
+                    }
                 });
             }
 
