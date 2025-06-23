@@ -78,9 +78,54 @@ function warenkorbAnzeigen() {
     if (!list) return;
     list.innerHTML = '';
     let gesamt = 0;
-    warenkorb.forEach(artikel => {
+    warenkorb.forEach((artikel, idx) => {
         const li = document.createElement('li');
-        li.textContent = `${artikel.name} x${artikel.menge} - ${(artikel.preis * artikel.menge).toFixed(2)} €`;
+        li.style.display = 'flex';
+        li.style.alignItems = 'center';
+        li.style.justifyContent = 'space-between';
+
+        // Artikelinfo
+        const info = document.createElement('span');
+        info.textContent = `${artikel.name} x${artikel.menge} - ${(artikel.preis * artikel.menge).toFixed(2)} €`;
+
+        // Auswahlfeld für Anzahl zu löschen
+        const select = document.createElement('select');
+        for (let i = 1; i <= artikel.menge; i++) {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.textContent = i;
+            select.appendChild(opt);
+        }
+        select.style.margin = '0 6px';
+
+        // Löschen-Button
+        const btn = document.createElement('button');
+        btn.textContent = '🗑️';
+        btn.title = 'Entfernen';
+        btn.style.marginLeft = '4px';
+        btn.style.background = 'none';
+        btn.style.border = 'none';
+        btn.style.cursor = 'pointer';
+        btn.style.fontSize = '1em';
+        btn.onclick = () => {
+            const anzahl = parseInt(select.value, 10) || 1;
+            artikel.menge -= anzahl;
+            if (artikel.menge <= 0) {
+                warenkorb.splice(idx, 1);
+            }
+            speichereWarenkorb();
+            warenkorbAnzeigen();
+        };
+
+        const controls = document.createElement('span');
+        controls.style.display = 'flex';
+        controls.style.alignItems = 'center';
+        controls.appendChild(select);
+        controls.appendChild(btn);
+
+        li.appendChild(info);
+        li.appendChild(controls);
+
         list.appendChild(li);
         gesamt += artikel.preis * artikel.menge;
     });
