@@ -161,6 +161,8 @@
             }
         }
     
+</style>
+</head>
 <body>
     <video class="bg-video" autoplay muted loop playsinline>
         <source src="videos/20241125_AmazingHardHamburgerNomNom-EQw9sjMD4z_3h_Nh_source.mp4" type="video/mp4">
@@ -234,11 +236,13 @@
             <div id="konfigurator-result" style="margin-top:24px;text-align:center;font-size:1.15em;font-weight:bold;"></div>
         </form>
         <script>
-            document.getElementById('konfigurator-ausgabe').onclick = function() {
-                const typ = document.querySelector('input[name="netz-typ"]:checked').value;
-                const farbe = document.querySelector('input[name="netz-farbe"]:checked').value;
-                document.getElementById('konfigurator-result').textContent = `Ausgewählt: Typ "${typ}", Farbe "${farbe}"`;
-            };
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('konfigurator-ausgabe').onclick = function() {
+                    const typ = document.querySelector('input[name="netz-typ"]:checked').value;
+                    const farbe = document.querySelector('input[name="netz-farbe"]:checked').value;
+                    document.getElementById('konfigurator-result').textContent = `Ausgewählt: Typ "${typ}", Farbe "${farbe}"`;
+                };
+            });
         </script>
         <div id="livery-list" class="artikel-liste"></div>
     </main>
