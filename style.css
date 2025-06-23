@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Alien Encounters Italic';
+  src: url('fonts/Alien-Encounters-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Alien Encounters Italic', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #111;
