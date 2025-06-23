@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Liverys</title>
+    <link rel="stylesheet" href="warenkorb.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #eafaf1 url('images/hintergrund.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            color: #1a2e22;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            color: #fff;
+            padding: 32px 0 20px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(30,125,77,0.10);
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 800;
+            color: #222;
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            display: inline-block;
+            transition: none;
+            position: static;
+        }
+        nav {
+            margin-top: 18px;
+        }
+        nav a {
+            background: linear-gradient(135deg, #7be495 0%, #43b97f 100%);
+            border-radius: 8px;
+            padding: 8px 18px;
+            margin: 0 8px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            text-decoration: none;
+            border: 2px solid #43b97f;
+            color: #1b3c2e !important;
+            font-weight: bold;
+            display: inline-block;
+        }
+        nav a:hover,
+        nav a:focus {
+            background: linear-gradient(135deg, #43b97f 0%, #7be495 100%);
+            box-shadow: 0 4px 24px rgba(67,185,127,0.18);
+            color: #fff !important;
+            -webkit-text-fill-color: #fff;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(67,185,127,0.10);
+        }
+        .artikel-liste {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            justify-content: flex-start;
+        }
+        .artikel {
+            border: none;
+            border-radius: 18px;
+            padding: 22px 18px 18px 18px;
+            width: 260px;
+            box-sizing: border-box;
+            text-align: center;
+            background: #f6fff9;
+            box-shadow: 0 2px 12px rgba(67,185,127,0.10);
+            transition: box-shadow 0.2s, transform 0.2s;
+            position: relative;
+        }
+        .artikel:hover {
+            box-shadow: 0 8px 32px rgba(67,185,127,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .artikel img {
+            width: 210px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            background: #e6f9ee;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.08);
+        }
+        .beschreibung {
+            margin: 16px 0 12px 0;
+            font-size: 1.08em;
+            color: #1a2e22;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .preis {
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+            color: #1e7d4d;
+            font-size: 1.18em;
+        }
+        .warenkorb-btn {
+            background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1.08em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        .warenkorb-btn:hover {
+            background: linear-gradient(90deg, #1e7d4d 0%, #43b97f 100%);
+            box-shadow: 0 4px 16px rgba(67,185,127,0.18);
+            transform: scale(1.04);
+        }
+        .warenkorb-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        @media (max-width: 900px) {
+            main {
+                padding: 18px 4vw;
+            }
+            .artikel {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            .artikel-liste {
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                border-radius: 0 0 18px 18px;
+                padding: 20px 0 12px 0;
+            }
+        }
+    
+<body>
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="videos/20241125_AmazingHardHamburgerNomNom-EQw9sjMD4z_3h_Nh_source.mp4" type="video/mp4">
+        Ihr Browser unterstützt kein Hintergrundvideo.
+    </video>
+    <header>
+        <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+    <div class="warenkorb" id="warenkorb">
+        <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
+        <div class="warenkorb-inhalt" id="warenkorb-inhalt">
+            <h2>Warenkorb</h2>
+            <ul class="warenkorb-list" id="warenkorb-list"></ul>
+            <div class="warenkorb-gesamt"><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+            <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        </div>
+    </div>
+    <main>
+        <h2>Fenster-Netze und Abschleppösen Konfigurator</h2>
+        <form id="netz-konfigurator" style="max-width:600px;margin:0 auto 32px auto;padding:24px 18px;background:rgba(255,255,255,0.93);border-radius:16px;box-shadow:0 2px 12px rgba(67,185,127,0.10);">
+            <fieldset style="border:none;margin-bottom:24px;">
+                <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Typ wählen</legend>
+                <label style="margin-right:18px;">
+                    <input type="radio" name="netz-typ" value="Standard" checked>
+                    Standard
+                </label>
+                <label style="margin-right:18px;">
+                    <input type="radio" name="netz-typ" value="Racing">
+                    Racing
+                </label>
+                <label>
+                    <input type="radio" name="netz-typ" value="Heavy Duty">
+                    Heavy Duty
+                </label>
+            </fieldset>
+            <fieldset style="border:none;">
+                <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">2. Farbe wählen</legend>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                    <label><input type="radio" name="netz-farbe" value="Schwarz" style="accent-color:#222;" checked> <span style="background:#222;color:#fff;padding:2px 10px;border-radius:6px;">Schwarz</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Weiß" style="accent-color:#fff;"> <span style="background:#fff;color:#222;padding:2px 10px;border-radius:6px;border:1px solid #bbb;">Weiß</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Rot" style="accent-color:#e81123;"> <span style="background:#e81123;color:#fff;padding:2px 10px;border-radius:6px;">Rot</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Blau" style="accent-color:#0078d4;"> <span style="background:#0078d4;color:#fff;padding:2px 10px;border-radius:6px;">Blau</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Grün" style="accent-color:#43b97f;"> <span style="background:#43b97f;color:#fff;padding:2px 10px;border-radius:6px;">Grün</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Gelb" style="accent-color:#ffe066;"> <span style="background:#ffe066;color:#222;padding:2px 10px;border-radius:6px;">Gelb</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Orange" style="accent-color:#ff9800;"> <span style="background:#ff9800;color:#fff;padding:2px 10px;border-radius:6px;">Orange</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Pink" style="accent-color:#e91e63;"> <span style="background:#e91e63;color:#fff;padding:2px 10px;border-radius:6px;">Pink</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Lila" style="accent-color:#9c27b0;"> <span style="background:#9c27b0;color:#fff;padding:2px 10px;border-radius:6px;">Lila</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Türkis" style="accent-color:#00bcd4;"> <span style="background:#00bcd4;color:#fff;padding:2px 10px;border-radius:6px;">Türkis</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Braun" style="accent-color:#795548;"> <span style="background:#795548;color:#fff;padding:2px 10px;border-radius:6px;">Braun</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Silber" style="accent-color:#bdbdbd;"> <span style="background:#bdbdbd;color:#222;padding:2px 10px;border-radius:6px;">Silber</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Gold" style="accent-color:#ffd700;"> <span style="background:#ffd700;color:#222;padding:2px 10px;border-radius:6px;">Gold</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Hellgrün" style="accent-color:#7be495;"> <span style="background:#7be495;color:#222;padding:2px 10px;border-radius:6px;">Hellgrün</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Dunkelgrün" style="accent-color:#1b3c2e;"> <span style="background:#1b3c2e;color:#fff;padding:2px 10px;border-radius:6px;">Dunkelgrün</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Beige" style="accent-color:#f5f5dc;"> <span style="background:#f5f5dc;color:#222;padding:2px 10px;border-radius:6px;">Beige</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Camouflage" style="accent-color:#78866b;"> <span style="background:#78866b;color:#fff;padding:2px 10px;border-radius:6px;">Camouflage</span></label>
+                    <label><input type="radio" name="netz-farbe" value="Carbon" style="accent-color:#444;"> <span style="background:#444;color:#fff;padding:2px 10px;border-radius:6px;">Carbon</span></label>
+                </div>
+            </fieldset>
+            <div style="margin-top:28px;text-align:center;">
+                <button type="button" id="konfigurator-ausgabe" style="background:linear-gradient(90deg,#43b97f 0%,#7be495 100%);color:#fff;font-weight:bold;padding:10px 28px;border:none;border-radius:8px;font-size:1.1em;cursor:pointer;">Auswahl anzeigen</button>
+            </div>
+            <div id="konfigurator-result" style="margin-top:24px;text-align:center;font-size:1.15em;font-weight:bold;"></div>
+        </form>
+        <script>
+            document.getElementById('konfigurator-ausgabe').onclick = function() {
+                const typ = document.querySelector('input[name="netz-typ"]:checked').value;
+                const farbe = document.querySelector('input[name="netz-farbe"]:checked').value;
+                document.getElementById('konfigurator-result').textContent = `Ausgewählt: Typ "${typ}", Farbe "${farbe}"`;
+            };
+        </script>
+        <div id="livery-list" class="artikel-liste"></div>
+    </main>
+    <script src="warenkorb.js"></script>
+</body>
+</html>
