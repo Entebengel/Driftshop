@@ -190,11 +190,14 @@
         </nav>
     </header>
     <div class="warenkorb" id="warenkorb">
+    <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
+    <div class="warenkorb-inhalt" id="warenkorb-inhalt">
         <h2>Warenkorb</h2>
         <ul class="warenkorb-list" id="warenkorb-list"></ul>
         <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
         <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
     </div>
+</div>
     <main>
         <h2>Liverys</h2>
         <div id="livery-list" class="artikel-liste"></div>
