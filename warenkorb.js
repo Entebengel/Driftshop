@@ -60,14 +60,10 @@ function toggleWarenkorb() {
     const wk = document.getElementById('warenkorb');
     if (wk) {
         wk.classList.toggle('anzeigen');
-        // Bei Öffnen: Position und Größe anpassen (unten rechts, kompakt)
         if (wk.classList.contains('anzeigen')) {
-            wk.style.position = 'fixed';
-            wk.style.right = '32px';
-            wk.style.bottom = '80px'; // Oberhalb des Symbols
-            wk.style.maxWidth = '340px';
-            wk.style.width = '90vw';
-            wk.style.zIndex = '1001';
+            // Automatische Größe: zurücksetzen, damit CSS height:auto greift
+            wk.style.maxHeight = '';
+            wk.style.height = 'auto';
             wk.style.display = 'block';
         } else {
             wk.style.display = 'none';
@@ -78,6 +74,7 @@ function toggleWarenkorb() {
 function warenkorbAnzeigen() {
     ladeWarenkorb();
     const list = document.getElementById('warenkorb-list');
+    const wk = document.getElementById('warenkorb');
     if (!list) return;
     list.innerHTML = '';
     let gesamt = 0;
@@ -90,6 +87,11 @@ function warenkorbAnzeigen() {
     const gesamtElem = document.getElementById('warenkorb-gesamt');
     if (gesamtElem) {
         gesamtElem.textContent = gesamt.toFixed(2) + ' €';
+    }
+    // Fensterhöhe dynamisch anpassen (maximal 50vh, sonst auto)
+    if (wk) {
+        wk.style.height = 'auto';
+        wk.style.maxHeight = '50vh';
     }
     updateWarenkorbFab();
 }
