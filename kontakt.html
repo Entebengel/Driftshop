@@ -136,12 +136,14 @@
         </div>
     </header>
     <div class="warenkorb" id="warenkorb">
-        <h2>Warenkorb</h2>
-        <ul class="warenkorb-list" id="warenkorb-list"></ul>
-        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
-        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
+        <div class="warenkorb-inhalt" id="warenkorb-inhalt">
+            <h2>Warenkorb</h2>
+            <ul class="warenkorb-list" id="warenkorb-list"></ul>
+            <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+            <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        </div>
     </div>
-</div>
     <main>
         <h2>Kontakt</h2>
         <form class="kontakt-formular">
