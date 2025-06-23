@@ -5,7 +5,7 @@ export const liverys = [
     shortDesc: "Klassische Rennstreifen für sportlichen Look.",
     longDesc: "Verleihe deinem Fahrzeug einen sportlichen Look mit klassischen Rennstreifen. Hochwertige Folie, UV-beständig und langlebig.",
     price: 199,
-    images: ["images/liverys_kategorie.jpg", "images/liverys_kategorie.jpg"]
+    images: ["images/anbauteile_kategorie.jpg", "images/anbauteile_kategorie.jpg"]
   },
   {
     id: "livery2",
