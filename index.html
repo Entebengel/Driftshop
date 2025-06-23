@@ -7,16 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            /* Hintergrundbild entfernt, Video übernimmt */
             background: none;
             /* ...existing code... */
         }
-        /* ...existing code aus warenkorb.css... */
         header {
             display: flex;
             align-items: center;
             gap: 18px;
-            /* ...existing code... */
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            color: #fff;
+            padding: 32px 0 20px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(30,125,77,0.10);
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
         }
         .driftshop-logo {
             height: 56px;
@@ -28,7 +33,51 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* ...existing code... */
+        }
+        .header-center h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 800;
+            color: #222;
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            display: inline-block;
+            transition: none;
+            position: static;
+        }
+        nav {
+            margin-top: 18px;
+        }
+        nav a {
+            background: linear-gradient(135deg, #7be495 0%, #43b97f 100%);
+            border-radius: 8px;
+            padding: 8px 18px;
+            margin: 0 8px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            text-decoration: none;
+            border: 2px solid #43b97f;
+            color: #1b3c2e !important;
+            font-weight: bold;
+            display: inline-block;
+        }
+        nav a:hover,
+        nav a:focus {
+            background: linear-gradient(135deg, #43b97f 0%, #7be495 100%);
+            box-shadow: 0 4px 24px rgba(67,185,127,0.18);
+            color: #fff !important;
+            -webkit-text-fill-color: #fff;
+        }
+        @media (max-width: 900px) {
+            header {
+                border-radius: 0 0 18px 18px;
+                padding: 20px 0 12px 0;
+            }
         }
     </style>
 </head>
