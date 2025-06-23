@@ -43,7 +43,7 @@
             border-color: #43b97f;
             box-shadow: 0 4px 16px rgba(67,185,127,0.16);
         }
-        /* Zweifarbiger Verlauf für Schrift: oben dunkelgelb, unten hellgelb */
+        /* Zweifarbiger Verlauf für Schrift: oben dunkelgelb, unten hellgelb, dunkelgoldener Hintergrund in der Umrandung */
         .glow-yellow {
             font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
             font-smooth: always;
@@ -54,9 +54,10 @@
             border-radius: 8px;
             padding: 4px 12px;
             background: linear-gradient(180deg, #ffe066 0%, #fff700 100%);
+            /* Hintergrund der Umrandung dunkelgelb-gold */
+            box-shadow: 0 0 0 6px #bfa100 inset;
             display: inline-block;
             transition: background 0.2s, color 0.2s, border-color 0.2s;
-            /* Farbverlauf im Text */
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -66,7 +67,7 @@
             background: #7be495;
             color: #1a2e22;
             border-color: #43b97f;
-            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495;
+            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495, 0 0 0 6px #bfa100 inset;
             text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
             -webkit-text-fill-color: #1a2e22;
             color: #1a2e22;
@@ -78,7 +79,7 @@
             background: #7be495;
             color: #1a2e22;
             border-color: #43b97f;
-            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495;
+            box-shadow: 0 0 12px #43b97f, 0 0 24px #7be495, 0 0 0 6px #bfa100 inset;
             text-shadow: 0 0 8px #43b97f, 0 0 16px #7be495;
             -webkit-text-fill-color: #1a2e22;
             color: #1a2e22;
