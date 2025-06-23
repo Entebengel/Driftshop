@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Driftshop - Shop</title>
     <link rel="stylesheet" href="warenkorb.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         @font-face {
             font-family: 'Alien Encounters Bold Italic';
@@ -12,13 +13,12 @@
             font-style: normal;
         }
         body {
-            background: #f3f7f4 url('images/hintergrund.png') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-            color: #222;
+            background: none;
         }
         header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
             background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
             color: #fff;
             padding: 32px 0 20px 0;
@@ -310,14 +310,21 @@
     </style>
 </head>
 <body>
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="videos/driftshop_bg.mp4" type="video/mp4">
+        Ihr Browser unterstützt kein Hintergrundvideo.
+    </video>
     <header>
-        <h1 class="driftshop-title">Driftshop</h1>
-        <nav>
-            <a class="glow-yellow" href="index.html">Startseite</a>
-            <a class="glow-yellow" href="shop.html">Shop</a>            
-            <a class="glow-yellow" href="weare.html">We Are</a>
-            <a class="glow-yellow" href="kontakt.html">Kontakt</a>
-        </nav>
+        <img src="images/driftshop_logo.png" alt="Driftshop Logo" class="driftshop-logo">
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
     </header>
     <div class="warenkorb" id="warenkorb">
         <h2>Warenkorb</h2>
