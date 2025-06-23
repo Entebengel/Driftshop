@@ -191,58 +191,68 @@
     </div>
     <main>
         <h2>Fenster-Netze und Abschleppösen Konfigurator</h2>
-        <form id="netz-konfigurator" style="max-width:600px;margin:0 auto 32px auto;padding:24px 18px;background:rgba(255,255,255,0.93);border-radius:16px;box-shadow:0 2px 12px rgba(67,185,127,0.10);">
-            <fieldset style="border:none;margin-bottom:24px;">
-                <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Typ wählen</legend>
-                <div style="display:flex;gap:24px;align-items:center;">
-                    <label style="margin-right:8px;display:flex;flex-direction:column;align-items:center;">
-                        <input type="radio" name="netz-typ" value="Standard" checked>
-                        <img src="images/typ_standard.jpg" alt="Standard" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                        <span>Standard</span>
-                    </label>
-                    <label style="margin-right:8px;display:flex;flex-direction:column;align-items:center;">
-                        <input type="radio" name="netz-typ" value="Racing">
-                        <img src="images/typ_racing.jpg" alt="Racing" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                        <span>Racing</span>
-                    </label>
-                    <label style="display:flex;flex-direction:column;align-items:center;">
-                        <input type="radio" name="netz-typ" value="Heavy Duty">
-                        <img src="images/typ_heavyduty.jpg" alt="Heavy Duty" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
-                        <span>Heavy Duty</span>
-                    </label>
+        <div style="display:flex;gap:40px;align-items:flex-start;justify-content:center;">
+            <form id="netz-konfigurator" style="max-width:600px;flex:1;margin:0 0 32px 0;padding:24px 18px;background:rgba(255,255,255,0.93);border-radius:16px;box-shadow:0 2px 12px rgba(67,185,127,0.10);">
+                <fieldset style="border:none;margin-bottom:24px;">
+                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">1. Typ wählen</legend>
+                    <div style="display:flex;gap:24px;align-items:center;">
+                        <label style="margin-right:8px;display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="netz-typ" value="Standard" checked>
+                            <img src="images/typ_standard.jpg" alt="Standard" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Standard</span>
+                        </label>
+                        <label style="margin-right:8px;display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="netz-typ" value="Racing">
+                            <img src="images/typ_racing.jpg" alt="Racing" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Racing</span>
+                        </label>
+                        <label style="display:flex;flex-direction:column;align-items:center;">
+                            <input type="radio" name="netz-typ" value="Heavy Duty">
+                            <img src="images/typ_heavyduty.jpg" alt="Heavy Duty" style="width:90px;height:60px;object-fit:cover;border-radius:8px;margin-top:6px;border:2px solid #43b97f;">
+                            <span>Heavy Duty</span>
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset style="border:none;">
+                    <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">2. Farbe wählen</legend>
+                    <div id="farben-bilder" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+                        <!-- Farbbilder werden per JS eingefügt -->
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                        <label><input type="radio" name="netz-farbe" value="Schwarz" style="accent-color:#222;" checked> <span style="background:#222;color:#fff;padding:2px 10px;border-radius:6px;">Schwarz</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Weiß" style="accent-color:#fff;"> <span style="background:#fff;color:#222;padding:2px 10px;border-radius:6px;border:1px solid #bbb;">Weiß</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Rot" style="accent-color:#e81123;"> <span style="background:#e81123;color:#fff;padding:2px 10px;border-radius:6px;">Rot</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Blau" style="accent-color:#0078d4;"> <span style="background:#0078d4;color:#fff;padding:2px 10px;border-radius:6px;">Blau</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Grün" style="accent-color:#43b97f;"> <span style="background:#43b97f;color:#fff;padding:2px 10px;border-radius:6px;">Grün</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Gelb" style="accent-color:#ffe066;"> <span style="background:#ffe066;color:#222;padding:2px 10px;border-radius:6px;">Gelb</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Orange" style="accent-color:#ff9800;"> <span style="background:#ff9800;color:#fff;padding:2px 10px;border-radius:6px;">Orange</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Pink" style="accent-color:#e91e63;"> <span style="background:#e91e63;color:#fff;padding:2px 10px;border-radius:6px;">Pink</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Lila" style="accent-color:#9c27b0;"> <span style="background:#9c27b0;color:#fff;padding:2px 10px;border-radius:6px;">Lila</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Türkis" style="accent-color:#00bcd4;"> <span style="background:#00bcd4;color:#fff;padding:2px 10px;border-radius:6px;">Türkis</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Braun" style="accent-color:#795548;"> <span style="background:#795548;color:#fff;padding:2px 10px;border-radius:6px;">Braun</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Silber" style="accent-color:#bdbdbd;"> <span style="background:#bdbdbd;color:#222;padding:2px 10px;border-radius:6px;">Silber</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Gold" style="accent-color:#ffd700;"> <span style="background:#ffd700;color:#222;padding:2px 10px;border-radius:6px;">Gold</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Hellgrün" style="accent-color:#7be495;"> <span style="background:#7be495;color:#222;padding:2px 10px;border-radius:6px;">Hellgrün</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Dunkelgrün" style="accent-color:#1b3c2e;"> <span style="background:#1b3c2e;color:#fff;padding:2px 10px;border-radius:6px;">Dunkelgrün</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Beige" style="accent-color:#f5f5dc;"> <span style="background:#f5f5dc;color:#222;padding:2px 10px;border-radius:6px;">Beige</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Camouflage" style="accent-color:#78866b;"> <span style="background:#78866b;color:#fff;padding:2px 10px;border-radius:6px;">Camouflage</span></label>
+                        <label><input type="radio" name="netz-farbe" value="Carbon" style="accent-color:#444;"> <span style="background:#444;color:#fff;padding:2px 10px;border-radius:6px;">Carbon</span></label>
+                    </div>
+                </fieldset>
+                <div style="margin-top:28px;text-align:center;">
+                    <button type="button" id="konfigurator-ausgabe" style="background:linear-gradient(90deg,#43b97f 0%,#7be495 100%);color:#fff;font-weight:bold;padding:10px 28px;border:none;border-radius:8px;font-size:1.1em;cursor:pointer;">Auswahl anzeigen</button>
                 </div>
-            </fieldset>
-            <fieldset style="border:none;">
-                <legend style="font-weight:bold;font-size:1.15em;margin-bottom:12px;">2. Farbe wählen</legend>
-                <div id="farben-bilder" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
-                    <!-- Farbbilder werden per JS eingefügt -->
+                <div id="konfigurator-result" style="margin-top:24px;text-align:center;font-size:1.15em;font-weight:bold;"></div>
+            </form>
+            <div id="konfigurator-bildvorschau" style="min-width:260px;max-width:320px;width:100%;background:rgba(255,255,255,0.97);border-radius:16px;box-shadow:0 2px 12px #43b97f;padding:18px 12px;text-align:center;">
+                <div style="font-weight:bold;font-size:1.1em;margin-bottom:10px;">Vorschau</div>
+                <img id="typ-bild" src="images/typ_standard.jpg" alt="Typ Vorschau" style="width:220px;height:120px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;margin-bottom:18px;">
+                <img id="farbe-bild" src="images/netz_schwarz.jpg" alt="Farbe Vorschau" style="width:120px;height:60px;object-fit:cover;border-radius:8px;box-shadow:0 1px 6px #43b97f;">
+                <div id="vorschau-labels" style="margin-top:10px;font-size:1em;">
+                    <span id="typ-label">Standard</span> / <span id="farbe-label">Schwarz</span>
                 </div>
-                <div style="display:flex;flex-wrap:wrap;gap:12px;">
-                    <label><input type="radio" name="netz-farbe" value="Schwarz" style="accent-color:#222;" checked> <span style="background:#222;color:#fff;padding:2px 10px;border-radius:6px;">Schwarz</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Weiß" style="accent-color:#fff;"> <span style="background:#fff;color:#222;padding:2px 10px;border-radius:6px;border:1px solid #bbb;">Weiß</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Rot" style="accent-color:#e81123;"> <span style="background:#e81123;color:#fff;padding:2px 10px;border-radius:6px;">Rot</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Blau" style="accent-color:#0078d4;"> <span style="background:#0078d4;color:#fff;padding:2px 10px;border-radius:6px;">Blau</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Grün" style="accent-color:#43b97f;"> <span style="background:#43b97f;color:#fff;padding:2px 10px;border-radius:6px;">Grün</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Gelb" style="accent-color:#ffe066;"> <span style="background:#ffe066;color:#222;padding:2px 10px;border-radius:6px;">Gelb</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Orange" style="accent-color:#ff9800;"> <span style="background:#ff9800;color:#fff;padding:2px 10px;border-radius:6px;">Orange</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Pink" style="accent-color:#e91e63;"> <span style="background:#e91e63;color:#fff;padding:2px 10px;border-radius:6px;">Pink</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Lila" style="accent-color:#9c27b0;"> <span style="background:#9c27b0;color:#fff;padding:2px 10px;border-radius:6px;">Lila</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Türkis" style="accent-color:#00bcd4;"> <span style="background:#00bcd4;color:#fff;padding:2px 10px;border-radius:6px;">Türkis</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Braun" style="accent-color:#795548;"> <span style="background:#795548;color:#fff;padding:2px 10px;border-radius:6px;">Braun</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Silber" style="accent-color:#bdbdbd;"> <span style="background:#bdbdbd;color:#222;padding:2px 10px;border-radius:6px;">Silber</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Gold" style="accent-color:#ffd700;"> <span style="background:#ffd700;color:#222;padding:2px 10px;border-radius:6px;">Gold</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Hellgrün" style="accent-color:#7be495;"> <span style="background:#7be495;color:#222;padding:2px 10px;border-radius:6px;">Hellgrün</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Dunkelgrün" style="accent-color:#1b3c2e;"> <span style="background:#1b3c2e;color:#fff;padding:2px 10px;border-radius:6px;">Dunkelgrün</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Beige" style="accent-color:#f5f5dc;"> <span style="background:#f5f5dc;color:#222;padding:2px 10px;border-radius:6px;">Beige</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Camouflage" style="accent-color:#78866b;"> <span style="background:#78866b;color:#fff;padding:2px 10px;border-radius:6px;">Camouflage</span></label>
-                    <label><input type="radio" name="netz-farbe" value="Carbon" style="accent-color:#444;"> <span style="background:#444;color:#fff;padding:2px 10px;border-radius:6px;">Carbon</span></label>
-                </div>
-            </fieldset>
-            <div style="margin-top:28px;text-align:center;">
-                <button type="button" id="konfigurator-ausgabe" style="background:linear-gradient(90deg,#43b97f 0%,#7be495 100%);color:#fff;font-weight:bold;padding:10px 28px;border:none;border-radius:8px;font-size:1.1em;cursor:pointer;">Auswahl anzeigen</button>
             </div>
-            <div id="konfigurator-result" style="margin-top:24px;text-align:center;font-size:1.15em;font-weight:bold;"></div>
-        </form>
+        </div>
         <script>
             // Zuordnung Typ zu Bild
             const typBilder = {
@@ -274,15 +284,16 @@
 
             function updateTypBild() {
                 const typ = document.querySelector('input[name="netz-typ"]:checked').value;
-                let img = document.getElementById('typ-bild');
-                if (!img) {
-                    img = document.createElement('img');
-                    img.id = 'typ-bild';
-                    img.style.cssText = 'display:block;margin:18px auto 28px auto;width:220px;height:120px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #43b97f;';
-                    document.getElementById('netz-konfigurator').insertAdjacentElement('afterend', img);
-                }
-                img.src = typBilder[typ] || '';
-                img.alt = typ;
+                document.getElementById('typ-bild').src = typBilder[typ] || '';
+                document.getElementById('typ-bild').alt = typ;
+                document.getElementById('typ-label').textContent = typ;
+            }
+
+            function updateFarbeBild() {
+                const farbe = document.querySelector('input[name="netz-farbe"]:checked').value;
+                document.getElementById('farbe-bild').src = farbenBilder[farbe] || '';
+                document.getElementById('farbe-bild').alt = farbe;
+                document.getElementById('farbe-label').textContent = farbe;
             }
 
             function updateFarbenBilder() {
@@ -305,15 +316,26 @@
             }
 
             document.addEventListener('DOMContentLoaded', function() {
-                // Typ-Bild initial anzeigen
-                updateTypBild();
                 // Farben-Bilder initial anzeigen
                 updateFarbenBilder();
 
                 // Typ-Wechsel
                 document.querySelectorAll('input[name="netz-typ"]').forEach(el => {
-                    el.addEventListener('change', updateTypBild);
+                    el.addEventListener('change', function() {
+                        updateTypBild();
+                    });
                 });
+
+                // Farbe-Wechsel
+                document.querySelectorAll('input[name="netz-farbe"]').forEach(el => {
+                    el.addEventListener('change', function() {
+                        updateFarbeBild();
+                    });
+                });
+
+                // Initiale Vorschau setzen
+                updateTypBild();
+                updateFarbeBild();
 
                 document.getElementById('konfigurator-ausgabe').onclick = function() {
                     const typ = document.querySelector('input[name="netz-typ"]:checked').value;
