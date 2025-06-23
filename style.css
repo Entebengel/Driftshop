@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Alien Encounters Bold';
+  src: url('fonts/Alien-Encounters-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
   font-family: 'Alien Encounters Italic', Arial, sans-serif;
   margin: 0;
@@ -25,7 +32,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-family: 'Alien Encounters Italic', Arial, sans-serif;
+  font-family: 'Alien Encounters Bold', Arial, sans-serif;
 }
 
 nav a {
