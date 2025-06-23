@@ -9,127 +9,155 @@
             background: #eafaf1 url('images/hintergrund.png') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #222;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            color: #1a2e22;
         }
         header {
-            background: #222;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        nav {
-            margin-top: 12px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 16px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .warenkorb {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 36px;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(67,185,127,0.07);
-            padding: 28px 0 18px 0;
-            text-align: center;
-            margin-bottom: 36px;
-            box-shadow: 0 2px 8px rgba(27,60,46,0.08);
-        }
-        .warenkorb-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 18px 0;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .warenkorb-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e1e1e1;
-        }
-        .warenkorb-list li:last-child {
-            border-bottom: none;
-        }
-        .warenkorb-leeren {
-            background: #ff3b30;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 16px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background 0.3s;
-        }
-        .warenkorb-leeren:hover {
-            background: #e63946;
-        }
-        .artikel-liste {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-        }
-        .artikel {
-            background: #fff;
-            border: 1px solid #e1e1e1;
-            border-radius: 8px;
-            padding: 16px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        .artikel:hover {
-            transform: translateY(-4px);
-        }
-        .artikel img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 12px;
-        }
-        .beschreibung {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 8px;
-        }
-        .preis {
-            font-size: 1.2em;
-            color: #0078d4;
-            margin-bottom: 12px;
-            display: block;
-        }
-        .warenkorb-btn {
-            background: #0078d4;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 12px;
-            cursor: pointer;
-            font-size: 1em;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 18px;
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            color: #fff;
+            padding: 32px 0 20px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(30,125,77,0.10);
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
         }
-        .warenkorb-btn:hover {
-            background: #005fa3;
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 800;
+            color: #222;
+            background: none;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            display: inline-block;
+            transition: none;
+            position: static;
         }
-        .warenkorb-icon {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
+        nav {
+            margin-top: 18px;
+        }
+        nav a {
+            background: linear-gradient(135deg, #7be495 0%, #43b97f 100%);
+            border-radius: 8px;
+            padding: 8px 18px;
+            margin: 0 8px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            text-decoration: none;
+            border: 2px solid #43b97f;
+            color: #1b3c2e !important;
+            font-weight: bold;
+            display: inline-block;
+        }
+        nav a:hover,
+        nav a:focus {
+            background: linear-gradient(135deg, #43b97f 0%, #7be495 100%);
+            box-shadow: 0 4px 24px rgba(67,185,127,0.18);
+            color: #fff !important;
+            -webkit-text-fill-color: #fff;
         }
         main {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: #fff;
-            padding: 36px;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(67,185,127,0.07);
+            background: linear-gradient(90deg, #1b3c2e 0%, #43b97f 100%);
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(67,185,127,0.10);
+        }
+        .artikel-liste {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            justify-content: flex-start;
+        }
+        .artikel {
+            border: none;
+            border-radius: 18px;
+            padding: 22px 18px 18px 18px;
+            width: 260px;
+            box-sizing: border-box;
+            text-align: center;
+            background: #f6fff9;
+            box-shadow: 0 2px 12px rgba(67,185,127,0.10);
+            transition: box-shadow 0.2s, transform 0.2s;
+            position: relative;
+        }
+        .artikel:hover {
+            box-shadow: 0 8px 32px rgba(67,185,127,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .artikel img {
+            width: 210px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            background: #e6f9ee;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.08);
+        }
+        .beschreibung {
+            margin: 16px 0 12px 0;
+            font-size: 1.08em;
+            color: #1a2e22;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .preis {
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+            color: #1e7d4d;
+            font-size: 1.18em;
+        }
+        .warenkorb-btn {
+            background: linear-gradient(90deg, #43b97f 0%, #7be495 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1.08em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(67,185,127,0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        .warenkorb-btn:hover {
+            background: linear-gradient(90deg, #1e7d4d 0%, #43b97f 100%);
+            box-shadow: 0 4px 16px rgba(67,185,127,0.18);
+            transform: scale(1.04);
+        }
+        .warenkorb-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        @media (max-width: 900px) {
+            main {
+                padding: 18px 4vw;
+            }
+            .artikel {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            .artikel-liste {
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                border-radius: 0 0 18px 18px;
+                padding: 20px 0 12px 0;
+            }
         }
     </style>
     <script type="module">
@@ -181,33 +209,29 @@
 </head>
 <body>
     <header>
-        <h1>Driftshop</h1>
-        <nav>
-             <a href="index.html">Startseite</a>
-            <a href="shop.html">Shop</a>            
-            <a href="weare.html">We Are</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
+        <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
+        <div class="header-center">
+            <h1>Driftshop</h1>
+            <nav>
+                <a href="index.html">Startseite</a>
+                <a href="shop.html">Shop</a>            
+                <a href="weare.html">We Are</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
     </header>
     <div class="warenkorb" id="warenkorb">
-    <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
-    <div class="warenkorb-inhalt" id="warenkorb-inhalt">
-        <h2>Warenkorb</h2>
-        <ul class="warenkorb-list" id="warenkorb-list"></ul>
-        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
-        <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        <button class="warenkorb-toggle" onclick="toggleWarenkorb()">🛒</button>
+        <div class="warenkorb-inhalt" id="warenkorb-inhalt">
+            <h2>Warenkorb</h2>
+            <ul class="warenkorb-list" id="warenkorb-list"></ul>
+            <div class="warenkorb-gesamt"><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+            <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
+        </div>
     </div>
-</div>
     <main>
         <h2>Liverys</h2>
         <div id="livery-list" class="artikel-liste"></div>
-        <!-- <div class="artikel-liste"> ...alte statische Artikel... </div> -->
-    </main>
-    <script src="warenkorb.js"></script>
-</body>
-</html>
-            </div>
-        </div>
     </main>
     <script src="warenkorb.js"></script>
 </body>
