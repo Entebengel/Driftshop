@@ -219,6 +219,12 @@
             letter-spacing: 1px;
             font-family: 'Montserrat', Arial, sans-serif;
             font-weight: 700;
+            /* Entfernt Glow/Gradient/Border */
+            border: none;
+            background: none;
+            box-shadow: none;
+            color: #1e7d4d;
+            -webkit-text-fill-color: unset;
         }
         #warenkorb-list {
             list-style: none;
@@ -252,9 +258,18 @@
         #warenkorb .warenkorb-leeren:hover {
             background: #b50d1b;
             color: #fff !important;
+            /* Entfernt Glow/Shadow */
+            box-shadow: none;
+            text-shadow: none;
         }
         #warenkorb strong {
             font-size: 1rem;
+            /* Entfernt Glow/Gradient/Border */
+            border: none;
+            background: none;
+            box-shadow: none;
+            color: #1e7d4d;
+            -webkit-text-fill-color: unset;
         }
         @keyframes warenkorb-fadein {
             from { opacity: 0; transform: translateY(14px);}
@@ -317,9 +332,9 @@
         </nav>
     </header>
     <div class="warenkorb" id="warenkorb">
-        <h2 class="glow-yellow">Warenkorb</h2>
+        <h2>Warenkorb</h2>
         <ul class="warenkorb-list" id="warenkorb-list"></ul>
-        <div><strong class="glow-yellow">Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
+        <div><strong>Gesamt: <span id="warenkorb-gesamt">0,00 €</span></strong></div>
         <button class="warenkorb-leeren" onclick="warenkorbLeeren()">Leeren</button>
     </div>
     <main>
