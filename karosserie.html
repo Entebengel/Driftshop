@@ -164,6 +164,10 @@
 </head>
 <body>
     <header>
+        <video class="bg-video" autoplay muted loop playsinline>
+        <source src="videos/20241125_AmazingHardHamburgerNomNom-EQw9sjMD4z_3h_Nh_source.mp4" type="video/mp4">
+        Ihr Browser unterstützt kein Hintergrundvideo.
+    </video>
         <img src="images/logo.jpg" alt="Driftshop Logo" class="driftshop-logo">
         <div class="header-center">
             <h1>Driftshop</h1>
@@ -229,38 +233,5 @@
         </div>
     </main>
     <script src="warenkorb.js"></script>
-</body>
-</html>
-            if (wk.classList.contains('anzeigen')) {
-                wk.classList.remove('anzeigen');
-            } else {
-                wk.classList.add('anzeigen');
-            }
-        }
-        function updateWarenkorbFab() {
-            let warenkorb = [];
-            try {
-                warenkorb = JSON.parse(localStorage.getItem('warenkorb')) || [];
-            } catch {}
-            const count = warenkorb.reduce((sum, item) => sum + (item.menge || 0), 0);
-            const fab = document.getElementById('warenkorb-fab');
-            const fabCount = document.getElementById('warenkorb-fab-count');
-            const wk = document.getElementById('warenkorb');
-            if (count > 0) {
-                fab.style.display = 'flex';
-                fabCount.style.display = 'flex';
-                fabCount.textContent = count;
-            } else {
-                fab.style.display = 'flex';
-                fabCount.style.display = 'none';
-                wk.classList.remove('anzeigen');
-            }
-        }
-        function warenkorbAnzeigen() {
-            if (typeof window.updateWarenkorbFab === 'function') window.updateWarenkorbFab();
-        }
-        document.addEventListener('DOMContentLoaded', updateWarenkorbFab);
-        window.addEventListener('storage', updateWarenkorbFab);
-    </script>
-</body>
-</html>
+
+
