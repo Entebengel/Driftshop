@@ -181,8 +181,8 @@ main {
 }
 
 .warenkorb-leeren {
-    background: #e81123;
-    color: #fff;
+    background: transparent;
+    color: #e81123 !important;
     border: none;
     border-radius: 7px;
     padding: 9px 16px;
@@ -190,14 +190,18 @@ main {
     font-size: 1em;
     font-weight: 700;
     transition: background 0.2s, color 0.2s;
-    /* Immer sichtbar rot */
     opacity: 1;
     visibility: visible;
+    box-shadow: none;
+    margin-top: 8px;
+    margin-bottom: 0;
+    z-index: 10;
+    position: relative;
 }
 
 .warenkorb-leeren:hover {
-    background: #b50d1b;
-    color: #fff;
+    background: #e81123;
+    color: #fff !important;
 }
 
 /* Floating Cart Button */
